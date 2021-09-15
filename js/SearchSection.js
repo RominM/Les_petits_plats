@@ -2,16 +2,15 @@ export class SearchSection {
   constructor() {}
   creatSearchBar() {
     const body = document.body;
-
     const main = document.querySelector('main');
+    const divSearch = document.querySelector(".divSearch");
 
-    const divSearch = document.createElement("div");
-    divSearch.classList.add("divSearch");
     const labelSearch = document.createElement("label");
     labelSearch.for = "searchBy";
     const search = document.createElement("input");
     search.type = "search";
     search.id = "searchBy";
+    search.minLength = "3";
     search.placeholder = " Rechercher un ingrédient, appareil, ustensiles ou une recette";
     const searchBtn = document.createElement("button");
     searchBtn.classList.add("searchBtn");
@@ -29,7 +28,7 @@ export class SearchSection {
   sortByCards() {
     const main = document.querySelector('main');
 
-    const sortSection = document.createElement("section");
+    const sortSection = document.querySelector("section");
     const divIngredients = document.createElement("div");
     const arrowDown1 = document.createElement('img');
     const divDevices = document.createElement("div");

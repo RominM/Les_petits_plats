@@ -1,0 +1,25 @@
+.divSearch {
+    position: relative;
+    display: flex;
+   #searchBy {
+       width: 100%;
+       height: 50px;
+       border: none;
+       border-radius: 5px;
+       background-color: #E7E7E7;
+       margin-bottom: 15px;
+   }
+   .searchBtn {
+       position: absolute;
+       top: 40%;
+       right: -2%;
+       transform: translate(-98%, -50%);
+       background-color: transparent;
+       border: none;
+       cursor: pointer;
+      img {
+          width: 25px;
+      }
+   }
+}
+
