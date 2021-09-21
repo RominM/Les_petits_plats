@@ -2,20 +2,35 @@
 //TYPO___________
 @font-face {
     font-family: DM_Sans-Bold;
-    src: url(../Font/DMSans-Bold.ttf);
+    src: url(../../Font/DMSans/DMSans-Bold.ttf);
 }
 
 @font-face {
     font-family: DM_Sans;
-    src: url(../Font/DMSans-Medium.ttf);
+    src: url(../../Font/DMSans/DMSans-Medium.ttf);
 }
 
-// $myBold: "DM_Sans-Bold", "sans-serif";
-// $myNatural: "DM_Sans", "sans-serif";
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../../Font/Lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lato-Reg;
+    src: url(../../Font/Lato/Lato-Regular.ttf);
+}
+
+$DMBold: "DM_Sans-Bold", "sans-serif";
+$DMSans: "DM_Sans", "sans-serif";
+$LatoBold: "Lato-Bold", "sans-serif";
+$LatoReg: "Lato-Reg", "sans-serif";
 
 //_________________
 //COLORS___________
-// $theme: #D04F4F;
-// $azur: #3282F7;
-// $mint: #68D9A4;
-// $salmon: #ED6454;
+$theme: #D04F4F;
+$azur: #3282F7;
+$mint: #68D9A4;
+$salmon: #ED6454;
+
+$BgImg: #C7BEBE;
+$BgDecript: #E7E7E7;

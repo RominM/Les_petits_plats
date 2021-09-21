@@ -13,17 +13,29 @@ fetch('./data.json')
 	});
 
 const init = (data) => {
-
-	// data.recipes.forEach(recipe => {
-	// 	console.log(recipe);
-	// });
   const header = new HeaderDOM();
   header.buildHead();
   
   const searchSection = new SearchSection();
   searchSection.creatSearchBar();
-  searchSection.sortByCards();
+  searchSection.sortByStamps();
 
     const main = new MainDOM(data);
     main.buildMain();
+	 
+
+
+	 //Try to get all ingredients sorted and no double
+	 data.recipes.forEach(recipe => {
+		const sortIngredient = recipe.ingredients.sort((a, b) => {
+			if (a.ingredient < b.ingredient) return -1;
+			if (a.ingredient > b.ingredient) return 1;
+			return 0;			
+		});						
+		console.log(sortIngredient);
+		recipe.ingredients.forEach(ingredient => {
+			console.log(ingredient);
+		})
+
+	 });
 }

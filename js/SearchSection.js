@@ -1,5 +1,7 @@
 export class SearchSection {
-  constructor() {}
+  constructor(data) {
+    this.data = data;
+  }
   creatSearchBar() {
     const body = document.body;
     const main = document.querySelector('main');
@@ -23,9 +25,9 @@ export class SearchSection {
     divSearch.append(search);
     divSearch.append(searchBtn);
     main.append(divSearch);
-    body.append(main)  
+    body.append(main)
   }
-  sortByCards() {
+  sortByStamps() {
     const main = document.querySelector('main');
 
     const sortSection = document.querySelector("section");

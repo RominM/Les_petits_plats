@@ -7,7 +7,7 @@ export class MainDOM {
       const registre = document.createElement('div');
       registre.classList.add('registre');
       main.append(registre);
-
+      
       this.data.recipes.forEach(recipe => {
 
          const card = document.createElement('div');
