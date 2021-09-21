@@ -1,0 +1,19 @@
+{
+  "name": "rominmanogil_07_13092021",
+  "version": "1.0.0",
+  "description": "Les Petits Plats - OC",
+  "main": "app.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/master.scss:./css/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RominM/RominManogil_07_13092021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RominM/RominManogil_07_13092021/issues"
+  },
+  "homepage": "https://github.com/RominM/RominManogil_07_13092021#readme"
+}

@@ -1,0 +1,60 @@
+/*REGISTRE*/
+.registre {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   .card {
+      width: 500px;
+      height: 400px;
+      margin: 35px 0;
+      .image {
+         width: 100%;
+         height: 50%;
+         border-radius: 5px 5px 0 0;
+         background-color: $BgImg;
+      }
+      .descript {
+         display: grid;
+         grid-template-columns: 225px 1fr;
+         grid-template-rows: 75px 1fr;
+         width: 100%;
+         height: 50%;
+         border-radius: 0 0 5px 5px;
+         background-color: $BgDecript;
+         overflow: hidden;
+         text-overflow: ellipsis;      
+         .title {
+            margin: 25px;
+            font-family: LatoReg;
+            font-size: 18px;
+            white-space: nowrap;
+         }
+         .time {
+            margin: 25px;
+            display: flex;
+            justify-content: right;
+            font-family: LatoBold;
+            font-size: 18px;
+            width: 75%;
+            height: 20px;
+            margin: 25px;
+            .clock-img {
+               width: 20px;
+               margin-right: 5px;
+            }
+         }
+         .ingredientsList {
+            font-family: LatoBold;
+            font-size: 12px;
+            margin-left: 25px;
+         }
+         p {
+            @extend .ingredientsList;
+            margin-right: 25px;
+            height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+         }
+      }
+   }
+}
