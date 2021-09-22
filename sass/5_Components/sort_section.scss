@@ -7,13 +7,14 @@
         position: relative;
         font-family: $DMSans;
         background: url(../../Images/arrowDown.svg) no-repeat;
-        background-position: right 15% bottom 50%;;
-        width: 150px;
+        background-position: right 15% bottom 50%;
+        width: 100px;
         height: 50px;
         line-height: 50px;
         border: none;
         border-radius: 5px;
-        padding-left: 10px;
+        padding-right: 40px;
+        padding-left: 15px;
         color: #fff;
         .arrowDown {
             position: absolute;
