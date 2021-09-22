@@ -3,14 +3,18 @@
     max-width: 500px;
     justify-content: space-between;
     color: #fff;
-    .divIngredients {
-        font-family: $DMSans;
+    .inpIngredients {
         position: relative;
+        font-family: $DMSans;
+        background: url(../../Images/arrowDown.svg) no-repeat;
+        background-position: right 15% bottom 50%;;
         width: 150px;
         height: 50px;
         line-height: 50px;
+        border: none;
         border-radius: 5px;
         padding-left: 10px;
+        color: #fff;
         .arrowDown {
             position: absolute;
             top: 50%;
@@ -29,19 +33,25 @@
             transition: .3s;
         }
     }
-    .divDevices {
-        @extend .divIngredients;
+    .inpIngredients::placeholder {
+        color: #fff;
     }
-    .divTools {
-        @extend .divIngredients;
+    .inpIngredients:focus {
+        outline: none;
     }
-    .divIngredients {
+    .inpDevices {
+        @extend .inpIngredients;
+    }
+    .inpTools {
+        @extend .inpIngredients;
+    }
+    .inpIngredients {
         background-color: $azur;
     }
-    .divDevices {
+    .inpDevices {
         background-color: $mint;
     }
-    .divTools {
+    .inpTools {
         background-color: $salmon;
     }
 }

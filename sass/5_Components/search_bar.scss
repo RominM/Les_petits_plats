@@ -8,6 +8,11 @@
        border-radius: 5px;
        background-color: #E7E7E7;
        margin-bottom: 15px;
+       text-indent:20px;
+       font-size: 1em;
+   }
+   #searchBy:focus {
+       outline: none;
    }
    .searchBtn {
        position: absolute;

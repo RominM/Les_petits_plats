@@ -31,34 +31,21 @@ export class SearchSection {
     const main = document.querySelector('main');
 
     const sortSection = document.querySelector("section");
-    const divIngredients = document.createElement("div");
-    const arrowDown1 = document.createElement('img');
-    const divDevices = document.createElement("div");
-    const arrowDown2 = document.createElement('img');
-    const divTools = document.createElement("div");
-    const arrowDown3 = document.createElement('img');
+    const inpIngredients = document.createElement("input");
+    const inpDevices = document.createElement("input");
+    const inpTools = document.createElement("input");
     //________//settings
     sortSection.classList.add("sortSection");
-    divIngredients.classList.add("divIngredients");
-    divIngredients.innerHTML = "Ingrédients";
-    arrowDown1.src = "./Images/arrowDown.svg";
-    arrowDown1.classList.add("arrowDown");
-    divDevices.classList.add("divDevices");
-    divDevices.innerHTML = "Appareils";
-    arrowDown2.src = "./Images/arrowDown.svg";
-    arrowDown2.classList.add("arrowDown");
-    divTools.classList.add("divTools");
-    divTools.innerHTML = "Ustensiles";
-    arrowDown3.src = "./Images/arrowDown.svg";
-    arrowDown3.classList.add("arrowDown");
+    inpIngredients.classList.add("inpIngredients");
+    inpIngredients.placeholder = "Ingrédients";
+    inpDevices.classList.add("inpDevices");
+    inpDevices.placeholder = "Appareils";
+    inpTools.classList.add("inpTools");
+    inpTools.placeholder = "Ustensiles";
     //________//indent
-    sortSection.append(divIngredients);
-    divIngredients.append(arrowDown1);
-    sortSection.append(divDevices);
-    divDevices.append(arrowDown2);
-    sortSection.append(divTools);
-    divTools.append(arrowDown3);
+    sortSection.append(inpIngredients);
+    sortSection.append(inpDevices);
+    sortSection.append(inpTools);
     main.append(sortSection);
-
   }
 }
