@@ -1,12 +1,12 @@
 .allIngredient {
    position: absolute;
-   display: block;
    top: 100%;
-   column-count: 3;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
    width: 500px;
    height: 300px;
    background-color: $azur;
    font-family: Lato-Reg;
    line-height: 25px;
-   overflow-y: scroll !important;
+   overflow-y: scroll;
 }
