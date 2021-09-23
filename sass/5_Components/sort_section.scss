@@ -1,6 +1,7 @@
 .sortSection {
+    position: relative;
     display: flex;
-    max-width: 500px;
+    width: 500px;
     justify-content: space-between;
     color: #fff;
     .inpIngredients {

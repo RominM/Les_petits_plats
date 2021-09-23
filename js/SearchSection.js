@@ -29,8 +29,8 @@ export class SearchSection {
   }
   sortByStamps() {
     const main = document.querySelector('main');
-
     const sortSection = document.querySelector("section");
+
     const inpIngredients = document.createElement("input");
     const inpDevices = document.createElement("input");
     const inpTools = document.createElement("input");

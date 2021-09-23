@@ -1,20 +1,15 @@
 export const newState = (STATEDATA,inputValue) => {
-   searchIngredient(STATEDATA,inputValue);
+   searchIngredients(STATEDATA,inputValue);
+	searchDevices(STATEDATA,inputValue);
+	searchTools(STATEDATA,inputValue);
    return state
 }
-const searchIngredient = (STATEDATA,inputValue) => {
-   // 	 //Try to get all ingredients sorted and no double
-	//  data.recipes.forEach(recipe => {
-	// 	const sortIngredient = recipe.ingredients.sort((a, b) => {
-	// 		if (a.ingredient < b.ingredient) return -1;
-	// 		if (a.ingredient > b.ingredient) return 1;
-	// 		return 0;			
-	// 	});						
-	// 	console.log(sortIngredient);
-	// 	recipe.ingredients.forEach(ingredient => {
-	// 		console.log(ingredient);
-	// 	})
-
-	//  });
+const searchIngredients = (STATEDATA,inputValue) => {
    console.log('in searchIngredient()');
+}
+const searchDevices = (STATEDATA,inputValue) => {
+   console.log('in searchDevices()');
+}
+const searchTools = (STATEDATA,inputValue) => {
+   console.log('in searchTools()');
 }
