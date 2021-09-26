@@ -41,19 +41,19 @@
     .inpIngredients:focus {
         outline: none;
     }
-    .inpDevices {
+    .inpAppliance {
         @extend .inpIngredients;
     }
-    .inpTools {
+    .inpUstensils {
         @extend .inpIngredients;
     }
     .inpIngredients {
         background-color: $azur;
     }
-    .inpDevices {
+    .inpAppliance {
         background-color: $mint;
     }
-    .inpTools {
+    .inpUstensils {
         background-color: $salmon;
     }
 }

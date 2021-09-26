@@ -32,20 +32,20 @@ export class SearchSection {
     const sortSection = document.querySelector("section");
 
     const inpIngredients = document.createElement("input");
-    const inpDevices = document.createElement("input");
-    const inpTools = document.createElement("input");
+    const inpAppliance = document.createElement("input");
+    const inpUstensils = document.createElement("input");
     //________//settings
     sortSection.classList.add("sortSection");
     inpIngredients.classList.add("inpIngredients");
     inpIngredients.placeholder = "Ingrédients";
-    inpDevices.classList.add("inpDevices");
-    inpDevices.placeholder = "Appareils";
-    inpTools.classList.add("inpTools");
-    inpTools.placeholder = "Ustensiles";
+    inpAppliance.classList.add("inpAppliance");
+    inpAppliance.placeholder = "Appareils";
+    inpUstensils.classList.add("inpUstensils");
+    inpUstensils.placeholder = "Ustensiles";
     //________//indent
     sortSection.append(inpIngredients);
-    sortSection.append(inpDevices);
-    sortSection.append(inpTools);
+    sortSection.append(inpAppliance);
+    sortSection.append(inpUstensils);
     main.append(sortSection);
   }
 }
