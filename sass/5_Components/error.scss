@@ -1,0 +1,13 @@
+.infoError {
+   width: 50%;
+   margin: 100px auto;
+   border: solid $BgImg;
+   border-radius: 5px;
+   text-align: center;
+   font-family: $LatoReg;
+   color: $BgImg;
+   padding: 25px;
+   img {
+      width: 35px;
+   }
+}

@@ -1,8 +1,7 @@
 .sortSection {
     position: relative;
     display: flex;
-    width: 500px;
-    justify-content: space-between;
+    justify-content: flex-start;
     color: #fff;
     .inpIngredients {
         position: relative;
@@ -14,6 +13,7 @@
         line-height: 50px;
         border: none;
         border-radius: 5px;
+        margin-right: 25px;
         padding-right: 40px;
         padding-left: 15px;
         color: #fff;
@@ -57,3 +57,9 @@
         background-color: $salmon;
     }
 }
+
+.selected {
+    width: 500px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+ }

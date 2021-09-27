@@ -1,38 +1,29 @@
-.allIngredient {
+.allIngredient, .allAppliance, .allUstensils {
    position: absolute;
    top: 100%;
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
    width: 500px;
    height: 300px;
-   background-color: $azur;
    font-family: Lato-Reg;
    line-height: 25px;
    overflow-y: scroll;
+}
+
+.allIngredient {
+   grid-template-columns: repeat(3, 1fr);
+   background-color: $azur;
 }
 
 .allAppliance {
-   position: absolute;
-   top: 100%;
-   display: grid;
    grid-template-columns: repeat(2, 1fr);
-   width: 500px;
-   height: 300px;
    background-color: $mint;
-   font-family: Lato-Reg;
-   line-height: 25px;
-   overflow-y: scroll;
 }
 
 .allUstensils {
-   position: absolute;
-   top: 100%;
-   display: grid;
    grid-template-columns: repeat(3, 1fr);
-   width: 500px;
-   height: 300px;
    background-color: $salmon;
-   font-family: Lato-Reg;
-   line-height: 25px;
-   overflow-y: scroll;
+}
+
+.spanIngredient, .spanAppliance, .spanUstensils {
+   cursor: pointer;
 }

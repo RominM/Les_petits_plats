@@ -10,14 +10,17 @@
        margin-bottom: 15px;
        text-indent:20px;
        font-size: 1em;
+       text-decoration: none;
    }
    #searchBy:focus {
        outline: none;
    }
    .searchBtn {
        position: absolute;
+       width: 50px;
+       height: 50px;
        top: 40%;
-       right: -2%;
+       right: -4%;
        transform: translate(-98%, -50%);
        background-color: transparent;
        border: none;
@@ -26,5 +29,12 @@
           width: 25px;
       }
    }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 
