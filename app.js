@@ -3,12 +3,9 @@ import {HeaderDOM} from './js/Header.js';
 import {SearchSection} from './js/SearchSection.js';
 import {displayRecipes} from './js/DisplayRecipes.js';
 import {newState} from './js/newState.js';
-import {getIngredient} from './js/getIngredient.js';
-import {getAppliance} from './js/getAppliance.js';
-import {getUstensils} from './js/getUstensils.js';
-import {findIngredient} from './js/findIngredient.js';
-import {findAppliance} from './js/findAppliance.js';
-import {findUstensils} from './js/findUstensils.js';
+import {displayIngredients, getAllIngredient, getFilterIngredient} from './js/handlerIngredient.js';
+import {getAppliance} from './js/handlerAppliance.js';
+import {getUstensils} from './js/handlerUstensils.js';
 import {error} from './js/error.js';
 
 let STATEDATA = [...recipes];
@@ -28,18 +25,20 @@ displayRecipes(STATEDATA);
 const inpIngredients = document.querySelector('.inpIngredients');
 inpIngredients.addEventListener('input', () => {
 	inpIngredients.classList.add('selected');
+
+	const allIngredient = getAllIngredient(STATEDATA);
+	displayIngredients(allIngredient);
+
 	// inpIngredients.classList.remove('inpIngredients');
-	getIngredient(STATEDATA);
 	let inpValue = inpIngredients.value;
 	if (inpValue.length > 2) {
 		console.log('in Ingredient scope: ' + inpValue);
-		// STATEDATA = newState(STATEDATA, inpValue)
-		// if(findIngredient() == OK) {
-			//MAJ DES DATA	
-			//DisplayRecipes()
-		// }else {
-		// 	error()
-		// }
+		const filteredIngredient = getFilterIngredient(inpValue);
+		displayIngredients(filteredIngredient)
+
+		modifStateData(filteredIngredient)
+
+		displayRecipes(STATEDATA)
 	}
 })
 
@@ -49,13 +48,6 @@ inpAppliance.addEventListener('input', () => {
 	let inpValue = inpAppliance.value;
 	if (inpValue.length > 2) {
 		console.log('in Appliance scope: ' + inpValue);
-		// STATEDATA = newState(STATEDATA, inpValue)
-		// if(findAppliance() == OK) {
-			//MAJ DES DATA
-			//DisplayRecipes()
-		//}else {
-			//error()
-		//}
 	}
 })
 const inpUstensils = document.querySelector('.inpUstensils');
