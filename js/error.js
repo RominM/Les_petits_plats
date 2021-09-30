@@ -1,5 +1,7 @@
 export const error = () => {
 	const main = document.querySelector('main');
+   const registre = document.querySelector('.registre');
+   registre.innerHTML = '';
 
    const infoError = document.createElement('div');
    infoError.classList.add('infoError');

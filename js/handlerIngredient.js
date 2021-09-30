@@ -1,6 +1,7 @@
 import { recipes } from "../data.js";
+import {error} from '../js/error.js';
 
-export const getAllIngredient = (STATEDATA) => {
+export const getAllIngredients = (STATEDATA) => {
    let arrayIngredient = [];
    STATEDATA.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
@@ -47,6 +48,5 @@ export const getFilterIngredient = (inpValue) => {
          }
       })
    })
-   console.log(filteredIngredient);
    return filteredIngredient
 }

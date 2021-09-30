@@ -53,5 +53,5 @@ export const displayRecipes = (data) => {
       
       }
    })
-   main.append(registre)
+   main.append(registre);
 }
