@@ -11,7 +11,6 @@ let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
 	recipe.display = true;
 });
-
 const header = new HeaderDOM();
 header.buildHead();
 
