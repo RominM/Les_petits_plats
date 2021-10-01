@@ -1,16 +1,18 @@
-import {recipes} from './data.js';
-import {HeaderDOM} from './js/Header.js';
-import {SearchSection} from './js/SearchSection.js';
-import {displayRecipes} from './js/DisplayRecipes.js';
-import {newState} from './js/newState.js';
-import {displayIngredients, getAllIngredients, getFilterIngredient} from './js/handlerIngredient.js';
-import {getAllAppliances, displayAppliances, getFilterAppliance} from './js/handlerAppliance.js';
-import {getAllUstensils, displayUstensils, getFilterUstensil} from './js/handlerUstensils.js';
+import { recipes } from './data.js';
+import { HeaderDOM } from './js/Header.js';
+import { SearchSection } from './js/SearchSection.js';
+import { displayRecipes } from './js/DisplayRecipes.js';
+import { updateState } from './js/updateState.js';
+import { displayIngredients, getAllIngredients, getFilterIngredient } from './js/handlerIngredient.js';
+import { getAllAppliances, displayAppliances, getFilterAppliance } from './js/handlerAppliance.js';
+import { getAllUstensils, displayUstensils, getFilterUstensil } from './js/handlerUstensils.js';
 
+// Init data
 let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
 	recipe.display = true;
 });
+// Build DOM
 const header = new HeaderDOM();
 header.buildHead();
 
@@ -19,7 +21,7 @@ searchSection.creatSearchBar();
 searchSection.sortByStamps();
 
 displayRecipes(STATEDATA);
-
+// Input stamps Ingredients
 const inpIngredients = document.querySelector('.inpIngredients');
 inpIngredients.addEventListener('click', () => {
 	inpIngredients.classList.add('selected');
@@ -35,7 +37,7 @@ inpIngredients.addEventListener('input', () => {
 		displayRecipes(STATEDATA);
 	}
 })
-
+// Input stamps Appliances
 const inpAppliance = document.querySelector('.inpAppliance');
 inpAppliance.addEventListener('click', () => {
 	inpAppliance.classList.add('selected');
@@ -51,7 +53,7 @@ inpAppliance.addEventListener('input', () => {
 		displayRecipes(STATEDATA)
 	}
 })
-
+// Input stamps Ustensils
 const inpUstensils = document.querySelector('.inpUstensils');
 inpUstensils.addEventListener('click', () => {
 	inpUstensils.classList.add('selected');

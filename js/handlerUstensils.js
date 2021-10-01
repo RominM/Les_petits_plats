@@ -1,5 +1,5 @@
 import { recipes } from "../data.js";
-import {error} from '../js/error.js';
+import { error } from '../js/error.js';
 
 export const getAllUstensils = (STATEDATA) => {
    let arrayUstensils = [];

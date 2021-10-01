@@ -1,4 +1,4 @@
-export const newState = (STATEDATA,inputValue) => {
+export const updateState = (STATEDATA,inputValue) => {
    searchIngredients(STATEDATA,inputValue);
    searchAppliance(STATEDATA,inputValue);
    searchUstensils(STATEDATA,inputValue);
