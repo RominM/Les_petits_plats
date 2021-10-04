@@ -106,3 +106,7 @@ input, select {
 span {
     display: block;
 }
+
+li {
+    list-style: none;
+}

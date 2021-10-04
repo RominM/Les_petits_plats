@@ -1,50 +1,52 @@
 import { recipes } from "../data.js";
-import { error } from '../js/error.js';
+// import { error } from '../js/error.js';
 
 export const getAllUstensils = (STATEDATA) => {
-   let arrayUstensils = [];
+   let arrayUst = [];
    STATEDATA.forEach(recipe => {
       recipe.ustensils.forEach(ustensil => {
          const ustensilsList = ustensil;
-         arrayUstensils.push(ustensilsList);
+         arrayUst.push(ustensilsList);
       })
    });
-   const filteredUstensilsArray = arrayUstensils.filter(function (ele, pos) {
-      return arrayUstensils.indexOf(ele) == pos;
+   const filtUstArray = arrayUst.filter(function (ele, pos) {
+      return arrayUst.indexOf(ele) == pos;
    })
-   return filteredUstensilsArray
-}
+   return filtUstArray
+};
 
-export const displayUstensils = (arrayUstensils) => {
+export const displayUstensils = (arrayUst) => {
 
    const section = document.querySelector('section');
-   const allUstensils = document.createElement('div');
-   allUstensils.classList.add('allUstensils');
-   section.append(allUstensils);
+   const allUst = document.createElement('div');
+   allUst.classList.add('all-ust');
+   section.append(allUst);
    
-   arrayUstensils.forEach(eachUstensils => {
-      const spanUstensils = document.createElement('span');
-      spanUstensils.classList.add('spanUstensils');
-      spanUstensils.innerHTML = eachUstensils;
+   arrayUst.forEach(eachUstensils => {
+
+      const ustUl = document.createElement('ul');
+      const ustLi = document.createElement('li');
+      ustLi.classList.add('ust-li');
+      ustLi.innerHTML = eachUstensils;
    
-      allUstensils.append(spanUstensils)
+      ustUl.append(ustLi);
+      allUst.append(ustUl);
    })
-}
+};
 
 export const getFilterUstensil = (inpValue) => {
    const data =[...recipes];
    let filteredUstensil = [];
-   console.log('coucou');
    data.forEach(recipe => {
       recipe.ustensils.forEach(ustensil => {
          console.log(ustensil);
-         const ustensilMem = ustensil ;
-         const sliced = ustensilMem.slice(0, inpValue.length);
-         console.log(ustensilMem);
+         const ustMemo = ustensil ;
+         const sliced = ustMemo.slice(0, inpValue.length);
+         console.log(ustMemo);
          if(sliced.toLowerCase() == inpValue.toLowerCase()) {
-            filteredUstensil.push(ustensilMem);
+            filteredUstensil.push(ustMemo);
          }
       })
    })
    return filteredUstensil
-}
+};

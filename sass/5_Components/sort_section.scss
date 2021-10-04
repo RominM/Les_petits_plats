@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-start;
     color: #fff;
-    .inpIngredients {
+    .inp-ing {
         position: relative;
         font-family: $DMSans;
         background: url(../../Images/arrowDown.svg) no-repeat;
@@ -35,31 +35,31 @@
             transition: .3s;
         }
     }
-    .inpIngredients::placeholder {
+    .inp-ing::placeholder {
         color: #fff;
     }
-    .inpIngredients:focus {
+    .inp-ing:focus {
         outline: none;
     }
-    .inpAppliance {
-        @extend .inpIngredients;
+    .inp-app {
+        @extend .inp-ing;
     }
-    .inpUstensils {
-        @extend .inpIngredients;
+    .inp-ust {
+        @extend .inp-ing;
     }
-    .inpIngredients {
+    .inp-ing {
         background-color: $azur;
     }
-    .inpAppliance {
+    .inp-app {
         background-color: $mint;
     }
-    .inpUstensils {
+    .inp-ust {
         background-color: $salmon;
     }
 }
 
 .selected {
-    width: 500px;
+    max-width: 500px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
  }

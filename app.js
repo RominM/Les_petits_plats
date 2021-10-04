@@ -21,51 +21,76 @@ searchSection.creatSearchBar();
 searchSection.sortByStamps();
 
 displayRecipes(STATEDATA);
+
+
+
 // Input stamps Ingredients
-const inpIngredients = document.querySelector('.inpIngredients');
-inpIngredients.addEventListener('click', () => {
-	inpIngredients.classList.add('selected');
-	const allIngredient = getAllIngredients(STATEDATA);
-	displayIngredients(allIngredient);
-})
-inpIngredients.addEventListener('input', () => {
-	let inpValue = inpIngredients.value;
+const inpIng = document.querySelector('.inp-ing');
+inpIng.addEventListener('click', () => {
+	const allIng = getAllIngredients(STATEDATA);
+	displayIngredients(allIng);
+});
+
+inpIng.addEventListener('input', () => {
+	let inpValue = inpIng.value;
 	if (inpValue.length > 2) {
-		const filteredIngredient = getFilterIngredient(inpValue);
-		displayIngredients(filteredIngredient);
-		updateIngredientData(filteredIngredient);
+		const allIng = document.querySelector('.all-ing');
+		allIng.innerHTML = '';
+		const filtIng = getFilterIngredient(inpValue);
+		const noDblIng = filtIng.filter(function (ele, pos) {
+			return filtIng.indexOf(ele) == pos;
+		});
+		displayIngredients(noDblIng);
+		// updateIngredientData(filtIng);
 		displayRecipes(STATEDATA);
 	}
-})
+});
+
+
+
 // Input stamps Appliances
-const inpAppliance = document.querySelector('.inpAppliance');
-inpAppliance.addEventListener('click', () => {
-	inpAppliance.classList.add('selected');
-	const allAppliance = getAllAppliances(STATEDATA);
-	displayAppliances(allAppliance);
-})
-inpAppliance.addEventListener('input', () => {
-	let inpValue = inpAppliance.value;
+const inpApp = document.querySelector('.inp-app');
+inpApp.addEventListener('click', () => {
+	inpApp.classList.add('selected');
+	const allApp = getAllAppliances(STATEDATA);
+	displayAppliances(allApp);
+});
+
+inpApp.addEventListener('input', () => {
+	let inpValue = inpApp.value;
 	if (inpValue.length > 2) {
-		const filteredAppliance = getFilterAppliance(inpValue);
-		displayAppliances(filteredAppliance);
-		updateApplianceData(filteredAppliance);
-		displayRecipes(STATEDATA)
+		const allApp = document.querySelector('all-app');
+		allApp.innerHTML = '';
+		const filtApp = getFilterAppliance(inpValue);
+		const noDblApp = filtApp.filter(function (ele, pos) {
+			return filtApp.indexOf(ele) == pos;
+		});
+		console.log(noDblApp);
+		displayAppliances(noDblApp);
+		// updateApplianceData(filtApp);
+		displayRecipes(STATEDATA);
 	}
-})
+});
+
+
+
 // Input stamps Ustensils
-const inpUstensils = document.querySelector('.inpUstensils');
-inpUstensils.addEventListener('click', () => {
-	inpUstensils.classList.add('selected');
-	const allUstensils = getAllUstensils(STATEDATA);
-	displayUstensils(allUstensils);
-})
-inpUstensils.addEventListener('input', () => {
-	let inpValue = inpUstensils.value;
+const inpUst = document.querySelector('.inp-ust');
+inpUst.addEventListener('click', () => {
+	inpUst.classList.add('selected');
+	const allUst = getAllUstensils(STATEDATA);
+	displayUstensils(allUst);
+});
+
+inpUst.addEventListener('input', () => {
+	let inpValue = inpUst.value;
 	if (inpValue.length > 2) {
-		const filteredUstensil = getFilterUstensil(inpValue);
-		displayUstensils(filteredUstensil);
-		updateUstensilData(filteredUstensil);
+		const filtUst = getFilterUstensil(inpValue);
+		const noDblUst = filtUst.filter(function (ele, pos) {
+			return filtUst.indexOf(ele) == pos;
+		});
+		displayUstensils(noDblUst);
+		// updateUstensilData(filtUst);
 		displayRecipes(STATEDATA)
 	}
-})
+});

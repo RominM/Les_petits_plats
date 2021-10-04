@@ -1,52 +1,53 @@
 import { recipes } from "../data.js";
-import {error} from '../js/error.js';
+// import {error} from '../js/error.js';
 
 export const getAllIngredients = (STATEDATA) => {
-   let arrayIngredient = [];
+   let arrayIng = [];
    STATEDATA.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
          const ingredientList = ingredient.ingredient
-         arrayIngredient.push(ingredientList)
+         arrayIng.push(ingredientList)
       })
    })
-   const filteredIngredientArray = arrayIngredient.filter(function (ele, pos) {
-      return arrayIngredient.indexOf(ele) == pos;
+   const filtIngArray = arrayIng.filter(function (ele, pos) {
+      return arrayIng.indexOf(ele) == pos;
    })
-   return filteredIngredientArray
-}
+   return filtIngArray
+};
 
-export const displayIngredients = (arrayIngredient) => {
-
+export const displayIngredients = (arrayIng) => {
    const section = document.querySelector('section');
-   const allIngredient = document.createElement('div');
+   const allIng = document.createElement('div');
 
-   allIngredient.innerHTML = '';// raz
+   allIng.innerHTML = '';// raz
 
-   allIngredient.classList.add('allIngredient');
-   section.append(allIngredient);
+   allIng.classList.add('all-ing');
+   section.append(allIng);
 
-   arrayIngredient.forEach(eachIngredient => {
+   arrayIng.forEach(eachIngredient => {
 
-      const spanIngredient = document.createElement('span');
-      spanIngredient.classList.add('spanIngredient');
-      spanIngredient.innerHTML = eachIngredient;
+      const ingUl = document.createElement('ul');
+      const ingLi = document.createElement('li');
+      ingLi.classList.add('ing-li');
+      ingLi.innerHTML = eachIngredient;
 
-      allIngredient.append(spanIngredient)
+      ingUl.append(ingLi);
+      allIng.append(ingUl);
    })
-}
+};
 
 export const getFilterIngredient = (inpValue) => {
-   const data =[...recipes];
-   let filteredIngredient = [];
+   const data = [...recipes];
+   let filtIng = [];
    data.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
-         const ingredientMem = ingredient.ingredient;
-         const sliced = ingredientMem.slice(0, inpValue.length);
-         console.log(ingredientMem);
+         const ingMemo = ingredient.ingredient;
+         const sliced = ingMemo.slice(0, inpValue.length);
+         console.log(ingMemo);
          if(sliced.toLowerCase() == inpValue.toLowerCase()) {
-            filteredIngredient.push(ingredientMem);
+            filtIng.push(ingMemo);
          }
       })
    })
-   return filteredIngredient
-}
+   return filtIng
+};

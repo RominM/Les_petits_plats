@@ -1,47 +1,49 @@
 import { recipes } from "../data.js";
-import {error} from '../js/error.js';
+// import {error} from '../js/error.js';
 
 export const getAllAppliances = (STATEDATA) => {
-   let arrayAppliance = [];
+   let arrayApp = [];
    STATEDATA.forEach(recipe => {
       const applianceList = recipe.appliance;
-      arrayAppliance.push(applianceList)
+      arrayApp.push(applianceList)
    })
-   const filteredApplianceArray = arrayAppliance.filter(function (ele, pos) {
-      return arrayAppliance.indexOf(ele) == pos;
+   const filtAppArray = arrayApp.filter(function (ele, pos) {
+      return arrayApp.indexOf(ele) == pos;
    })
-   return filteredApplianceArray
-}
+   return filtAppArray
+};
 
-export const displayAppliances = (arrayAppliance) => {
+export const displayAppliances = (arrayApp) => {
    const section = document.querySelector('section');
-   const allAppliance = document.createElement('div');
+   const allApp = document.createElement('div');
 
-   allAppliance.innerHTML = '';
+   allApp.innerHTML = '';
 
-   allAppliance.classList.add('allAppliance');
-   section.append(allAppliance);
+   allApp.classList.add('all-app');
+   section.append(allApp);
 
-   arrayAppliance.forEach(eachAppliance => {
+   arrayApp.forEach(eachAppliance => {
 
-      const spanAppliance = document.createElement('span');
-      spanAppliance.classList.add('spanAppliance');
-      spanAppliance.innerHTML = eachAppliance;
+      const appUl = document.createElement('ul')
+      const appLi = document.createElement('li');
+      appLi.classList.add('app-li');
+      appLi.innerHTML = eachAppliance;
 
-      allAppliance.append(spanAppliance)
+      appUl.append(appLi);
+      allApp.append(appUl);
    })
-}
+};
 
 export const getFilterAppliance = (inpValue) => {
    const data = [...recipes];
    let filteredAppliance = [];
    data.forEach(recipe => {
-      const applianceMem = recipe.appliance;
-      const sliced = applianceMem.slice(0, inpValue.length);
-      console.log(applianceMem);
+      const appMemo = recipe.appliance;
+      const sliced = appMemo.slice(0, inpValue.length);
+      console.log(appMemo);
       if(sliced.toLowerCase() == inpValue.toLowerCase()) {
-         filteredAppliance.push(applianceMem);
+         filteredAppliance.push(appMemo);
       }
    })
    return filteredAppliance
-}
+};

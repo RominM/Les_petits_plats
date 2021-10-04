@@ -36,11 +36,11 @@ export class SearchSection {
     const inpUstensils = document.createElement('input');
     //________//settings
     sortSection.classList.add('sortSection');
-    inpIngredients.classList.add('inpIngredients');
+    inpIngredients.classList.add('inp-ing');
     inpIngredients.placeholder = 'Ingrédients';
-    inpAppliance.classList.add('inpAppliance');
+    inpAppliance.classList.add('inp-app');
     inpAppliance.placeholder = 'Appareils';
-    inpUstensils.classList.add('inpUstensils');
+    inpUstensils.classList.add('inp-ust');
     inpUstensils.placeholder = 'Ustensiles';
     //________//indent
     sortSection.append(inpIngredients);
