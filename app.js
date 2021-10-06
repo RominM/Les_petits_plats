@@ -11,19 +11,21 @@ let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
 	recipe.display = true;
 });
-// Build Header
+// Display Header
 const header = new HeaderDOM();
 header.buildHead();
-// Build Search Section
+// Display Search Section
 const searchSection = new SearchSection();
 searchSection.creatSearchBar();
 searchSection.sortByStamps();
 // Display register of recipes
 displayRecipes(STATEDATA);
-// Input stamps Ingredients
+// Algo Search Ingredients
 runningIngredient(STATEDATA);
-// Input stamps Appliances
+// Algo Search Appliances
 runningAppliance(STATEDATA);
-// Input stamps Ustensils
+// Algo Search Ustensils
 runningUstensil(STATEDATA);
+// Algo Search Global
+//ruuningGlobalResearch();
 

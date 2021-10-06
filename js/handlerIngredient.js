@@ -19,21 +19,20 @@ export const getAllIngredients = (STATEDATA) => {
 export const displayIngredients = (arrayIng) => {
    const section = document.querySelector('section');
    const allIng = document.createElement('div');
-
    allIng.innerHTML = '';// raz
-
    allIng.classList.add('all-ing');
+   const ingUl = document.createElement('ul');
+   
    section.append(allIng);
+   allIng.append(ingUl);
 
    arrayIng.forEach(eachIngredient => {
 
-      const ingUl = document.createElement('ul');
       const ingLi = document.createElement('li');
       ingLi.classList.add('ing-li');
       ingLi.innerHTML = eachIngredient;
 
       ingUl.append(ingLi);
-      allIng.append(ingUl);
    })
 };
 // Sliced to lower case

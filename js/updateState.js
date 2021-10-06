@@ -1,3 +1,4 @@
+import { displayRecipes } from "./displayRecipes.js";
 import { displayIngredients } from "./handlerIngredient.js";
 
 export class UpdateState {
@@ -12,8 +13,8 @@ export class UpdateState {
       return stateData
    }
    updateIngData(STATEDATA, inpValue) {
-      console.log('in searchIngredient()');
-      console.log(this.inpValue);
+      // console.log('in searchIngredient()');
+      // console.log(this.inpValue);
 
       this.STATEDATA.forEach(recipe => {
          recipe.ingredients.forEach(ingredient => {
@@ -21,20 +22,17 @@ export class UpdateState {
             const sliced = ingMemo.slice(0, this.inpValue.length);
 
             if(sliced.toLowerCase() !== this.inpValue.toLowerCase()) {
-               console.log('hell no');
+               console.log('recipe.display = false');
                this.STATEDATA.forEach(recipe => {
                   recipe.display = false;
                });
             }
             else {
-               console.log('yes');
+               // console.log('recipe.display = true');
+               displayRecipes();
             }
-            // STATEDATA.forEach(recipe => {
-            //    recipe.display = true;
-            // });
          })
       });
-      // displayIngredients(STATEDATA);
    }
    updateAppData(STATEDATA, inpValue) {
       console.log('in searchAppliance()');
@@ -43,3 +41,24 @@ export class UpdateState {
       console.log('in searchUstensils()');
    }
 }
+
+
+
+
+//si(inputValue != ingredient) { //si pas d'ingredient
+   // affiche error() // Affiche le message d'erreur
+   //} else {
+   // displayRecipe(ingredient) // sinon affiche les recettes qui contiennent "Ingredient"
+// }
+
+
+
+/* 
+const callback = () => {
+   if(inpValue == Ingredient || appliance || ustensli) {
+      maj DATA
+   }
+
+displayRecipe(callback)
+} */
+
