@@ -1,6 +1,7 @@
 import { recipes } from "../data.js";
 // import {error} from '../js/error.js';
 
+// Get filtered Ingredient from data
 export const getAllIngredients = (STATEDATA) => {
    let arrayIng = [];
    STATEDATA.forEach(recipe => {
@@ -14,7 +15,7 @@ export const getAllIngredients = (STATEDATA) => {
    })
    return filtIngArray
 };
-
+// Create DOM Elements
 export const displayIngredients = (arrayIng) => {
    const section = document.querySelector('section');
    const allIng = document.createElement('div');
@@ -35,7 +36,7 @@ export const displayIngredients = (arrayIng) => {
       allIng.append(ingUl);
    })
 };
-
+// Sliced to lower case
 export const getFilterIngredient = (inpValue) => {
    const data = [...recipes];
    let filtIng = [];
@@ -43,7 +44,6 @@ export const getFilterIngredient = (inpValue) => {
       recipe.ingredients.forEach(ingredient => {
          const ingMemo = ingredient.ingredient;
          const sliced = ingMemo.slice(0, inpValue.length);
-         console.log(ingMemo);
          if(sliced.toLowerCase() == inpValue.toLowerCase()) {
             filtIng.push(ingMemo);
          }

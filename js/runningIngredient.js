@@ -1,4 +1,6 @@
 import { displayIngredients, getAllIngredients, getFilterIngredient } from './handlerIngredient.js';
+import { UpdateState } from './UpdateState.js';
+import { displayRecipes } from './displayRecipes.js';
 
 export const runningIngredient = (STATEDATA) => {
 	const inpIng = document.querySelector('.inp-ing');
@@ -17,7 +19,10 @@ export const runningIngredient = (STATEDATA) => {
 				return filtIng.indexOf(ele) == pos;
 			});
 			displayIngredients(noDblIng);
-			// updateIngredientData(filtIng);
+
+			const updateState = new UpdateState(STATEDATA, inpValue);
+			updateState.updateIngData(filtIng);
+
 			displayRecipes(STATEDATA);
 		}
 	});

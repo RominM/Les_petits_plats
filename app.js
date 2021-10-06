@@ -1,11 +1,11 @@
-import { recipes } from './data.js';
-import { HeaderDOM } from './js/Header.js';
-import { SearchSection } from './js/SearchSection.js';
-import { displayRecipes } from './js/DisplayRecipes.js';
-import { updateState } from './js/updateState.js';
-import { runningIngredient } from './js/runningIngredient.js';
-import { runningAppliance } from './js/runningAppliance.js';
-import { runningUstensil } from './js/runningUstensil.js';
+import {	recipes} from './data.js';
+import {	HeaderDOM} from './js/Header.js';
+import {	SearchSection} from './js/SearchSection.js';
+import {	displayRecipes} from './js/displayRecipes.js';
+import {	UpdateState} from './js/UpdateState.js';
+import { runningIngredient} from './js/runningIngredient.js';
+import {	runningAppliance} from './js/runningAppliance.js';
+import {	runningUstensil} from './js/runningUstensil.js';
 // Init data
 let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
@@ -26,3 +26,4 @@ runningIngredient(STATEDATA);
 runningAppliance(STATEDATA);
 // Input stamps Ustensils
 runningUstensil(STATEDATA);
+

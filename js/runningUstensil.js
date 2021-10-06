@@ -17,7 +17,7 @@ export const runningUstensil = (STATEDATA) => {
 			});
 			displayUstensils(noDblUst);
 			// updateUstensilData(filtUst);
-			displayRecipes(STATEDATA)
+			displayRecipes(STATEDATA);
 		}
 	});
 }
