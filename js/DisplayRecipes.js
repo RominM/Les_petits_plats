@@ -2,9 +2,14 @@ export const displayRecipes = (data) => {
 
    const main = document.querySelector('main');
    
-   const registre = document.createElement('div');
-   registre.classList.add('registre');
-   registre.innerHTML = '';
+   let registre = document.querySelector('.registre');
+   if(registre) {
+      registre.innerHTML = '';
+   } else { // heven it creted it
+      registre = document.createElement('div');
+      registre.classList.add('registre');
+      main.append(registre);
+   }
 
    data.forEach(recipe => {
       if(recipe.display == true) {
@@ -50,8 +55,6 @@ export const displayRecipes = (data) => {
          card.append(image);
          card.append(descript);
          registre.append(card);
-      
       }
    })
-   main.append(registre);
 }

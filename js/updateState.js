@@ -1,5 +1,9 @@
-import { displayRecipes } from "./displayRecipes.js";
-import { displayIngredients } from "./handlerIngredient.js";
+import {
+   displayRecipes
+} from "./displayRecipes.js";
+import {
+   displayIngredients
+} from "./handlerIngredient.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
@@ -7,32 +11,33 @@ export class UpdateState {
       this.inpValue = inpValue;
    }
    stateData(STATEDATA, inpValue) {
-      searchIngredients();
+      updateIngData();
       searchAppliance();
       searchUstensils();
       return stateData
    }
-   updateIngData(STATEDATA, inpValue) {
+   updateIngData(inpValue) {
+      console.log(inpValue);
+
       // console.log('in searchIngredient()');
       // console.log(this.inpValue);
 
       this.STATEDATA.forEach(recipe => {
-         recipe.ingredients.forEach(ingredient => {
-            const ingMemo = ingredient.ingredient;
-            const sliced = ingMemo.slice(0, this.inpValue.length);
-
-            if(sliced.toLowerCase() !== this.inpValue.toLowerCase()) {
-               console.log('recipe.display = false');
-               this.STATEDATA.forEach(recipe => {
+         if(recipe.display == true) {
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+               const ingredient = recipe.ingredients[i];
+               const ingMemo = ingredient.ingredient.toLowerCase();
+   
+               if (inpValue.includes(ingMemo)) {
+                  recipe.display = true;
+                  break
+               } else {
                   recipe.display = false;
-               });
+               }
             }
-            else {
-               // console.log('recipe.display = true');
-               displayRecipes();
-            }
-         })
-      });
+         }
+      })
+      displayRecipes(this.STATEDATA)
    }
    updateAppData(STATEDATA, inpValue) {
       console.log('in searchAppliance()');
@@ -44,21 +49,15 @@ export class UpdateState {
 
 
 
+/*
+créer un nouveau dossier pour ranger les fichier js
 
-//si(inputValue != ingredient) { //si pas d'ingredient
-   // affiche error() // Affiche le message d'erreur
-   //} else {
-   // displayRecipe(ingredient) // sinon affiche les recettes qui contiennent "Ingredient"
-// }
+gérer les 3 inputs
+si je tape 'coco' et que je click (garder les recettes selectionné)
+refermer la dropBox
+ajout d'une bulle avec l'ingredient
+vider l'input
+garder les recettes >>> displayIngredient() + ...
 
-
-
-/* 
-const callback = () => {
-   if(inpValue == Ingredient || appliance || ustensli) {
-      maj DATA
-   }
-
-displayRecipe(callback)
-} */
-
+penser a garder les recette en display = true
+*/

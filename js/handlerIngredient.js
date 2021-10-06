@@ -18,12 +18,18 @@ export const getAllIngredients = (STATEDATA) => {
 // Create DOM Elements
 export const displayIngredients = (arrayIng) => {
    const section = document.querySelector('section');
-   const allIng = document.createElement('div');
-   allIng.innerHTML = '';// raz
-   allIng.classList.add('all-ing');
+   let allIng = document.querySelector('all-ing');
+
+   // If allIng existe get empty
+   if(allIng) {
+      allIng.innerHTML = '';// raz
+   } else { // heven it creted it
+      allIng = document.createElement('div');
+      allIng.classList.add('all-ing');
+      section.append(allIng);
+   }
    const ingUl = document.createElement('ul');
    
-   section.append(allIng);
    allIng.append(ingUl);
 
    arrayIng.forEach(eachIngredient => {
@@ -41,11 +47,8 @@ export const getFilterIngredient = (inpValue) => {
    let filtIng = [];
    data.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
-         const ingMemo = ingredient.ingredient;
-         const sliced = ingMemo.slice(0, inpValue.length);
-         if(sliced.toLowerCase() == inpValue.toLowerCase()) {
-            filtIng.push(ingMemo);
-         }
+         const ingMemo = ingredient.ingredient.toLowerCase();
+         ingMemo.includes(inpValue.toLowerCase()) && filtIng.push(ingMemo);
       })
    })
    return filtIng
