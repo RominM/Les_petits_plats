@@ -27,7 +27,7 @@ export const displayIngredients = (arrayIng) => {
    allIng.append(ingUl);
 
    arrayIng.forEach(eachIngredient => {
-
+      // problem from style
       const ingLi = document.createElement('li');
       ingLi.classList.add('ing-li');
       ingLi.innerHTML = eachIngredient;

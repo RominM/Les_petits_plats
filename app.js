@@ -2,7 +2,7 @@ import {	recipes} from './data.js';
 import {	HeaderDOM} from './js/Header.js';
 import {	SearchSection} from './js/SearchSection.js';
 import {	displayRecipes} from './js/displayRecipes.js';
-import {	UpdateState} from './js/UpdateState.js';
+// import {	UpdateState} from './js/UpdateState.js';
 import { runningIngredient} from './js/runningIngredient.js';
 import {	runningAppliance} from './js/runningAppliance.js';
 import {	runningUstensil} from './js/runningUstensil.js';

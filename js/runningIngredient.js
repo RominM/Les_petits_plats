@@ -1,6 +1,8 @@
 import { displayIngredients, getAllIngredients, getFilterIngredient } from './handlerIngredient.js';
 import { UpdateState } from './UpdateState.js';
 import { displayRecipes } from './displayRecipes.js';
+/*Algo de recherhce ici*/
+
 // Open dropBox whene input is clicked
 export const runningIngredient = (STATEDATA) => {
 	const inpIng = document.querySelector('.inp-ing');
@@ -8,7 +10,7 @@ export const runningIngredient = (STATEDATA) => {
 		const allIng = getAllIngredients(STATEDATA);
 		displayIngredients(allIng);
 	});
-	// Display only the available ingredient
+	// Display only the available ingredient (>2 characters)
 	inpIng.addEventListener('input', () => {
 		let inpValue = inpIng.value;
 		const allIng = document.querySelector('.all-ing');
@@ -22,14 +24,16 @@ export const runningIngredient = (STATEDATA) => {
 			const noDblIng = filtIng.filter(function (ele, pos) {
 				return filtIng.indexOf(ele) == pos;
 			});
+			// Have to deleted the first displayIngredients() before cause it create another one
 			displayIngredients(noDblIng);
 			// update the recipes by ingredient
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateIngData(filtIng);
-		} else if (inpValue.length == 0) {
-			allIng.innerHTML = '';
-			console.log(allIng);
-			displayIngredients(allIng);
-		}
+		} 
+		// else if (inpValue.length == 0) {
+		// 	allIng.innerHTML = '';
+		// 	console.log(allIng);
+		// 	displayIngredients(allIng);
+		// }
 	});
 }
