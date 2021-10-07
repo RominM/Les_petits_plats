@@ -1,5 +1,4 @@
 import { displayRecipes } from "../view/displayRecipes.js";
-import { displayIngredients } from "../Ui/handlerIngredient.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
