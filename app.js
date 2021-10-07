@@ -1,11 +1,10 @@
-import {	recipes} from './data.js';
-import {	HeaderDOM} from './js/Header.js';
-import {	SearchSection} from './js/SearchSection.js';
-import {	displayRecipes} from './js/displayRecipes.js';
-// import {	UpdateState} from './js/UpdateState.js';
-import { runningIngredient} from './js/runningIngredient.js';
-import {	runningAppliance} from './js/runningAppliance.js';
-import {	runningUstensil} from './js/runningUstensil.js';
+import {	recipes } from './data.js';
+import { HeaderDOM } from './js/view/Header.js';
+import {	SearchSection } from './js/view/SearchSection.js';
+import {	displayRecipes } from './js/view/displayRecipes.js';
+import { runningIngredient } from './js/Update/runningIngredient.js';
+import {	runningAppliance } from './js/Update/runningAppliance.js';
+import {	runningUstensil } from './js/Update/runningUstensil.js';
 // Init data
 let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {

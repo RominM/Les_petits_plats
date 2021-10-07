@@ -1,6 +1,5 @@
-import { displayIngredients, getAllIngredients, getFilterIngredient } from './handlerIngredient.js';
+import { displayIngredients, getAllIngredients, getFilterIngredient } from '../Ui/handlerIngredient.js';
 import { UpdateState } from './UpdateState.js';
-import { displayRecipes } from './displayRecipes.js';
 /*Algo de recherhce ici*/
 
 // Open dropBox whene input is clicked

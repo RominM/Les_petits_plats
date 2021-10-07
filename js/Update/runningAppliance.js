@@ -1,6 +1,5 @@
-import { getAllAppliances, displayAppliances, getFilterAppliance } from './handlerAppliance.js';
+import { getAllAppliances, displayAppliances, getFilterAppliance } from '../Ui/handlerAppliance.js';
 import { UpdateState } from './UpdateState.js';
-import { displayRecipes } from './displayRecipes.js';
 // Open dropBox whene input is clicked
 export const runningAppliance = (STATEDATA) => {
 	const inpApp = document.querySelector('.inp-app');

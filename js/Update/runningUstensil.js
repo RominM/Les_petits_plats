@@ -1,6 +1,5 @@
-import { getAllUstensils, displayUstensils, getFilterUstensil } from './handlerUstensils.js';
+import { getAllUstensils, displayUstensils, getFilterUstensil } from '../Ui/handlerUstensils.js';
 import { UpdateState } from './UpdateState.js';
-import { displayRecipes } from './displayRecipes.js';
 // Open dropBox whene input is clicked
 export const runningUstensil = (STATEDATA) => {
 	const inpUst = document.querySelector('.inp-ust');

@@ -1,4 +1,4 @@
-import { recipes } from "../data.js";
+import { recipes } from "../../data.js";
 // import {error} from '../js/error.js';
 
 // Get filtered Ingredient from data
