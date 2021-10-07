@@ -1,4 +1,4 @@
-import {	recipes } from './data.js';
+import {	recipes } from './js/data.js';
 import { HeaderDOM } from './js/view/Header.js';
 import {	SearchSection } from './js/view/SearchSection.js';
 import {	displayRecipes } from './js/view/displayRecipes.js';
