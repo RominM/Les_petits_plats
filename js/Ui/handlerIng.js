@@ -16,7 +16,7 @@ export const getAllIng = (STATEDATA) => {
 };
 // Create DOM Elements
 export const displayIng = (arrayIng) => {
-   const section = document.querySelector('section');
+   const containerIng = document.querySelector('.inp-container-ing');
    let allIng = document.querySelector('.all-ing');
    // If allIng existe get empty
    if(allIng) {
@@ -24,7 +24,7 @@ export const displayIng = (arrayIng) => {
    } else { // else it creted it
       allIng = document.createElement('div');
       allIng.classList.add('all-ing');
-      section.append(allIng);
+      containerIng.append(allIng);
    }
    const ingUl = document.createElement('ul');
    allIng.append(ingUl);

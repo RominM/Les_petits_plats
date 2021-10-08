@@ -1,9 +1,9 @@
-.sortSection {
+.dropBox {
     position: relative;
     display: flex;
     justify-content: flex-start;
     color: #fff;
-    .inp-ing {
+    .target-ing {
         position: relative;
         font-family: $DMSans;
         background: url(../../Images/arrowDown.svg) no-repeat;
@@ -35,25 +35,25 @@
             transition: .3s;
         }
     }
-    .inp-ing::placeholder {
+    .target-ing::placeholder {
         color: #fff;
     }
-    .inp-ing:focus {
+    .target-ing:focus {
         outline: none;
     }
-    .inp-app {
-        @extend .inp-ing;
+    .target-app {
+        @extend .target-ing;
     }
-    .inp-ust {
-        @extend .inp-ing;
+    .target-ust {
+        @extend .target-ing;
     }
-    .inp-ing {
+    .target-ing {
         background-color: $azur;
     }
-    .inp-app {
+    .target-app {
         background-color: $mint;
     }
-    .inp-ust {
+    .target-ust {
         background-color: $salmon;
     }
 }

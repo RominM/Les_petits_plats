@@ -1,4 +1,5 @@
 import { displayRecipes } from "../view/displayRecipes.js";
+import { createBubble } from "../view/SearchSection.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
@@ -73,27 +74,7 @@ export class UpdateState {
    }
 }
 
-const createBubble = () => {
-   const ingLi = document.querySelectorAll('.ing-li');
-   ingLi.forEach(ing => {
-      ing.addEventListener('click', () => {
-         const sortSection = document.querySelector('.sortSection');
-         const bubble = document.createElement('div');
-         bubble.classList.add('bubble');
-         const bubbleSpan = document.createElement('span');
-         bubbleSpan.innerHTML = ing.innerHTML;
 
-         bubble.append(bubbleSpan);
-         sortSection.append(bubble);
-         closeDropBox();
-      })
-   })  
-}
-
-const closeDropBox = () => {
-   const allIng = document.querySelector('all-ing');
-   console.log(allIng);
-}
 
 
 /*

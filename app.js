@@ -15,8 +15,8 @@ const header = new HeaderDOM();
 header.buildHead();
 // Display Search Section
 const searchSection = new SearchSection();
-searchSection.creatSearchBar();
-searchSection.sortByStamps();
+searchSection.createSearchBar();
+searchSection.createSearchStamps();
 // Display register of recipes
 displayRecipes(STATEDATA);
 // Algo Search Ingredients

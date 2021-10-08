@@ -14,7 +14,7 @@ export const getAllApp = (STATEDATA) => {
 };
 // Create DOM Elements
 export const displayApp = (arrayApp) => {
-   const section = document.querySelector('section');
+   const section = document.querySelector('.dropBox');
    let allApp = document.querySelector('.all-app');
    // If allApp existe get empty
    if(allApp) {

@@ -3,13 +3,17 @@ import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
-	const inpIng = document.querySelector('.inp-ing');
-	inpIng.addEventListener('click', () => {
+	const inpIng1 = document.querySelector('.target-ing');
+	const inpIng2 = document.querySelector('.inp-ing');
+	console.log(inpIng2);
+	inpIng1.addEventListener('click', () => {
+		inpIng1.style.display = 'none';
+		inpIng2.style.display = 'block';
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
 	});
 	// Display only the available ingredient (>2 characters)
-	inpIng.addEventListener('input', () => {
+	inpIng2.addEventListener('input', () => {
 		let inpValue = inpIng.value;
 		const allIng = document.querySelector('.all-ing');
 		if (inpValue.length > 2) {

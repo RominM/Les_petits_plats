@@ -3,7 +3,7 @@ import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runApp = (STATEDATA) => {
-	const inpApp = document.querySelector('.inp-app');
+	const inpApp = document.querySelector('.target-app');
 	inpApp.addEventListener('click', () => {
 		const allApp = getAllApp(STATEDATA);
 		displayApp(allApp);
