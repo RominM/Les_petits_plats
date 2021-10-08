@@ -2,9 +2,9 @@ import {	recipes } from './js/data.js';
 import { HeaderDOM } from './js/view/Header.js';
 import {	SearchSection } from './js/view/SearchSection.js';
 import {	displayRecipes } from './js/view/displayRecipes.js';
-import { runningIngredient } from './js/Update/runningIngredient.js';
-import {	runningAppliance } from './js/Update/runningAppliance.js';
-import {	runningUstensil } from './js/Update/runningUstensil.js';
+import { runIng } from './js/Update/runIng.js';
+import {	runApp } from './js/Update/runApp.js';
+import {	runUst } from './js/Update/runUst.js';
 // Init data
 let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
@@ -20,11 +20,11 @@ searchSection.sortByStamps();
 // Display register of recipes
 displayRecipes(STATEDATA);
 // Algo Search Ingredients
-runningIngredient(STATEDATA);
+runIng(STATEDATA);
 // Algo Search Appliances
-runningAppliance(STATEDATA);
+runApp(STATEDATA);
 // Algo Search Ustensils
-runningUstensil(STATEDATA);
+runUst(STATEDATA);
 // Algo Search Global
 //ruuningGlobalResearch();
 

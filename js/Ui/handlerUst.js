@@ -1,7 +1,7 @@
 import { recipes } from "../data.js";
-// import { error } from '../js/error.js';
 
-export const getAllUstensils = (STATEDATA) => {
+// Get filtered Ingredient from data
+export const getAllUst = (STATEDATA) => {
    let arrayUst = [];
    STATEDATA.forEach(recipe => {
       recipe.ustensils.forEach(ustensil => {
@@ -14,39 +14,39 @@ export const getAllUstensils = (STATEDATA) => {
    })
    return filtUstArray
 };
-
-export const displayUstensils = (arrayUst) => {
-
+// Create DOM Elements
+export const displayUst = (arrayUst) => {
    const section = document.querySelector('section');
-   const allUst = document.createElement('div');
-   allUst.classList.add('all-ust');
-   section.append(allUst);
+   let allUst = document.querySelector('.all-ust');
+   // If allApp existe get empty
+   if(allUst) {
+      allUst.innerHTML = '';
+   } else { // else it creted it
+      allUst = document.createElement('div');
+      allUst.classList.add('all-ust');
+      section.append(allUst);
+   }
+   const ustUl = document.createElement('ul');
+   allUst.append(ustUl);
    
    arrayUst.forEach(eachUstensils => {
 
-      const ustUl = document.createElement('ul');
       const ustLi = document.createElement('li');
       ustLi.classList.add('ust-li');
       ustLi.innerHTML = eachUstensils;
    
       ustUl.append(ustLi);
-      allUst.append(ustUl);
    })
 };
-
-export const getFilterUstensil = (inpValue) => {
+// Includes to lower case
+export const getFilterUst = (inpValue) => {
    const data =[...recipes];
-   let filteredUstensil = [];
+   let filtUst = [];
    data.forEach(recipe => {
       recipe.ustensils.forEach(ustensil => {
-         console.log(ustensil);
          const ustMemo = ustensil ;
-         const sliced = ustMemo.slice(0, inpValue.length);
-         console.log(ustMemo);
-         if(sliced.toLowerCase() == inpValue.toLowerCase()) {
-            filteredUstensil.push(ustMemo);
-         }
+         ustMemo.includes(inpValue.toLowerCase()) && filtUst.push(ustMemo);
       })
    })
-   return filteredUstensil
+   return filtUst
 };

@@ -8,8 +8,8 @@ export class UpdateState {
    
    stateData(STATEDATA, inpValue) {
       updateIngData();
-      searchAppliance();
-      searchUstensils();
+      updateAppData();
+      updateUstData();
       return stateData
    }
    // INGREDIENTS
@@ -26,19 +26,50 @@ export class UpdateState {
                   break
                } else {
                   recipe.display = false;
-               }
-            }
-         }
-      })
-      displayRecipes(this.STATEDATA)
+               };
+            };
+         };
+      });
+      displayRecipes(this.STATEDATA);
    }
    // APPLIANCES
-   updateAppData(STATEDATA, inpValue) {
-      console.log('in searchAppliance()');
+   updateAppData(inpValue) {
+      const recipes = this.STATEDATA;
+      for (let i = 0; i < recipes.length; i++) {
+         const recipe = recipes[i];
+         
+         if(recipe.display == true) {
+            const appMemo = recipe.appliance.toLowerCase();
+            if (inpValue.includes(appMemo)) {
+               recipe.display = true;
+               break
+            } else {
+               recipe.display = false;
+            };
+         }
+      }
+      displayRecipes(this.STATEDATA);
    }
    // USTENSILS
-   updateUstData(STATEDATA, inpValue) {
-      console.log('in searchUstensils()');
+   updateUstData(inpValue) {
+      const recipes = this.STATEDATA;
+      recipes.forEach(recipe => {
+         console.log(recipe.ustensils);
+         for (let i = 0; i < recipe.ustensils.length; i++) {
+            const ustensil = recipe.ustensils[i];
+            
+            if(recipe.display == true) {
+               const ustMemo = ustensil.toLowerCase();
+               if(inpValue.includes(ustMemo)) {
+                  recipe.display = true;
+                  break
+               } else {
+                  recipe.display = false;
+               };
+            }   
+         }
+      })
+      displayRecipes(this.STATEDATA);
    }
 }
 

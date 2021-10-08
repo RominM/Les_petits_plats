@@ -1,29 +1,29 @@
-import { getAllAppliances, displayAppliances, getFilterAppliance } from '../Ui/handlerAppliance.js';
+import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { UpdateState } from './UpdateState.js';
+
 // Open dropBox whene input is clicked
-export const runningAppliance = (STATEDATA) => {
+export const runApp = (STATEDATA) => {
 	const inpApp = document.querySelector('.inp-app');
 	inpApp.addEventListener('click', () => {
-		inpApp.classList.add('selected');
-		const allApp = getAllAppliances(STATEDATA);
-		displayAppliances(allApp);
+		const allApp = getAllApp(STATEDATA);
+		displayApp(allApp);
 	});
 	// Display only the available appliance
 	inpApp.addEventListener('input', () => {
 		let inpValue = inpApp.value;
+		const allApp = document.querySelector('.all-app');
 		if (inpValue.length > 2) {
-			const allApp = document.querySelector('all-app');
+			const filtApp = getFilterApp(inpValue);
 			allApp.innerHTML = '';
-			const filtApp = getFilterAppliance(inpValue);
 			// deleted duplicate appliance inside the dropBox
 			const noDblApp = filtApp.filter(function (ele, pos) {
 				return filtApp.indexOf(ele) == pos;
 			});
-			console.log(noDblApp);
-			displayAppliances(noDblApp);
+			// Have to deleted the first displayIngredients() before cause it create another one
+			displayApp(noDblApp);
 			// update the recipes by appliance
 			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateIngData(filtIng);
+			updateState.updateAppData(filtApp);
 		}
 	});
 }

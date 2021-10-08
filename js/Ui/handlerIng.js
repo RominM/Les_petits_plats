@@ -1,7 +1,7 @@
 import { recipes } from "../data.js";
 
 // Get filtered Ingredient from data
-export const getAllIngredients = (STATEDATA) => {
+export const getAllIng = (STATEDATA) => {
    let arrayIng = [];
    STATEDATA.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
@@ -15,20 +15,18 @@ export const getAllIngredients = (STATEDATA) => {
    return filtIngArray
 };
 // Create DOM Elements
-export const displayIngredients = (arrayIng) => {
+export const displayIng = (arrayIng) => {
    const section = document.querySelector('section');
-   let allIng = document.querySelector('all-ing');
-
+   let allIng = document.querySelector('.all-ing');
    // If allIng existe get empty
    if(allIng) {
-      allIng.innerHTML = '';// raz
-   } else { // heven it creted it
+      allIng.innerHTML = '';
+   } else { // else it creted it
       allIng = document.createElement('div');
       allIng.classList.add('all-ing');
       section.append(allIng);
    }
    const ingUl = document.createElement('ul');
-   
    allIng.append(ingUl);
 
    arrayIng.forEach(eachIngredient => {
@@ -40,8 +38,8 @@ export const displayIngredients = (arrayIng) => {
       ingUl.append(ingLi);
    })
 };
-// Sliced to lower case
-export const getFilterIngredient = (inpValue) => {
+// Includes to lower case
+export const getFilterIng = (inpValue) => {
    const data = [...recipes];
    let filtIng = [];
    data.forEach(recipe => {
