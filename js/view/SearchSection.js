@@ -29,10 +29,10 @@ export class SearchSection {
     main.append(divSearch);
     body.append(main)
   }
-  createSearchStamps() {  
+  createSearchStamps() {
     const main = document.querySelector('main');
     const section = document.querySelector('section');
-    
+
     const containerIng = document.querySelector('.inp-container-ing');
     const inpIng1 = document.createElement('input');
     inpIng1.classList.add('target-ing');
@@ -40,7 +40,7 @@ export class SearchSection {
     const inpIng2 = document.createElement('input');
     inpIng2.classList.add('inp-ing');
     inpIng2.placeholder = 'Rechercher un ingrédient'
-    
+
     const containerApp = document.querySelector('.inp-container-app');
     const inpApp1 = document.createElement('input');
     inpApp1.classList.add('target-app');
@@ -60,26 +60,28 @@ export class SearchSection {
     containerIng.append(inpIng1, inpIng2);
     containerApp.append(inpApp1, inpApp2);
     containerUst.append(inpUst1, inpUst2);
-    
+
     main.append(section);
   }
 }
 
 export const createBubble = () => {
   const ingLi = document.querySelectorAll('.ing-li');
+  const appLi = document.querySelectorAll('.app-li');
+  const ustLi = document.querySelectorAll('.ust-li');
   ingLi.forEach(ing => {
-     ing.addEventListener('click', () => {
-        const containsBubbles = document.querySelector('.contains-bubbles');
-        const bubble = document.createElement('div');
-        bubble.classList.add('bubble');
-        const bubbleSpan = document.createElement('span');
-        bubbleSpan.innerHTML = ing.innerHTML;
+    ing.addEventListener('click', () => {
+      const containsBubbles = document.querySelector('.contains-bubbles');
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      const bubbleSpan = document.createElement('span');
+      bubbleSpan.innerHTML = ing.innerHTML;
 
-        bubble.append(bubbleSpan);
-        containsBubbles.append(bubble);
-        closeIngDropBox();
-        closeUstDropBox();
-        closeAppDropBox();
-     })
-  })  
-}
+      bubble.append(bubbleSpan);
+      containsBubbles.append(bubble);
+      closeIngDropBox();
+      closeUstDropBox();
+      closeAppDropBox();
+    });
+  });
+};

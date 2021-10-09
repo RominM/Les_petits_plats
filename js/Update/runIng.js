@@ -1,8 +1,4 @@
-import {
-	displayIng,
-	getAllIng,
-	getFilterIng
-} from '../Ui/handlerIng.js';
+import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 

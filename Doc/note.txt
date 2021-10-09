@@ -1,1 +1,6 @@
 - Remplire la fiche d'investigation
+
+
+//NOTES\\
+- dropBox ne peuvent jouer qu'une seule fois.
+- 1 bubble create par ingredient trouvé (et non clické).

@@ -43,6 +43,7 @@ export class UpdateState {
             const appMemo = recipe.appliance.toLowerCase();
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
+               createBubble();
                break
             } else {
                recipe.display = false;
@@ -80,10 +81,11 @@ export class UpdateState {
 créer un nouveau dossier pour ranger les fichier js
 
 !!! gérer les 3 inputs
-si je tape 'coco' et que je click (garder les recettes selectionné)
+!!! si je tape 'coco' et que je click (garder les recettes selectionné)
 !!! refermer la dropBox
 ! ajout d'une bulle avec l'ingredient
-vider l'input
+!!! vider l'input
+
 garder les recettes >>> displayIngredient() + ...
 
 penser a garder les recette en display = true
