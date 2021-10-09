@@ -1,41 +1,118 @@
+// Ingredient
 .inp-container-ing {
-   width: 450px;
-   .all-ing, .all-app, .all-ust {
-      position: absolute;
-      top: 100%;
+   margin-right: 10px;
+   .all-ing {
       display: grid;
+      box-sizing: content-box;
       width: 100%;
       max-height: 300px;
       font-family: Lato-Reg;
       line-height: 25px;
       overflow-y: auto;
-   }
-   
-   .all-ing {
       grid-template-columns: repeat(3, 1fr);
       background-color: $azur;
    }
-   
+   .inp-ing {
+      display: none;
+      box-sizing: content-box;
+      background: url(../../Images/arrowUp.svg) no-repeat;
+      background-position: right 1% bottom 50%;
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 5px;
+      color: #fff;
+      background-color: $azur;
+   }
+   .inp-ing::placeholder {
+      color: #fff;
+   }
+   .inp-ing:focus {
+      outline: none;
+   }
+}
+// Appliance
+.inp-container-app {
+   margin-right: 10px;
    .all-app {
+      display: grid;
+      box-sizing: content-box;
+      width: 100%;
+      max-height: 300px;
+      font-family: Lato-Reg;
+      line-height: 25px;
+      overflow-y: auto;
       grid-template-columns: repeat(2, 1fr);
       background-color: $mint;
    }
-   
+   .inp-app {
+      display: none;
+      box-sizing: content-box;
+      background: url(../../Images/arrowUp.svg) no-repeat;
+      background-position: right 1% bottom 50%;
+      width: 100%;
+      height: 50px;
+      border: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 5px;
+      color: #fff;
+      background-color: $mint;
+   }
+   .inp-app::placeholder {
+      color: #fff;
+   }
+   .inp-app:focus {
+      outline: none;
+   }
+}
+// Ustensils
+.inp-container-ust {
+   margin-right: 10px;
    .all-ust {
+      display: grid;
+      box-sizing: content-box;
+      width: 100%;
+      max-height: 300px;
+      font-family: Lato-Reg;
+      line-height: 25px;
+      overflow-y: auto;
       grid-template-columns: repeat(3, 1fr);
       background-color: $salmon;
    }
-  .inp-ing {
+   .inp-ust {
       display: none;
+      box-sizing: content-box;
+      background: url(../../Images/arrowUp.svg) no-repeat;
+      background-position: right 1% bottom 50%;
       width: 100%;
       height: 50px;
-  }
-}   
-.ing-li, .app-li, .ust-li {
+      border: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 5px;
+      color: #fff;
+      background-color: $salmon;
+   }
+   .inp-ust::placeholder {
+      color: #fff;
+   }
+   .inp-ust:focus {
+      outline: none;
+   }
+}
+
+.ing-li,
+.app-li,
+.ust-li {
    padding: 2px 25px 2px 2px;
    cursor: pointer;
 }
 
-.ing-li:hover, .app-li:hover, .ust-li:hover {
+.ing-li:hover,
+.app-li:hover,
+.ust-li:hover {
    font-weight: bold;
 }

@@ -16,21 +16,18 @@ export const getAllUst = (STATEDATA) => {
 };
 // Create DOM Elements
 export const displayUst = (arrayUst) => {
-   const section = document.querySelector('.dropBox');
-   let allUst = document.querySelector('.all-ust');
-   // If allApp existe get empty
-   if(allUst) {
-      allUst.innerHTML = '';
+   const containerApp = document.querySelector('.inp-container-ust');
+   let ustUl = document.querySelector('.all-ust');
+   // If ustUl existe get empty
+   if(ustUl) {
+      ustUl.innerHTML = '';
    } else { // else it creted it
-      allUst = document.createElement('div');
-      allUst.classList.add('all-ust');
-      section.append(allUst);
+      ustUl = document.createElement('ul');
+      ustUl.classList.add('all-ust');
+      containerApp.append(ustUl);
    }
-   const ustUl = document.createElement('ul');
-   allUst.append(ustUl);
    
    arrayUst.forEach(eachUstensils => {
-
       const ustLi = document.createElement('li');
       ustLi.classList.add('ust-li');
       ustLi.innerHTML = eachUstensils;

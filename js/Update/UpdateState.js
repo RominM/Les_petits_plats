@@ -55,7 +55,6 @@ export class UpdateState {
    updateUstData(inpValue) {
       const recipes = this.STATEDATA;
       recipes.forEach(recipe => {
-         console.log(recipe.ustensils);
          for (let i = 0; i < recipe.ustensils.length; i++) {
             const ustensil = recipe.ustensils[i];
             

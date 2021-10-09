@@ -3,14 +3,18 @@ import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runApp = (STATEDATA) => {
-	const inpApp = document.querySelector('.target-app');
-	inpApp.addEventListener('click', () => {
+	const inpApp1 = document.querySelector('.target-app');
+	const inpApp2 = document.querySelector('.inp-app');
+	inpApp1.addEventListener('click', () => {
+		inpApp1.style.display = 'none';
+		inpApp2.style.display = 'block';
+		inpApp2.focus();
 		const allApp = getAllApp(STATEDATA);
 		displayApp(allApp);
 	});
 	// Display only the available appliance
-	inpApp.addEventListener('input', () => {
-		let inpValue = inpApp.value;
+	inpApp2.addEventListener('input', () => {
+		let inpValue = inpApp2.value;
 		const allApp = document.querySelector('.all-app');
 		if (inpValue.length > 2) {
 			const filtApp = getFilterApp(inpValue);

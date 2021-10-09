@@ -14,21 +14,18 @@ export const getAllApp = (STATEDATA) => {
 };
 // Create DOM Elements
 export const displayApp = (arrayApp) => {
-   const section = document.querySelector('.dropBox');
-   let allApp = document.querySelector('.all-app');
-   // If allApp existe get empty
-   if(allApp) {
-      allApp.innerHTML = '';
+   const containerApp = document.querySelector('.inp-container-app');
+   let appUl = document.querySelector('.all-app');
+   // If appUl existe get empty
+   if(appUl) {
+      appUl.innerHTML = '';
    } else { // else it creted it
-      allApp = document.createElement('div');
-      allApp.classList.add('all-app');
-      section.append(allApp);
+      appUl = document.createElement('ul');
+      appUl.classList.add('all-app');
+      containerApp.append(appUl);
    }
-   const appUl = document.createElement('ul');
-   allApp.append(appUl);
 
    arrayApp.forEach(eachAppliance => {
-
       const appLi = document.createElement('li');
       appLi.classList.add('app-li');
       appLi.innerHTML = eachAppliance;

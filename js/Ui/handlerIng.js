@@ -17,20 +17,17 @@ export const getAllIng = (STATEDATA) => {
 // Create DOM Elements
 export const displayIng = (arrayIng) => {
    const containerIng = document.querySelector('.inp-container-ing');
-   let allIng = document.querySelector('.all-ing');
-   // If allIng existe get empty
-   if(allIng) {
-      allIng.innerHTML = '';
+   let ingUl = document.querySelector('.all-ing');
+   // If ingUl existe get empty
+   if(ingUl) {
+      ingUl.innerHTML = '';
    } else { // else it creted it
-      allIng = document.createElement('div');
-      allIng.classList.add('all-ing');
-      containerIng.append(allIng);
+      ingUl = document.createElement('ul');
+      ingUl.classList.add('all-ing')
+      containerIng.append(ingUl);
    }
-   const ingUl = document.createElement('ul');
-   allIng.append(ingUl);
 
    arrayIng.forEach(eachIngredient => {
-      // problem from style
       const ingLi = document.createElement('li');
       ingLi.classList.add('ing-li');
       ingLi.innerHTML = eachIngredient;

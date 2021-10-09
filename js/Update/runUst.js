@@ -3,15 +3,19 @@ import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
-	const inpUst = document.querySelector('.target-ust');
-	inpUst.addEventListener('click', () => {
-		inpUst.classList.add('selected');
+	const inpUst1 = document.querySelector('.target-ust');
+	const inpUst2 = document.querySelector('.inp-ust');
+	inpUst1.addEventListener('click', () => {
+		inpUst1.style.display = 'none';
+		inpUst2.style.display = 'block';
+		inpUst2.focus();
 		const allUst = getAllUst(STATEDATA);
 		displayUst(allUst);
 	});
 	// Display only the available ustensil
-	inpUst.addEventListener('input', () => {
-		let inpValue = inpUst.value;
+	inpUst2.addEventListener('input', () => {
+		let inpValue = inpUst2.value;
+		const allUst = document.querySelector('.all-ust');
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			// deleted duplicate ustensils inside the dropBox

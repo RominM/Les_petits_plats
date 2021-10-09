@@ -37,7 +37,7 @@ export class SearchSection {
     inpIng1.placeholder = 'Ingrédients';
     const inpIng2 = document.createElement('input');
     inpIng2.classList.add('inp-ing');
-  
+    inpIng2.placeholder = 'Rechercher un ingrédient'
     
     const containerApp = document.querySelector('.inp-container-app');
     const inpApp1 = document.createElement('input');
@@ -45,17 +45,15 @@ export class SearchSection {
     inpApp1.placeholder = 'Appareils';
     const inpApp2 = document.createElement('input');
     inpApp2.classList.add('inp-app');
+    inpApp2.placeholder = 'Rechercher un Appareil'
 
-    
     const containerUst = document.querySelector('.inp-container-ust');
     const inpUst1 = document.createElement('input');
     inpUst1.classList.add('target-ust');
     inpUst1.placeholder = 'Ustensiles';
     const inpUst2 = document.createElement('input');
-    inpUst2.classList.add('inp-ust'); 
-
-
-    //________//indent
+    inpUst2.classList.add('inp-ust');
+    inpUst2.placeholder = 'Recherche un Ustensil'
 
     containerIng.append(inpIng1, inpIng2);
     containerApp.append(inpApp1, inpApp2);

@@ -5,16 +5,16 @@ import { UpdateState } from './UpdateState.js';
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
-	console.log(inpIng2);
 	inpIng1.addEventListener('click', () => {
 		inpIng1.style.display = 'none';
 		inpIng2.style.display = 'block';
+		inpIng2.focus();
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
 	});
 	// Display only the available ingredient (>2 characters)
 	inpIng2.addEventListener('input', () => {
-		let inpValue = inpIng.value;
+		let inpValue = inpIng2.value;
 		const allIng = document.querySelector('.all-ing');
 		if (inpValue.length > 2) {
 			const filtIng = getFilterIng(inpValue);
