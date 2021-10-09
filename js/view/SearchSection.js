@@ -64,24 +64,3 @@ export class SearchSection {
     main.append(section);
   }
 }
-
-export const createBubble = () => {
-  const ingLi = document.querySelectorAll('.ing-li');
-  const appLi = document.querySelectorAll('.app-li');
-  const ustLi = document.querySelectorAll('.ust-li');
-  ingLi.forEach(ing => {
-    ing.addEventListener('click', () => {
-      const containsBubbles = document.querySelector('.contains-bubbles');
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      const bubbleSpan = document.createElement('span');
-      bubbleSpan.innerHTML = ing.innerHTML;
-
-      bubble.append(bubbleSpan);
-      containsBubbles.append(bubble);
-      closeIngDropBox();
-      closeUstDropBox();
-      closeAppDropBox();
-    });
-  });
-};

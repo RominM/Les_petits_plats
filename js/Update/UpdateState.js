@@ -1,5 +1,6 @@
+import { createBubbleIng, createBubbleApp, createBubbleUst } from "../view/createBubbles.js";
 import { displayRecipes } from "../view/displayRecipes.js";
-import { createBubble } from "../view/SearchSection.js";
+// import { createBubble } from "../view/SearchSection.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
@@ -23,7 +24,7 @@ export class UpdateState {
 
                 if (inpValue.includes(ingMemo)) {
                   recipe.display = true;
-                  createBubble();
+                  createBubbleIng();
                   break
                } else {
                   recipe.display = false;
@@ -43,7 +44,7 @@ export class UpdateState {
             const appMemo = recipe.appliance.toLowerCase();
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
-               createBubble();
+               createBubbleApp();
                break
             } else {
                recipe.display = false;
@@ -63,6 +64,7 @@ export class UpdateState {
                const ustMemo = ustensil.toLowerCase();
                if(inpValue.includes(ustMemo)) {
                   recipe.display = true;
+                  createBubbleUst();
                   break
                } else {
                   recipe.display = false;
@@ -75,8 +77,6 @@ export class UpdateState {
 };
 
 
-
-
 /*
 créer un nouveau dossier pour ranger les fichier js
 
@@ -85,6 +85,7 @@ créer un nouveau dossier pour ranger les fichier js
 !!! refermer la dropBox
 ! ajout d'une bulle avec l'ingredient
 !!! vider l'input
+!!! Rangement des fichiers
 
 garder les recettes >>> displayIngredient() + ...
 

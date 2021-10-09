@@ -1,6 +1,6 @@
 .contains-bubbles {
    display: flex;
-   .bubble {
+   .bubble-ing {
       position: relative;
       width: 150px;
       height: 30px;
@@ -10,7 +10,7 @@
       background-repeat: no-repeat;
       background-size: 17px 17px;
       background-position: 5%;
-      margin: 10px;
+      margin: 10px 10px 10px 0;
       color: #fff;
       font-family: $LatoReg;
       cursor: pointer;
@@ -18,5 +18,13 @@
          text-align: center;
          padding-top: 5px;
       }
+   }
+   .bubble-app {
+      @extend .bubble-ing;
+      background-color: $mint;
+   }
+   .bubble-ust {
+      @extend .bubble-ing;
+      background-color: $salmon;
    }
 }
