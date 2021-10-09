@@ -1,11 +1,13 @@
 // Ingredient
 .inp-container-ing {
-   margin-right: 10px;
+   margin-right: 40px;
+}
    .all-ing {
       display: grid;
       box-sizing: content-box;
       width: 100%;
       max-height: 300px;
+      padding-left: 5px;
       font-family: Lato-Reg;
       line-height: 25px;
       overflow-y: auto;
@@ -32,15 +34,17 @@
    .inp-ing:focus {
       outline: none;
    }
-}
+
 // Appliance
 .inp-container-app {
-   margin-right: 10px;
+   margin-right: 40px;
+}
    .all-app {
       display: grid;
       box-sizing: content-box;
       width: 100%;
       max-height: 300px;
+      padding-left: 5px;
       font-family: Lato-Reg;
       line-height: 25px;
       overflow-y: auto;
@@ -67,15 +71,17 @@
    .inp-app:focus {
       outline: none;
    }
-}
+
 // Ustensils
 .inp-container-ust {
-   margin-right: 10px;
+   margin-right: 40px;
+}
    .all-ust {
       display: grid;
       box-sizing: content-box;
       width: 100%;
       max-height: 300px;
+      padding-left: 5px;
       font-family: Lato-Reg;
       line-height: 25px;
       overflow-y: auto;
@@ -102,7 +108,7 @@
    .inp-ust:focus {
       outline: none;
    }
-}
+
 
 .ing-li,
 .app-li,

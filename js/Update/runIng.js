@@ -1,14 +1,22 @@
 import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
+import { openIngDropBox, closeDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
+
+	const inpApp2 = document.querySelector('.inp-app');
+	const inpUst2 = document.querySelector('.inp-ust');
+
 	inpIng1.addEventListener('click', () => {
-		inpIng1.style.display = 'none';
-		inpIng2.style.display = 'block';
+		if(inpApp2 || inpUst2) {
+			closeDropBox(inpApp2, inpUst2);
+		}
+		openIngDropBox();
 		inpIng2.focus();
+
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
 	});

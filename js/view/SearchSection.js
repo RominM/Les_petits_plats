@@ -1,3 +1,5 @@
+import { closeDropBox } from "../Ui/displayDropBox.js";
+
 export class SearchSection {
   constructor(data) {
     this.data = data;
@@ -29,7 +31,7 @@ export class SearchSection {
   }
   createSearchStamps() {  
     const main = document.querySelector('main');
-    const sortSection = document.querySelector('section');
+    const section = document.querySelector('section');
     
     const containerIng = document.querySelector('.inp-container-ing');
     const inpIng1 = document.createElement('input');
@@ -58,28 +60,24 @@ export class SearchSection {
     containerIng.append(inpIng1, inpIng2);
     containerApp.append(inpApp1, inpApp2);
     containerUst.append(inpUst1, inpUst2);
-    main.append(sortSection);
+    
+    main.append(section);
   }
 }
+
 export const createBubble = () => {
   const ingLi = document.querySelectorAll('.ing-li');
   ingLi.forEach(ing => {
      ing.addEventListener('click', () => {
-        const sortSection = document.querySelector('.sortSection');
+        const containsBubbles = document.querySelector('.contains-bubbles');
         const bubble = document.createElement('div');
         bubble.classList.add('bubble');
         const bubbleSpan = document.createElement('span');
         bubbleSpan.innerHTML = ing.innerHTML;
 
         bubble.append(bubbleSpan);
-        sortSection.append(bubble);
+        containsBubbles.append(bubble);
         closeDropBox();
      })
   })  
-}
-
-const closeDropBox = () => {
-  const allIng = document.querySelector('.all-ing');
-  allIng.style.display = 'none'
-  console.log(allIng);
 }

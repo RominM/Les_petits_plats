@@ -1,13 +1,20 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
+import { openUstDropBox, closeDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
 	const inpUst2 = document.querySelector('.inp-ust');
+
+	const inpIng2 = document.querySelector('.inp-ing');
+	const inpApp2 = document.querySelector('.inp-app');
+
 	inpUst1.addEventListener('click', () => {
-		inpUst1.style.display = 'none';
-		inpUst2.style.display = 'block';
+		if(inpApp2 || inpIng2) {
+			closeDropBox();
+		}
+		openUstDropBox();
 		inpUst2.focus();
 		const allUst = getAllUst(STATEDATA);
 		displayUst(allUst);
