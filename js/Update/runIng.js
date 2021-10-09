@@ -1,5 +1,9 @@
-import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
-import { openIngDropBox, closeDropBox } from '../Ui/displayDropBox.js';
+import {
+	displayIng,
+	getAllIng,
+	getFilterIng
+} from '../Ui/handlerIng.js';
+import { openIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
@@ -11,9 +15,9 @@ export const runIng = (STATEDATA) => {
 	const inpUst2 = document.querySelector('.inp-ust');
 
 	inpIng1.addEventListener('click', () => {
-		if(inpApp2 || inpUst2) {
-			closeDropBox(inpApp2, inpUst2);
-		}
+		closeAppDropBox();
+		closeUstDropBox();
+
 		openIngDropBox();
 		inpIng2.focus();
 
@@ -36,6 +40,6 @@ export const runIng = (STATEDATA) => {
 			// update the recipes by ingredient
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateIngData(filtIng);
-		} 
+		}
 	});
 }

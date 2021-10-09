@@ -32,7 +32,7 @@ export class UpdateState {
          };
       });
       displayRecipes(this.STATEDATA);
-   }
+   };
    // APPLIANCES
    updateAppData(inpValue) {
       const recipes = this.STATEDATA;
@@ -47,10 +47,10 @@ export class UpdateState {
             } else {
                recipe.display = false;
             };
-         }
-      }
+         };
+      };
       displayRecipes(this.STATEDATA);
-   }
+   };
    // USTENSILS
    updateUstData(inpValue) {
       const recipes = this.STATEDATA;
@@ -66,12 +66,12 @@ export class UpdateState {
                } else {
                   recipe.display = false;
                };
-            }   
-         }
-      })
+            }  ; 
+         };
+      });
       displayRecipes(this.STATEDATA);
-   }
-}
+   };
+};
 
 
 

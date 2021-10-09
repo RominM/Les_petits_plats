@@ -1,114 +1,65 @@
+// Parents
+.inp-container-ing, .inp-container-app, .inp-container-ust {
+   margin: 15px;
+}
 // Ingredient
-.inp-container-ing {
-   margin-right: 40px;
+.all-ing {
+   display: grid;
+   box-sizing: content-box;
+   width: 100%;
+   max-height: 300px;
+   padding-left: 5px;
+   font-family: Lato-Reg;
+   line-height: 25px;
+   overflow-y: auto;
+   grid-template-columns: repeat(3, 1fr);
+   background-color: $azur;
 }
-   .all-ing {
-      display: grid;
-      box-sizing: content-box;
-      width: 100%;
-      max-height: 300px;
-      padding-left: 5px;
-      font-family: Lato-Reg;
-      line-height: 25px;
-      overflow-y: auto;
-      grid-template-columns: repeat(3, 1fr);
-      background-color: $azur;
-   }
-   .inp-ing {
-      display: none;
-      box-sizing: content-box;
-      background: url(../../Images/arrowUp.svg) no-repeat;
-      background-position: right 1% bottom 50%;
-      width: 100%;
-      height: 50px;
-      border: none;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      padding-left: 5px;
-      color: #fff;
-      background-color: $azur;
-   }
-   .inp-ing::placeholder {
-      color: #fff;
-   }
-   .inp-ing:focus {
-      outline: none;
-   }
 
+.inp-ing {
+   display: none;
+   box-sizing: content-box;
+   background: url(../../Images/arrowUp.svg) no-repeat;
+   background-position: right 1% bottom 50%;
+   width: 100%;
+   height: 50px;
+   border: none;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   padding-left: 5px;
+   color: #fff;
+   background-color: $azur;
+}
 // Appliance
-.inp-container-app {
-   margin-right: 40px;
+.all-app {
+   @extend .all-ing;
+   grid-template-columns: repeat(2, 1fr);
+   background-color: $mint;
 }
-   .all-app {
-      display: grid;
-      box-sizing: content-box;
-      width: 100%;
-      max-height: 300px;
-      padding-left: 5px;
-      font-family: Lato-Reg;
-      line-height: 25px;
-      overflow-y: auto;
-      grid-template-columns: repeat(2, 1fr);
-      background-color: $mint;
-   }
-   .inp-app {
-      display: none;
-      box-sizing: content-box;
-      background: url(../../Images/arrowUp.svg) no-repeat;
-      background-position: right 1% bottom 50%;
-      width: 100%;
-      height: 50px;
-      border: none;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      padding-left: 5px;
-      color: #fff;
-      background-color: $mint;
-   }
-   .inp-app::placeholder {
-      color: #fff;
-   }
-   .inp-app:focus {
-      outline: none;
-   }
 
+.inp-app {
+   @extend .inp-ing;
+   background-color: $mint;
+}
 // Ustensils
-.inp-container-ust {
-   margin-right: 40px;
+.all-ust {
+   @extend .all-ing;
+   grid-template-columns: repeat(3, 1fr);
+   background-color: $salmon;
 }
-   .all-ust {
-      display: grid;
-      box-sizing: content-box;
-      width: 100%;
-      max-height: 300px;
-      padding-left: 5px;
-      font-family: Lato-Reg;
-      line-height: 25px;
-      overflow-y: auto;
-      grid-template-columns: repeat(3, 1fr);
-      background-color: $salmon;
-   }
-   .inp-ust {
-      display: none;
-      box-sizing: content-box;
-      background: url(../../Images/arrowUp.svg) no-repeat;
-      background-position: right 1% bottom 50%;
-      width: 100%;
-      height: 50px;
-      border: none;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      padding-left: 5px;
-      color: #fff;
-      background-color: $salmon;
-   }
-   .inp-ust::placeholder {
-      color: #fff;
-   }
-   .inp-ust:focus {
-      outline: none;
-   }
 
+.inp-ust {
+   @extend .inp-ing;
+   background-color: $salmon;
+}
+// Placeholder
+.inp-ing::placeholder, .inp-ust::placeholder, .inp-app::placeholder {
+   color: #fff;
+}
+// Focus
+.inp-ing:focus, .inp-app:focus, .inp-ust:focus {
+   outline: none;
+}
 
 .ing-li,
 .app-li,

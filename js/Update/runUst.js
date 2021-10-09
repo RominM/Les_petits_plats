@@ -1,5 +1,5 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
-import { openUstDropBox, closeDropBox } from '../Ui/displayDropBox.js';
+import { openUstDropBox, closeIngDropBox, closeAppDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 
 // Open dropBox whene input is clicked
@@ -11,9 +11,8 @@ export const runUst = (STATEDATA) => {
 	const inpApp2 = document.querySelector('.inp-app');
 
 	inpUst1.addEventListener('click', () => {
-		if(inpApp2 || inpIng2) {
-			closeDropBox();
-		}
+		closeIngDropBox();
+		closeAppDropBox();
 		openUstDropBox();
 		inpUst2.focus();
 		const allUst = getAllUst(STATEDATA);
