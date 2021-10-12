@@ -1,22 +1,14 @@
 import { closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 
-export const createBubbleIng = () => {
-   const ingLi = document.querySelectorAll('.ing-li');
-   ingLi.forEach(ing => {
-      ing.addEventListener('click', () => {
-         const containsBubbles = document.querySelector('.contains-bubbles');
-         const bubble = document.createElement('div');
-         bubble.classList.add('bubble-ing');
-         const bubbleSpan = document.createElement('span');
-         bubbleSpan.innerHTML = ing.innerHTML;
+export const createBubbleIng = (data) => {
+   const containsBubbles = document.querySelector('.contains-bubbles');
+   const bubble = document.createElement('div');
+   bubble.classList.add('bubble-ing');
+   const bubbleSpan = document.createElement('span');
+   bubbleSpan.innerHTML = data;
 
-         bubble.append(bubbleSpan);
-         containsBubbles.append(bubble);
-         closeIngDropBox();
-         closeUstDropBox();
-         closeAppDropBox();
-      });
-   });
+   bubble.append(bubbleSpan);
+   containsBubbles.append(bubble);
 };
 
 export const createBubbleApp = () => {

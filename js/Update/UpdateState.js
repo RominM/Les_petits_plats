@@ -22,9 +22,8 @@ export class UpdateState {
                const ingredient = recipe.ingredients[i];
                const ingMemo = ingredient.ingredient.toLowerCase();
 
-                if (inpValue.includes(ingMemo)) {
+               if (inpValue.includes(ingMemo)) {
                   recipe.display = true;
-                  createBubbleIng();
                   break
                } else {
                   recipe.display = false;

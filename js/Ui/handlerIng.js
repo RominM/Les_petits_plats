@@ -4,10 +4,12 @@ import { recipes } from "../data.js";
 export const getAllIng = (STATEDATA) => {
    let arrayIng = [];
    STATEDATA.forEach(recipe => {
-      recipe.ingredients.forEach(ingredient => {
-         const ingredientList = ingredient.ingredient
-         arrayIng.push(ingredientList)
-      })
+      if (recipe.display) {
+         recipe.ingredients.forEach(ingredient => {
+            const ingredientList = ingredient.ingredient
+            arrayIng.push(ingredientList)
+         })
+      }
    })
    const filtIngArray = arrayIng.filter(function (ele, pos) {
       return arrayIng.indexOf(ele) == pos;
@@ -19,7 +21,7 @@ export const displayIng = (arrayIng) => {
    const containerIng = document.querySelector('.inp-container-ing');
    let ingUl = document.querySelector('.all-ing');
    // If ingUl existe get empty
-   if(ingUl) {
+   if (ingUl) {
       ingUl.innerHTML = '';
    } else { // else it creted it
       ingUl = document.createElement('ul');

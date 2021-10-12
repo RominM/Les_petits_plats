@@ -1,6 +1,14 @@
 - Remplire la fiche d'investigation
 
 
+//OBJECTIFS SEMAINE\\
+
+Reouvrir toutes les dropBox à l'infini(recipe.display)
+ferme les bubbles(tag) (faire à la fin[display = false])
+
+
+
+
 //NOTES\\
 - dropBox ne peuvent jouer qu'une seule fois.
 - 1 bubble create par ingredient trouvé (et non clické).
