@@ -25,7 +25,7 @@
          text-overflow: ellipsis;      
          .title {
             margin: 25px;
-            font-family: LatoReg;
+            font-family: $LatoReg;
             font-size: 18px;
             white-space: nowrap;
          }
@@ -33,7 +33,7 @@
             margin: 25px;
             display: flex;
             justify-content: right;
-            font-family: LatoBold;
+            font-family: $LatoBold;
             font-size: 18px;
             width: 75%;
             height: 20px;
@@ -44,7 +44,7 @@
             }
          }
          .ingredientsList {
-            font-family: LatoBold;
+            font-family: $LatoReg;
             font-size: 12px;
             margin-left: 25px;
          }

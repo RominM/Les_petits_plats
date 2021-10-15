@@ -36,7 +36,13 @@ export const displayRecipes = (data) => {
          ingredientsList.classList.add('ingredientsList');
          recipe.ingredients.forEach(ingredient => {
             const span = document.createElement('span');
-            span.innerHTML = `${ingredient.ingredient} : ${ingredient.quantity} ${ingredient.unit}`;
+            if(ingredient.ingredient && ingredient.quantity && ingredient.unit) {
+               span.innerHTML = `${ingredient.ingredient} : ${ingredient.quantity} ${ingredient.unit}`;
+            } else if(ingredient.ingredient && ingredient.quantity) {
+               span.innerHTML = `${ingredient.ingredient} : ${ingredient.quantity}`;
+            } else if (ingredient.ingredient) {
+               span.innerHTML = `${ingredient.ingredient}`;
+            }
             
             ingredientsList.append(span);
          })

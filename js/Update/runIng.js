@@ -24,6 +24,7 @@ export const runIng = (STATEDATA) => {
 		const lis = document.querySelectorAll('.ing-li');
 		lis.forEach(li => {
 			li.addEventListener('click', () => {
+				console.log(li);
 				createBubbleIng(li.innerHTML)
 
 				let inpValue = li.innerHTML;
