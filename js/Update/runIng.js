@@ -1,7 +1,8 @@
 import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags } from '../view/createTags.js';
+import { createIngTags } from '../view/displayTags.js';
+import { error } from '../error.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
@@ -21,6 +22,7 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
+				console.log(li);
 				createIngTags(li.innerHTML)
 
 				let inpValue = li.innerHTML;
@@ -50,7 +52,7 @@ export const runIng = (STATEDATA) => {
 		if (inpValue.length > 2) {
 			const filtIng = getFilterIng(inpValue);
 			allIng.innerHTML = '';
-			// deleted duplicate ingredient inside the dropBox
+
 			const noDblIng = filtIng.filter(function (ele, pos) {
 				return filtIng.indexOf(ele) == pos;
 			});
@@ -60,6 +62,7 @@ export const runIng = (STATEDATA) => {
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateIngData(filtIng);
 		}
+
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {

@@ -1,7 +1,7 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags } from '../view/createTags.js';
+import { createAppTags } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runApp = (STATEDATA) => {
@@ -82,6 +82,5 @@ export const runApp = (STATEDATA) => {
 				closeAppDropBox();
 			})
 		})
-
 	});
 }

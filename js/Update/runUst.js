@@ -1,7 +1,7 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags } from '../view/createTags.js';
+import { createUstTags } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -79,6 +79,5 @@ export const runUst = (STATEDATA) => {
 				closeUstDropBox();
 			})
 		})
-
 	});
 }

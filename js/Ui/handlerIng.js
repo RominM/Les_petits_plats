@@ -28,7 +28,6 @@ export const displayIng = (arrayIng) => {
       allIng.classList.add('all-ing');
       containerIng.append(allIng);
    }
-
    arrayIng.forEach(eachIng => {
       const ingLi = document.createElement('li');
       ingLi.classList.add('ing-li');

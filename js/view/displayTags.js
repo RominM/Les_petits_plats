@@ -31,3 +31,8 @@ export const createUstTags = (alias) => {
    tagUst.append(tagSpan);
    containsTags.append(tagUst);
 };
+
+export const closeIngTag = () => {
+   tagIng = document.querySelectorAll('.tag-ing');
+   console.log('reset');
+}

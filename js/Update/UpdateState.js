@@ -1,3 +1,4 @@
+import { error } from "../error.js";
 import { displayRecipes } from "../view/displayRecipes.js";
 
 export class UpdateState {
@@ -6,7 +7,7 @@ export class UpdateState {
       this.inpValue = inpValue;
    }
    
-   stateData(STATEDATA, inpValue) {
+   stateData() {
       updateIngData();
       updateAppData();
       updateUstData();
@@ -27,7 +28,7 @@ export class UpdateState {
                   recipe.display = false;
                };
             };
-         };
+         }
       });
       displayRecipes(this.STATEDATA);
    };
