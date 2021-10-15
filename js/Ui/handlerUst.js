@@ -17,14 +17,14 @@ export const getAllUst = (STATEDATA) => {
 // Create DOM Elements
 export const displayUst = (arrayUst) => {
    const containerApp = document.querySelector('.inp-container-ust');
-   let ustUl = document.querySelector('.all-ust');
-   // If ustUl existe get empty
-   if(ustUl) {
-      ustUl.innerHTML = '';
+   let allUst = document.querySelector('.all-ust');
+   // If allUst existe get empty
+   if(allUst) {
+      allUst.innerHTML = '';
    } else { // else it creted it
-      ustUl = document.createElement('ul');
-      ustUl.classList.add('all-ust');
-      containerApp.append(ustUl);
+      allUst = document.createElement('ul');
+      allUst.classList.add('all-ust');
+      containerApp.append(allUst);
    }
    
    arrayUst.forEach(eachUst => {
@@ -32,7 +32,7 @@ export const displayUst = (arrayUst) => {
       ustLi.classList.add('ust-li');
       ustLi.innerHTML = eachUst;
    
-      ustUl.append(ustLi);
+      allUst.append(ustLi);
    })
 };
 // Includes to lower case

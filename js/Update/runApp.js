@@ -1,7 +1,7 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createBubbleApp } from '../view/createBubbles.js';
+import { createAppTags } from '../view/createTags.js';
 
 // Open dropBox whene input is clicked
 export const runApp = (STATEDATA) => {
@@ -21,7 +21,7 @@ export const runApp = (STATEDATA) => {
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createBubbleApp(li.innerHTML);
+				createAppTags(li.innerHTML);
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');
@@ -59,5 +59,29 @@ export const runApp = (STATEDATA) => {
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateAppData(filtApp);
 		}
+		const appLis = document.querySelectorAll('.app-li');
+		appLis.forEach(li => {
+			li.addEventListener('click', () => {
+				createAppTags(li.innerHTML);
+
+				let inpValue = li.innerHTML;
+				const allApp = document.querySelector('.all-app');
+				
+				const filtApp = getFilterApp(inpValue);
+				allApp.innerHTML = '';
+
+				const noDblApp = filtApp.filter(function (ele, pos) {
+					return filtApp.indexOf(ele) == pos;
+				});
+				// Have to deleted the first displayIngredients() before cause it create another one
+				displayApp(noDblApp);
+				// update the recipes by appliance
+				const updateState = new UpdateState(STATEDATA, inpValue);
+				updateState.updateAppData(filtApp);
+	
+				closeAppDropBox();
+			})
+		})
+
 	});
 }

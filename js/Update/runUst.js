@@ -1,7 +1,7 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createBubbleUst } from '../view/createBubbles.js';
+import { createUstTags } from '../view/createTags.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -21,7 +21,7 @@ export const runUst = (STATEDATA) => {
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createBubbleUst(li.innerHTML);
+				createUstTags(li.innerHTML);
 
 				let inpValue = li.innerHTML;
 				const allUst = document.querySelector('.all-ust');
@@ -57,5 +57,28 @@ export const runUst = (STATEDATA) => {
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateUstData(filtUst);
 		}
+		const ustLis = document.querySelectorAll('.ust-li');
+		ustLis.forEach(li => {
+			li.addEventListener('click', () => {
+				createUstTags(li.innerHTML);
+
+				let inpValue = li.innerHTML;
+				const allUst = document.querySelector('.all-ust');
+
+				const filtUst = getFilterUst(inpValue);
+				allUst.innerHTML = '';
+
+				const noDblUst = filtUst.filter(function (ele, pos) {
+					return filtUst.indexOf(ele) == pos;
+				});
+				displayUst(noDblUst);
+				// update the recipes by ustensil
+				const updateState = new UpdateState(STATEDATA, inpValue);
+				updateState.updateUstData(filtUst);
+
+				closeUstDropBox();
+			})
+		})
+
 	});
 }

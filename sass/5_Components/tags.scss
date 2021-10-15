@@ -1,6 +1,6 @@
-.contains-bubbles {
+.contains-tags {
    display: flex;
-   .bubble-ing {
+   .tag-ing {
       position: relative;
       width: 150px;
       height: 30px;
@@ -19,12 +19,12 @@
          padding-top: 5px;
       }
    }
-   .bubble-app {
-      @extend .bubble-ing;
+   .tag-app {
+      @extend .tag-ing;
       background-color: $mint;
    }
-   .bubble-ust {
-      @extend .bubble-ing;
+   .tag-ust {
+      @extend .tag-ing;
       background-color: $salmon;
    }
 }
