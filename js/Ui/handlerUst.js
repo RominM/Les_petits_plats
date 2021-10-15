@@ -27,10 +27,10 @@ export const displayUst = (arrayUst) => {
       containerApp.append(ustUl);
    }
    
-   arrayUst.forEach(eachUstensils => {
+   arrayUst.forEach(eachUst => {
       const ustLi = document.createElement('li');
       ustLi.classList.add('ust-li');
-      ustLi.innerHTML = eachUstensils;
+      ustLi.innerHTML = eachUst;
    
       ustUl.append(ustLi);
    })

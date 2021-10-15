@@ -8,23 +8,19 @@ export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
 
-	const inpApp2 = document.querySelector('.inp-app');
-	const inpUst2 = document.querySelector('.inp-ust');
-
 	inpIng1.addEventListener('click', () => {
+		openIngDropBox();
 		closeAppDropBox();
 		closeUstDropBox();
 
-		openIngDropBox();
 		inpIng2.focus();
 		
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
 
-		const lis = document.querySelectorAll('.ing-li');
-		lis.forEach(li => {
+		const ingLis = document.querySelectorAll('.ing-li');
+		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				console.log(li);
 				createBubbleIng(li.innerHTML)
 
 				let inpValue = li.innerHTML;

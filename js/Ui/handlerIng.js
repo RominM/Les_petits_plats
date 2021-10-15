@@ -19,22 +19,22 @@ export const getAllIng = (STATEDATA) => {
 // Create DOM Elements
 export const displayIng = (arrayIng) => {
    const containerIng = document.querySelector('.inp-container-ing');
-   let ingUl = document.querySelector('.all-ing');
-   // If ingUl existe get empty
-   if (ingUl) {
-      ingUl.innerHTML = '';
+   let allIng = document.querySelector('.all-ing');
+   // If allIng existe get empty
+   if (allIng) {
+      allIng.innerHTML = '';
    } else { // else it creted it
-      ingUl = document.createElement('ul');
-      ingUl.classList.add('all-ing')
-      containerIng.append(ingUl);
+      allIng = document.createElement('ul');
+      allIng.classList.add('all-ing');
+      containerIng.append(allIng);
    }
 
-   arrayIng.forEach(eachIngredient => {
+   arrayIng.forEach(eachIng => {
       const ingLi = document.createElement('li');
       ingLi.classList.add('ing-li');
-      ingLi.innerHTML = eachIngredient;
+      ingLi.innerHTML = eachIng;
 
-      ingUl.append(ingLi);
+      allIng.append(ingLi);
    })
 };
 // Includes to lower case

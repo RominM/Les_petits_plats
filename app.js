@@ -29,5 +29,5 @@ runApp(STATEDATA);
 // Algo Search Ustensils
 runUst(STATEDATA);
 // Algo Search Global
-//ruuningGlobalResearch();
+//runGlobalResearch();
 

@@ -1,6 +1,4 @@
-import { createBubbleIng, createBubbleApp, createBubbleUst } from "../view/createBubbles.js";
 import { displayRecipes } from "../view/displayRecipes.js";
-// import { createBubble } from "../view/SearchSection.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
@@ -43,7 +41,6 @@ export class UpdateState {
             const appMemo = recipe.appliance.toLowerCase();
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
-               createBubbleApp();
                break
             } else {
                recipe.display = false;
@@ -63,7 +60,6 @@ export class UpdateState {
                const ustMemo = ustensil.toLowerCase();
                if(inpValue.includes(ustMemo)) {
                   recipe.display = true;
-                  createBubbleUst();
                   break
                } else {
                   recipe.display = false;

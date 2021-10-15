@@ -15,22 +15,22 @@ export const getAllApp = (STATEDATA) => {
 // Create DOM Elements
 export const displayApp = (arrayApp) => {
    const containerApp = document.querySelector('.inp-container-app');
-   let appUl = document.querySelector('.all-app');
-   // If appUl existe get empty
-   if(appUl) {
-      appUl.innerHTML = '';
+   let allApp = document.querySelector('.all-app');
+   // If allApp existe get empty
+   if(allApp) {
+      allApp.innerHTML = '';
    } else { // else it creted it
-      appUl = document.createElement('ul');
-      appUl.classList.add('all-app');
-      containerApp.append(appUl);
+      allApp = document.createElement('ul');
+      allApp.classList.add('all-app');
+      containerApp.append(allApp);
    }
 
-   arrayApp.forEach(eachAppliance => {
+   arrayApp.forEach(eachApp => {
       const appLi = document.createElement('li');
       appLi.classList.add('app-li');
-      appLi.innerHTML = eachAppliance;
+      appLi.innerHTML = eachApp;
 
-      appUl.append(appLi);
+      allApp.append(appLi);
    })
 };
 // Includes to lower case
