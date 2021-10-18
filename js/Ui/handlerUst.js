@@ -4,10 +4,12 @@ import { recipes } from "../data.js";
 export const getAllUst = (STATEDATA) => {
    let arrayUst = [];
    STATEDATA.forEach(recipe => {
-      recipe.ustensils.forEach(ustensil => {
-         const ustensilsList = ustensil;
-         arrayUst.push(ustensilsList);
-      })
+      if(recipe.display) {
+         recipe.ustensils.forEach(ustensil => {
+            const ustensilsList = ustensil;
+            arrayUst.push(ustensilsList);
+         })
+      }
    });
    const filtUstArray = arrayUst.filter(function (ele, pos) {
       return arrayUst.indexOf(ele) == pos;

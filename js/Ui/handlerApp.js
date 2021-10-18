@@ -4,8 +4,10 @@ import { recipes } from '../data.js';
 export const getAllApp = (STATEDATA) => {
    let arrayApp = [];
    STATEDATA.forEach(recipe => {
-      const applianceList = recipe.appliance;
-      arrayApp.push(applianceList);
+      if(recipe.display) {
+         const applianceList = recipe.appliance;
+         arrayApp.push(applianceList);
+      }
    })
    const filtAppArray = arrayApp.filter(function (ele, pos) {
       return arrayApp.indexOf(ele) == pos;

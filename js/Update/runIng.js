@@ -22,7 +22,6 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				console.log(li);
 				createIngTags(li.innerHTML)
 
 				let inpValue = li.innerHTML;
