@@ -10,6 +10,11 @@ export const createIngTags = (alias) => {
    containsTags.append(tagIng);
 };
 
+export const closeIngTag = () => {
+   const tagIng = document.querySelector('.tag-ing');
+   tagIng.style.display = 'none';
+}
+
 export const createAppTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
    const tagApp = document.createElement('div');
@@ -20,6 +25,11 @@ export const createAppTags = (alias) => {
    tagApp.append(tagSpan);
    containsTags.append(tagApp);
 };
+
+export const closeAppTag = () => {
+   const tagApp = document.querySelector('.tag-app');
+   tagApp.style.display = 'none';
+}
 
 export const createUstTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
@@ -32,7 +42,7 @@ export const createUstTags = (alias) => {
    containsTags.append(tagUst);
 };
 
-export const closeIngTag = () => {
-   tagIng = document.querySelectorAll('.tag-ing');
-   console.log('reset');
+export const closeUstTag = () => {
+   const tagUst = document.querySelector('.tag-ust');
+   tagUst.style.display = 'none';
 }

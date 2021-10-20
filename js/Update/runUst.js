@@ -1,7 +1,7 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags } from '../view/displayTags.js';
+import { closeUstTag, createUstTags } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -22,6 +22,10 @@ export const runUst = (STATEDATA) => {
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createUstTags(li.innerHTML);
+				const tagUst = document.querySelector('.tag-ust');
+				tagUst.addEventListener('click', () => {
+					closeUstTag();
+				})
 
 				let inpValue = li.innerHTML;
 				const allUst = document.querySelector('.all-ust');

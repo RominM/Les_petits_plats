@@ -1,7 +1,7 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags } from '../view/displayTags.js';
+import { closeAppTag, createAppTags } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runApp = (STATEDATA) => {
@@ -22,6 +22,11 @@ export const runApp = (STATEDATA) => {
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createAppTags(li.innerHTML);
+				const tagApp = document.querySelector('.tag-app');
+				tagApp.addEventListener('click', () => {
+					closeAppTag();
+				})
+
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');

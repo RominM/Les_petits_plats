@@ -1,7 +1,7 @@
 import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../Ui/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags } from '../view/displayTags.js';
+import { closeIngTag, createIngTags } from '../view/displayTags.js';
 import { error } from '../error.js';
 
 // Open dropBox whene input is clicked
@@ -23,6 +23,10 @@ export const runIng = (STATEDATA) => {
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createIngTags(li.innerHTML)
+				const tagIng = document.querySelector('.tag-ing');
+				tagIng.addEventListener('click', () => {
+					closeIngTag();
+				})
 
 				let inpValue = li.innerHTML;
 				const allIng = document.querySelector('.all-ing');
@@ -39,7 +43,7 @@ export const runIng = (STATEDATA) => {
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
 
-				closeIngDropBox()
+				closeIngDropBox();
 			})
 		});
 	});
