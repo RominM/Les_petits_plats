@@ -3,12 +3,13 @@
 
 //OBJECTIFS SEMAINE\\
 
-- Supprimer tag 
-- Repasser les recettes disponible en display=false
-
+- faire le DO IT FOR ALL (gestion des inputs)
+- effacer les tags
+- gerer le css(responsive)
+**VENDREDI**
+- Refactor/Rename
+- tester les conditions dans displayTags
+- reflechir sur les fonctions dans la recherche global
 
 
 //NOTES\\
-- Meilleur getion des fichers: Comprehension à mettre en place dans les prochains projets(experience)
-- Encore certains comportements inexplicable (fonction jouer qu'une seule fois, bloquage l'enonciation des problemes)
-- Manque d'utilisation des conditions (qui permeterais de reduire le code et l'utilisation de certaines fonctions (voir displayTags.js))

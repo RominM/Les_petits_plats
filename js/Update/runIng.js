@@ -10,6 +10,7 @@ export const runIng = (STATEDATA) => {
 	const inpIng2 = document.querySelector('.inp-ing');
 
 	inpIng1.addEventListener('click', () => {
+
 		openIngDropBox();
 		closeAppDropBox();
 		closeUstDropBox();
@@ -18,8 +19,34 @@ export const runIng = (STATEDATA) => {
 		
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
+		
 
 		const ingLis = document.querySelectorAll('.ing-li');
+
+
+		//
+		//
+		// DO IT FOR ALL
+		const tagsSelected = document.querySelectorAll('.tag-ing span');
+		const tagsToErase = [];
+
+		if (tagsSelected.length > 0) {
+			tagsSelected.forEach(span => {
+				tagsToErase.push(span.innerHTML);
+			})
+			tagsToErase.forEach(tag => {
+				ingLis.forEach(li => {
+					if(li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+						li.style.display = 'none';
+					};
+				});
+			});
+		};
+		// DO IT FOR ALL
+		//
+		//
+
+
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createIngTags(li.innerHTML)
@@ -48,6 +75,19 @@ export const runIng = (STATEDATA) => {
 		});
 	});
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// Display only the available ingredient (>2 characters)
 	inpIng2.addEventListener('input', () => {
 		let inpValue = inpIng2.value;
@@ -59,6 +99,30 @@ export const runIng = (STATEDATA) => {
 			const noDblIng = filtIng.filter(function (ele, pos) {
 				return filtIng.indexOf(ele) == pos;
 			});
+
+			
+		//
+		//
+		// DO IT FOR ALL
+		const tagsSelected = document.querySelectorAll('.tag-ing span');
+		const tagsToErase = [];
+
+		if (tagsSelected.length > 0) {
+			tagsSelected.forEach(span => {
+				tagsToErase.push(span.innerHTML);
+			})
+			tagsToErase.forEach(tag => {
+				noDblIng.forEach((ing, index) => {
+					if(ing.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+						noDblIng.splice(index, 1);
+					};
+				});
+			});
+		};
+		// DO IT FOR ALL
+		//
+		//
+		
 			// Have to deleted the first displayIngredients() before cause it create another one
 			displayIng(noDblIng);
 			// update the recipes by ingredient
@@ -69,6 +133,7 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
+				
 				createIngTags(li.innerHTML)
 
 				let inpValue = li.innerHTML;
