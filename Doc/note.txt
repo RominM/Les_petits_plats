@@ -9,3 +9,6 @@
 
 
 //NOTES\\
+- Meilleur getion des fichers: Comprehension à mettre en place dans les prochains projets(experience)
+- Encore certains comportements inexplicable (fonction jouer qu'une seule fois, bloquage l'enonciation des problemes)
+- Manque d'utilisation des conditions (qui permeterais de reduire le code et l'utilisation de certaines fonctions (voir displayTags.js))
