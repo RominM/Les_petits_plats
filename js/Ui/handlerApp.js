@@ -1,6 +1,5 @@
 import { recipes } from '../data.js';
 
-// Get filtered Ingredient from data
 export const getAllApp = (STATEDATA) => {
    let arrayApp = [];
    STATEDATA.forEach(recipe => {
@@ -29,7 +28,7 @@ export const displayApp = (arrayApp) => {
 
    arrayApp.forEach(eachApp => {
       const appLi = document.createElement('li');
-      appLi.classList.add('app-li');
+      appLi.classList.add('li','app-li');
       appLi.innerHTML = eachApp;
 
       allApp.append(appLi);
@@ -40,8 +39,10 @@ export const getFilterApp = (inpValue) => {
    const data = [...recipes];
    let filtApp = [];
    data.forEach(recipe => {
-      const appMemo = recipe.appliance.toLowerCase();
-      appMemo.includes(inpValue.toLowerCase()) && filtApp.push(appMemo);
+      if(recipe.display) {
+         const appMemo = recipe.appliance.toLowerCase();
+         appMemo.includes(inpValue.toLowerCase()) && filtApp.push(appMemo);
+      }
    })
    return filtApp
 };

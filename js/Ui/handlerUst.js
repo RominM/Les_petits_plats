@@ -1,6 +1,5 @@
 import { recipes } from "../data.js";
 
-// Get filtered Ingredient from data
 export const getAllUst = (STATEDATA) => {
    let arrayUst = [];
    STATEDATA.forEach(recipe => {
@@ -31,7 +30,7 @@ export const displayUst = (arrayUst) => {
    
    arrayUst.forEach(eachUst => {
       const ustLi = document.createElement('li');
-      ustLi.classList.add('ust-li');
+      ustLi.classList.add('li','ust-li');
       ustLi.innerHTML = eachUst;
    
       allUst.append(ustLi);
@@ -42,10 +41,12 @@ export const getFilterUst = (inpValue) => {
    const data =[...recipes];
    let filtUst = [];
    data.forEach(recipe => {
-      recipe.ustensils.forEach(ustensil => {
-         const ustMemo = ustensil ;
-         ustMemo.includes(inpValue.toLowerCase()) && filtUst.push(ustMemo);
-      })
+      if(recipe.display) {
+         recipe.ustensils.forEach(ustensil => {
+            const ustMemo = ustensil ;
+            ustMemo.includes(inpValue.toLowerCase()) && filtUst.push(ustMemo);
+         })
+      }
    })
    return filtUst
 };

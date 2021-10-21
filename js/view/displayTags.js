@@ -1,4 +1,3 @@
-
 export const createIngTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
    const tagIng = document.createElement('div');
@@ -48,62 +47,57 @@ export const closeUstTag = () => {
 };
 
 
-/*
 
-const createTags = (alias) => {
-   const containsTags = document.querySelector('.contains-tags');
-   const tag = document.createElement('div');
-   if(tag ??? Ingredients) {
-      tag.classList.add('tag-ing');
-   }
-   else if(tag ??? Appliance) {
-      tag.classList.add('tag-app');
-   }
-   else if(tag ??? Ustensils) {
-      tag.classList.add('tag-ust');
-   }
-   const tagSpan = document.createElement('span');
-   tagSpan.innerHTML = alias;
 
-   tag.append(tagSpan);
-   containsTags.append(tagUst);
-};
+// const createTags = (alias) => {
+//    const containsTags = document.querySelector('.contains-tags');
+//    const tag = document.createElement('div');
 
-const displayTags () => {
-   const tagIng = document.querySelector('tag-ing');
-   const tagApp = document.querySelector('tag-app');
-   const tagUst = document.querySelector('tag-ust');
-   
-   const allLi = document.querySelectorAll('li');
-   allLi.foreach(li => {
-      if(li.contains('tag-ing')) {
-         if(tagIng.contains('selected)) {
-            tagIng.remove('selected)
-         }
-         else {
-            tagIng.classListe.add('selected');
-            createTag();
-         }
-      }
-      else if(li.contains('tag-app)) {
-         if(tagApp.contains('selected)) {
-            tagApp.remove('selected)
-         }
-         else {
-            tagApp.classListe.add('selected');
-            createTag();
-         }      
-      }
-      else if(li.contains('tag-ust)) {
-         if(tagUst.contains('selected)) {
-            tagUst.remove('selected)
-         }
-         else {
-            tagUst.classListe.add('selected');
-            createTag();
-         }      
-      }
-   })
-}
+//    if (alias === 'ingredients') {
+//       tag.classList.add('tag-ing');
+//    } else if (alias === 'appliance') {
+//       tag.classList.add('tag-app');
+//    } else if (alias === 'ustensils') {
+//       tag.classList.add('tag-ust');
+//    }
+//    const tagSpan = document.createElement('span');
+//    tagSpan.innerHTML = alias;
 
-*/
+//    tag.append(tagSpan);
+//    containsTags.append(tag);
+// };
+
+// export const displayTags = () => {
+//    const liIng = document.querySelector('.ing-li');
+//    const liApp = document.querySelector('.app-li');
+//    const liUst = document.querySelector('.ust-li');
+
+//    const allLi = document.querySelectorAll('.li');
+//    console.log(allLi);
+//    for (let i = 0; i < allLi.length; i++) {
+//       const li = allLi[i];
+
+//       if (li.classList.contains('ing-li')) {
+//          if (liIng.classList.contains('tag-ing')) {
+//             liIng.classList.remove('tag-ing')
+//          } else {
+//             liIng.classList.add('tag-ing');
+//             createTags();
+//          }
+//       } else if (li.contains('app-li')) {
+//          if (liApp.contains('selected')) {
+//             liApp.remove('selected')
+//          } else {
+//             liApp.classListe.add('tag-app');
+//             createTags();
+//          }
+//       } else if (li.contains('ust-li')) {
+//          if (liUst.contains('selected')) {
+//             liUst.remove('selected')
+//          } else {
+//             liUst.classListe.add('tag-ust');
+//             createTags();
+//          }
+//       }
+//    }
+// }

@@ -19,6 +19,23 @@ export const runApp = (STATEDATA) => {
 		displayApp(allApp);
 
 		const appLis = document.querySelectorAll('.app-li');
+
+		const tagsSelected = document.querySelectorAll('.tag-app span');
+		const tagsToErase = [];
+
+		if (tagsSelected.length > 0) {
+			tagsSelected.forEach(span => {
+				tagsToErase.push(span.innerHTML);
+			})
+			tagsToErase.forEach(tag => {
+				appLis.forEach(li => {
+					if(li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+						li.style.display = 'none';
+					};
+				});
+			});
+		};
+
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createAppTags(li.innerHTML);
@@ -58,6 +75,23 @@ export const runApp = (STATEDATA) => {
 			const noDblApp = filtApp.filter(function (ele, pos) {
 				return filtApp.indexOf(ele) == pos;
 			});
+
+		const tagsSelected = document.querySelectorAll('.tag-app span');
+		const tagsToErase = [];
+
+		if (tagsSelected.length > 0) {
+			tagsSelected.forEach(span => {
+				tagsToErase.push(span.innerHTML);
+			})
+			tagsToErase.forEach(tag => {
+				noDblIng.forEach((app, index) => {
+					if(app.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+						noDblIng.splice(index, 1);
+					};
+				});
+			});
+		};
+
 			// Have to deleted the first displayIngredients() before cause it create another one
 			displayApp(noDblApp);
 			// update the recipes by appliance

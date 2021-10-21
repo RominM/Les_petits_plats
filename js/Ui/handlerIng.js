@@ -30,7 +30,7 @@ export const displayIng = (arrayIng) => {
    
    arrayIng.forEach(eachIng => {
       const ingLi = document.createElement('li');
-      ingLi.classList.add('ing-li');
+      ingLi.classList.add('li','ing-li');
       ingLi.innerHTML = eachIng;
 
       allIng.append(ingLi);
@@ -41,14 +41,12 @@ export const getFilterIng = (inpValue) => {
    const data = [...recipes];
    let filtIng = [];
    data.forEach(recipe => {
-      // DO IT FOR ALL
       if (recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingMemo = ingredient.ingredient.toLowerCase();
             ingMemo.includes(inpValue.toLowerCase()) && filtIng.push(ingMemo);
          })
       }
-      // DO IT FOR ALL
    })
    return filtIng
 };

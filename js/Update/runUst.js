@@ -19,6 +19,23 @@ export const runUst = (STATEDATA) => {
 		displayUst(allUst);
 
 		const ustLis = document.querySelectorAll('.ust-li');
+
+		const tagsSelected = document.querySelectorAll('.tag-ust span');
+		const tagsToErase = [];
+
+		if (tagsSelected.length > 0) {
+			tagsSelected.forEach(span => {
+				tagsToErase.push(span.innerHTML);
+			})
+			tagsToErase.forEach(tag => {
+				ustLis.forEach(li => {
+					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+						li.style.display = 'none';
+					};
+				});
+			});
+		};
+
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createUstTags(li.innerHTML);
@@ -75,6 +92,22 @@ export const runUst = (STATEDATA) => {
 				const noDblUst = filtUst.filter(function (ele, pos) {
 					return filtUst.indexOf(ele) == pos;
 				});
+
+				const tagsSelected = document.querySelectorAll('.tag-ust span');
+				const tagsToErase = [];
+
+				if (tagsSelected.length > 0) {
+					tagsSelected.forEach(span => {
+						tagsToErase.push(span.innerHTML);
+					})
+					tagsToErase.forEach(tag => {
+						noDblIng.forEach((ust, index) => {
+							if (ust.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+								noDblIng.splice(index, 1);
+							};
+						});
+					});
+				};
 				displayUst(noDblUst);
 				// update the recipes by ustensil
 				const updateState = new UpdateState(STATEDATA, inpValue);

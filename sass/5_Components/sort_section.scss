@@ -1,6 +1,7 @@
 .contains-inp {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     color: #fff;
     .target-ing {
@@ -38,5 +39,11 @@
     }
     .target-ust {
         background-color: $salmon;
+    }
+}
+
+@media (max-width: 570px) {
+    .contains-inp {
+        justify-content: center;
     }
 }

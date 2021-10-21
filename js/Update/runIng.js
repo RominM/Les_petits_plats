@@ -23,10 +23,6 @@ export const runIng = (STATEDATA) => {
 
 		const ingLis = document.querySelectorAll('.ing-li');
 
-
-		//
-		//
-		// DO IT FOR ALL
 		const tagsSelected = document.querySelectorAll('.tag-ing span');
 		const tagsToErase = [];
 
@@ -42,10 +38,6 @@ export const runIng = (STATEDATA) => {
 				});
 			});
 		};
-		// DO IT FOR ALL
-		//
-		//
-
 
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
@@ -75,19 +67,6 @@ export const runIng = (STATEDATA) => {
 		});
 	});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	// Display only the available ingredient (>2 characters)
 	inpIng2.addEventListener('input', () => {
 		let inpValue = inpIng2.value;
@@ -100,10 +79,6 @@ export const runIng = (STATEDATA) => {
 				return filtIng.indexOf(ele) == pos;
 			});
 
-			
-		//
-		//
-		// DO IT FOR ALL
 		const tagsSelected = document.querySelectorAll('.tag-ing span');
 		const tagsToErase = [];
 
@@ -119,10 +94,7 @@ export const runIng = (STATEDATA) => {
 				});
 			});
 		};
-		// DO IT FOR ALL
-		//
-		//
-		
+
 			// Have to deleted the first displayIngredients() before cause it create another one
 			displayIng(noDblIng);
 			// update the recipes by ingredient

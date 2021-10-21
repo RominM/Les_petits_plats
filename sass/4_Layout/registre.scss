@@ -3,16 +3,20 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
+
    .card {
-      width: 500px;
+      max-width: 500px;
+      min-width: 200px;
       height: 400px;
       margin: 35px 0;
+
       .image {
          width: 100%;
          height: 50%;
          border-radius: 5px 5px 0 0;
          background-color: $BgImg;
       }
+
       .descript {
          display: grid;
          grid-template-columns: 225px 1fr;
@@ -22,13 +26,14 @@
          border-radius: 0 0 5px 5px;
          background-color: $BgDecript;
          overflow: hidden;
-         text-overflow: ellipsis;      
+
          .title {
             margin: 25px;
             font-family: $LatoReg;
             font-size: 18px;
             white-space: nowrap;
          }
+
          .time {
             margin: 25px;
             display: flex;
@@ -38,22 +43,37 @@
             width: 75%;
             height: 20px;
             margin: 25px;
+
             .clock-img {
                width: 20px;
                margin-right: 5px;
             }
          }
+
          .ingredientsList {
             font-family: $LatoReg;
             font-size: 12px;
             margin-left: 25px;
          }
+
          p {
             @extend .ingredientsList;
+            position: relative;
             margin-right: 25px;
             height: 100px;
             overflow: hidden;
+            // white-space: nowrap;
             text-overflow: ellipsis;
+         }
+      }
+   }
+}
+
+@media (max-width: 570px) {
+   .registre {
+      .card {
+         .descript {
+            grid-template-columns: 165px 1fr;
          }
       }
    }

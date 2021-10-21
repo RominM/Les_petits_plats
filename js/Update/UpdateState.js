@@ -71,19 +71,3 @@ export class UpdateState {
       displayRecipes(this.STATEDATA);
    };
 };
-
-
-/*
-créer un nouveau dossier pour ranger les fichier js
-
-!!! gérer les 3 inputs
-!!! si je tape 'coco' et que je click (garder les recettes selectionné)
-!!! refermer la dropBox
-! ajout d'une bulle avec l'ingredient
-!!! vider l'input
-!!! Rangement des fichiers
-
-garder les recettes >>> displayIngredient() + ...
-
-penser a garder les recette en display = true
-*/
