@@ -5,7 +5,7 @@
 
 - faire le DO IT FOR ALL (gestion des inputs) XXX
 - effacer les tags
-- gerer le css(responsive)
+- gerer le css(responsive) XXX
 **VENDREDI**
 - Refactor/Rename
 - tester les conditions dans displayTags

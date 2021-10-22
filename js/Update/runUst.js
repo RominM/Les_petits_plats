@@ -69,15 +69,36 @@ export const runUst = (STATEDATA) => {
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			allUst.innerHTML = '';
+
 			// deleted duplicate ustensils inside the dropBox
 			const noDblUst = filtUst.filter(function (ele, pos) {
 				return filtUst.indexOf(ele) == pos;
 			});
+
+			const tagsSelected = document.querySelectorAll('.tag-ust span');
+			const tagsToErase = [];
+
+			if (tagsSelected.length > 0) {
+				tagsSelected.forEach(span => {
+					tagsToErase.push(span.innerHTML);
+				})
+				tagsToErase.forEach(tag => {
+					ustLis.forEach(li => {
+						if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+							li.style.display = 'none';
+						};
+					});
+				});
+			};
+
 			displayUst(noDblUst);
-			// update the recipes by ustensil
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateUstData(filtUst);
+		} 
+		else if (inpValue.length == 0) {
+			const allUst = getAllUst(STATEDATA);
+			allUst.innerHTML = '';
+			displayUst(allUst);
 		}
+
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {

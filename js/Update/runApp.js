@@ -29,7 +29,7 @@ export const runApp = (STATEDATA) => {
 			})
 			tagsToErase.forEach(tag => {
 				appLis.forEach(li => {
-					if(li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
 						li.style.display = 'none';
 					};
 				});
@@ -47,7 +47,7 @@ export const runApp = (STATEDATA) => {
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');
-				
+
 				const filtApp = getFilterApp(inpValue);
 				allApp.innerHTML = '';
 
@@ -59,12 +59,12 @@ export const runApp = (STATEDATA) => {
 				// update the recipes by appliance
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateAppData(filtApp);
-	
+
 				closeAppDropBox();
 			})
 		})
 	});
-	
+
 	inpApp2.addEventListener('input', () => {
 		let inpValue = inpApp2.value;
 		const allApp = document.querySelector('.all-app');
@@ -76,28 +76,30 @@ export const runApp = (STATEDATA) => {
 				return filtApp.indexOf(ele) == pos;
 			});
 
-		const tagsSelected = document.querySelectorAll('.tag-app span');
-		const tagsToErase = [];
+			const tagsSelected = document.querySelectorAll('.tag-app span');
+			const tagsToErase = [];
 
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				noDblIng.forEach((app, index) => {
-					if(app.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						noDblIng.splice(index, 1);
-					};
+			if (tagsSelected.length > 0) {
+				tagsSelected.forEach(span => {
+					tagsToErase.push(span.innerHTML);
+				})
+				tagsToErase.forEach(tag => {
+					noDblIng.forEach((app, index) => {
+						if (app.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+							noDblIng.splice(index, 1);
+						};
+					});
 				});
-			});
+			};
+
+			displayApp(noDblApp);
+		} 
+		else if (inpValue.length == 0) {
+			const allApp = getAllApp(STATEDATA);
+			allApp.innerHTML = '';
+			displayApp(allApp);
 		};
 
-			// Have to deleted the first displayIngredients() before cause it create another one
-			displayApp(noDblApp);
-			// update the recipes by appliance
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateAppData(filtApp);
-		}
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
@@ -105,7 +107,7 @@ export const runApp = (STATEDATA) => {
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');
-				
+
 				const filtApp = getFilterApp(inpValue);
 				allApp.innerHTML = '';
 
@@ -117,9 +119,9 @@ export const runApp = (STATEDATA) => {
 				// update the recipes by appliance
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateAppData(filtApp);
-	
+
 				closeAppDropBox();
-			})
-		})
+			});
+		});
 	});
-}
+};
