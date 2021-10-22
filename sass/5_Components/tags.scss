@@ -2,7 +2,7 @@
    display: flex;
    .tag-ing {
       position: relative;
-      width: 150px;
+      max-width: 250px;
       height: 30px;
       background-color: $azur;
       border-radius: 5px;
@@ -11,6 +11,7 @@
       background-size: 17px 17px;
       background-position: 5%;
       margin: 10px 10px 10px 0;
+      padding: 0 20px 0 35px;
       color: #fff;
       font-family: $LatoReg;
       cursor: pointer;

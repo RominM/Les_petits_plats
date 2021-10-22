@@ -3,7 +3,7 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-
+   margin-top: 60px;
    .card {
       max-width: 500px;
       min-width: 200px;
@@ -25,7 +25,6 @@
          height: 50%;
          border-radius: 0 0 5px 5px;
          background-color: $BgDecript;
-         overflow: hidden;
 
          .title {
             margin: 25px;
@@ -61,8 +60,11 @@
             position: relative;
             margin-right: 25px;
             height: 100px;
-            overflow: hidden;
+            display: -webkit-box;
+               -webkit-line-clamp: 5;
+               -webkit-box-orient: vertical;
             // white-space: nowrap;
+            overflow: hidden;
             text-overflow: ellipsis;
          }
       }
