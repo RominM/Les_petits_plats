@@ -73,10 +73,17 @@
 
 @media (max-width: 570px) {
    .registre {
+      margin-top: 150px;
       .card {
          .descript {
             grid-template-columns: 165px 1fr;
          }
       }
+   }
+}
+
+@media (max-width: 570px) {
+   .registre {
+      margin-top: 250px;
    }
 }

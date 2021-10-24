@@ -42,8 +42,18 @@
     }
 }
 
-@media (max-width: 570px) {
+
+@media (max-width: 605px) {
     .contains-inp {
         justify-content: center;
+    }
+}
+@media (max-width: 490px) {
+    .contains-inp {
+        margin: auto;
+        .target-ing {
+            width: 95%;
+            margin: auto;
+        }
     }
 }

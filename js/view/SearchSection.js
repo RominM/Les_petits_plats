@@ -1,4 +1,4 @@
-import { closeIngDropBox, closeAppDropBox, closeUstDropBox } from "../Ui/displayDropBox.js";
+import { closeIngDropBox, closeAppDropBox, closeUstDropBox } from "./displayDropBox.js";
 
 export class SearchSection {
   constructor(data) {

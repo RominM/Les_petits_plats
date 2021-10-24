@@ -1,5 +1,5 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
-import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../Ui/displayDropBox.js';
+import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { closeUstTag, createUstTags } from '../view/displayTags.js';
 

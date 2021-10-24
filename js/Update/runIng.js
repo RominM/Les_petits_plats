@@ -1,5 +1,5 @@
 import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
-import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../Ui/displayDropBox.js';
+import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { closeIngTag, createIngTags } from '../view/displayTags.js';
 // import { error } from '../error.js';

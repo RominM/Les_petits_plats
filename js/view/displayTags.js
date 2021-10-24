@@ -12,6 +12,7 @@ export const createIngTags = (alias) => {
 export const closeIngTag = () => {
    const tagIng = document.querySelector('.tag-ing');
    tagIng.style.display = 'none';
+   console.log('tag Ing deleted');
 };
 
 export const createAppTags = (alias) => {
@@ -28,6 +29,7 @@ export const createAppTags = (alias) => {
 export const closeAppTag = () => {
    const tagApp = document.querySelector('.tag-app');
    tagApp.style.display = 'none';
+   console.log('tag App deleted');
 };
 
 export const createUstTags = (alias) => {
@@ -44,6 +46,7 @@ export const createUstTags = (alias) => {
 export const closeUstTag = () => {
    const tagUst = document.querySelector('.tag-ust');
    tagUst.style.display = 'none';
+   console.log('tag Ust deleted');
 };
 
 

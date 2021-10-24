@@ -1,5 +1,5 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
-import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../Ui/displayDropBox.js';
+import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { closeAppTag, createAppTags } from '../view/displayTags.js';
 
