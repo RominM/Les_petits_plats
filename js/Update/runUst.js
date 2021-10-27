@@ -1,7 +1,7 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { /*closeUstTag, createUstTags,*/ displayTags, handlerUstTag } from '../view/displayTags.js';
+import { createUstTags, /*displayTags,*/handlerUstTag } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -23,11 +23,13 @@ export const runUst = (STATEDATA) => {
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				// createUstTags(li.innerHTML);
-				displayTags();
-				const tagUst = document.querySelector('.tag-ust');
-				tagUst.addEventListener('click', () => {
-					closeUstTag();
+				createUstTags(li.innerHTML);
+
+				const tagUst = document.querySelectorAll('.tag-ust');
+				tagUst.forEach(tag => {
+					tag.addEventListener('click', () => {
+						tag.style.display = 'none';
+					})
 				})
 
 				let inpValue = li.innerHTML;
@@ -108,9 +110,9 @@ export const runUst = (STATEDATA) => {
 						tagsToErase.push(span.innerHTML);
 					})
 					tagsToErase.forEach(tag => {
-						noDblIng.forEach((ust, index) => {
+						noDblUst.forEach((ust, index) => {
 							if (ust.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-								noDblIng.splice(index, 1);
+								noDblUst.splice(index, 1);
 							};
 						});
 					});

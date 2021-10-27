@@ -40,6 +40,7 @@ export const displayIng = (arrayIng) => {
 export const getFilterIng = (inpValue) => {
    const data = [...recipes];
    let filtIng = [];
+   
    data.forEach(recipe => {
       if (recipe.display) {
          recipe.ingredients.forEach(ingredient => {

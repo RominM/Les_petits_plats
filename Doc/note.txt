@@ -3,13 +3,7 @@
 
 //OBJECTIFS SEMAINE\\
 
-- faire le DO IT FOR ALL (gestion des inputs) XXX
-- effacer les tags X
-- gerer le css(responsive) XXX
-**VENDREDI**
-- Refactor/Rename X
-- tester les conditions dans displayTags X
-- reflechir sur les fonctions dans la recherche global X
+- Changer le name de "UI"
 
 
 //NOTES\\

@@ -1,7 +1,22 @@
-import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
-import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
-import { UpdateState } from './UpdateState.js';
-import { /*closeIngTag, createIngTags,*/ displayTags, handlerIngTag } from '../view/displayTags.js';
+import {
+	displayIng,
+	getAllIng,
+	getFilterIng
+} from '../Ui/handlerIng.js';
+import {
+	openIngDropBox,
+	closeAppDropBox,
+	closeUstDropBox,
+	closeIngDropBox
+} from '../view/displayDropBox.js';
+import {
+	UpdateState
+} from './UpdateState.js';
+import {
+	createIngTags,
+	/*displayTags,*/
+	handlerIngTag
+} from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
@@ -22,16 +37,17 @@ export const runIng = (STATEDATA) => {
 
 
 		handlerIngTag();
+
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				// createIngTags(li.innerHTML)
-				console.log(li.innerHTML);
-				displayTags(li.innerHTML);
-				
-				const tagIng = document.querySelector('.tag-ing');
-				tagIng.addEventListener('click', () => {
-					closeIngTag();
+				createIngTags(li.innerHTML)
+
+				const tagIng = document.querySelectorAll('.tag-ing');
+				tagIng.forEach(tag => {
+					tag.addEventListener('click', () => {
+						tag.style.display = 'none';
+					})
 				})
 
 				let inpValue = li.innerHTML;
@@ -83,8 +99,7 @@ export const runIng = (STATEDATA) => {
 			};
 
 			displayIng(noDblIng);
-		} 
-		else if(inpValue.length == 0) {
+		} else if (inpValue.length == 0) {
 			const allIng = getAllIng(STATEDATA);
 			allIng.innerHTML = '';
 			displayIng(allIng);

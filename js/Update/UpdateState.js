@@ -1,12 +1,16 @@
-import { error } from "../error.js";
-import { displayRecipes } from "../view/displayRecipes.js";
+import {
+   error
+} from "../error.js";
+import {
+   displayRecipes
+} from "../view/displayRecipes.js";
 
 export class UpdateState {
    constructor(STATEDATA, inpValue) {
       this.STATEDATA = STATEDATA;
       this.inpValue = inpValue;
    }
-   
+
    stateData() {
       updateIngData();
       updateAppData();
@@ -16,7 +20,7 @@ export class UpdateState {
    // INGREDIENTS
    updateIngData(inpValue) {
       this.STATEDATA.forEach(recipe => {
-         if(recipe.display == true) {
+         if (recipe.display == true) {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
                const ingMemo = ingredient.ingredient.toLowerCase();
@@ -34,11 +38,11 @@ export class UpdateState {
    };
    // APPLIANCES
    updateAppData(inpValue) {
-      const recipes = this.STATEDATA;
-      for (let i = 0; i < recipes.length; i++) {
-         const recipe = recipes[i];
-         
-         if(recipe.display == true) {
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+         for (let i = 0; i < recipe.length; i++) {
+         const recipe = recipe[i];
+
             const appMemo = recipe.appliance.toLowerCase();
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
@@ -48,26 +52,27 @@ export class UpdateState {
             };
          };
       };
+   })
       displayRecipes(this.STATEDATA);
    };
    // USTENSILS
    updateUstData(inpValue) {
-      const recipes = this.STATEDATA;
-      recipes.forEach(recipe => {
-         for (let i = 0; i < recipe.ustensils.length; i++) {
-            const ustensil = recipe.ustensils[i];
-            
-            if(recipe.display == true) {
+
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            for (let i = 0; i < recipe.ustensils.length; i++) {
+               const ustensil = recipe.ustensils[i];
                const ustMemo = ustensil.toLowerCase();
-               if(inpValue.includes(ustMemo)) {
+               if (inpValue.includes(ustMemo)) {
                   recipe.display = true;
                   break
                } else {
                   recipe.display = false;
                };
-            }  ; 
+            };
          };
-      });
+      })
+
       displayRecipes(this.STATEDATA);
    };
 };

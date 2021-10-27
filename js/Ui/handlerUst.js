@@ -40,10 +40,11 @@ export const displayUst = (arrayUst) => {
 export const getFilterUst = (inpValue) => {
    const data =[...recipes];
    let filtUst = [];
+
    data.forEach(recipe => {
       if(recipe.display) {
          recipe.ustensils.forEach(ustensil => {
-            const ustMemo = ustensil ;
+            const ustMemo = ustensil.toLocaleLowerCase();
             ustMemo.includes(inpValue.toLowerCase()) && filtUst.push(ustMemo);
          })
       }

@@ -1,7 +1,7 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { /*closeAppTag, createAppTags,*/ displayTags, handlerAppTag } from '../view/displayTags.js';
+import { createAppTags, /*displayTags,*/ handlerAppTag } from '../view/displayTags.js';
 
 // INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
@@ -23,13 +23,14 @@ export const runApp = (STATEDATA) => {
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
-				// createAppTags(li.innerHTML);
-				displayTags();
-				const tagApp = document.querySelector('.tag-app');
-				tagApp.addEventListener('click', () => {
-					closeAppTag();
+				createAppTags(li.innerHTML);
+				// displayTags();
+				const tagApp = document.querySelectorAll('.tag-app');
+				tagApp.forEach(tag => {
+					tag.addEventListener('click', () => {
+						tag.style.display = 'none';
+					})
 				})
-
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');
