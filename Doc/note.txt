@@ -7,11 +7,13 @@
 - effacer les tags X
 - gerer le css(responsive) XXX
 **VENDREDI**
-- Refactor/Rename
-- tester les conditions dans displayTags
-- reflechir sur les fonctions dans la recherche global
+- Refactor/Rename X
+- tester les conditions dans displayTags X
+- reflechir sur les fonctions dans la recherche global X
 
 
 //NOTES\\
 MAIS + SALADIER + CUILLERE EN BOIS = CRASH !!!
 Effacement des tags incohérent et ne mettent pas le DOM à jour.
+refactorisation a revoir
+beaucoup de commentaire pour des testes de refactor/reécriture/etc...

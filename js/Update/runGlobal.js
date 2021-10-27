@@ -14,25 +14,34 @@ export const runGlobalResearch = (STATEDATA) => {
       const value = searchBy.value;
       recipes.forEach(recipe => {
 
+         // RECETTE
          const description = recipe.description;
-         console.log('La recette est: ' + '( ' + description + ' )');// recettes
-
+         // console.log(description);
+         // INGREDIENTS
          let ingA = [];
          const ingredients = recipe.ingredients;
          ingredients.forEach(ingredient => {
             ingA.push(ingredient.ingredient)
          })
-         console.log('Les ingredients sont: ' + ingA);// ingredients
-
+         // console.log(ingA);
+         // APPAREILS
          const appliances = recipe.appliance;
-         console.log('l\'appareil est: ' + appliances);// appareils
-
+         // console.log(appliances);
+         // USTENSILS
          const ustensils = recipe.ustensils;
          let ustA = [];
          ustensils.forEach(ustensil => {
             ustA.push(ustensil)
          })
-         console.log('Les ustensils sont: ' + ustA);// ustensils
+         // console.log(ustA);
+
+         // SI LA VALUE INCLUE UN INGREDIENT => runIngredient
+         if(value.includes(ingA)) {
+            console.log('yep !');
+         }
+         else {
+            console.log('nope');
+         }
       })
    })
 }
