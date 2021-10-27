@@ -1,11 +1,11 @@
 import { displayIng, getAllIng, getFilterIng } from '../Ui/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { closeIngTag, createIngTags } from '../view/displayTags.js';
-// import { error } from '../error.js';
+import { /*closeIngTag, createIngTags,*/ displayTags, handlerIngTag } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
+
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
 
@@ -21,27 +21,14 @@ export const runIng = (STATEDATA) => {
 		displayIng(allIng);
 
 
+		handlerIngTag();
 		const ingLis = document.querySelectorAll('.ing-li');
-
-		const tagsSelected = document.querySelectorAll('.tag-ing span');
-		const tagsToErase = [];
-
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				ingLis.forEach(li => {
-					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						li.style.display = 'none';
-					};
-				});
-			});
-		};
-
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createIngTags(li.innerHTML)
+				// createIngTags(li.innerHTML)
+				console.log(li.innerHTML);
+				displayTags(li.innerHTML);
+				
 				const tagIng = document.querySelector('.tag-ing');
 				tagIng.addEventListener('click', () => {
 					closeIngTag();
@@ -52,15 +39,16 @@ export const runIng = (STATEDATA) => {
 
 				const filtIng = getFilterIng(inpValue);
 				allIng.innerHTML = '';
-				// deleted duplicate ingredient inside the dropBox
+
 				const noDblIng = filtIng.filter(function (ele, pos) {
 					return filtIng.indexOf(ele) == pos;
 				});
-				// Have to deleted the first displayIngredients() before cause it create another one
+
 				displayIng(noDblIng);
-				// update the recipes by ingredient
+
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
+				console.log(filtIng);
 
 				closeIngDropBox();
 			})
@@ -117,9 +105,9 @@ export const runIng = (STATEDATA) => {
 				const noDblIng = filtIng.filter(function (ele, pos) {
 					return filtIng.indexOf(ele) == pos;
 				});
-				// Have to deleted the first displayIngredients() before cause it create another one
+
 				displayIng(noDblIng);
-				// update the recipes by ingredient
+
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
 

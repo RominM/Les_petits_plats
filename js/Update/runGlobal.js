@@ -1,6 +1,13 @@
+import { runIng } from "./runIng.js";
+
 export const runGlobalResearch = (STATEDATA) => {
    const searchBy = document.querySelector('#searchBy');
    searchBy.addEventListener('click', () => {
-      console.log('smogogo');
-   })
+      runIng();
+   });
+
+   const searchBtn = document.querySelector('.searchBtn');
+   searchBtn.addEventListener('click', runIng)
 }
+
+

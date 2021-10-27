@@ -1,7 +1,7 @@
 import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { closeUstTag, createUstTags } from '../view/displayTags.js';
+import { /*closeUstTag, createUstTags,*/ displayTags, handlerUstTag } from '../view/displayTags.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -18,27 +18,13 @@ export const runUst = (STATEDATA) => {
 		const allUst = getAllUst(STATEDATA);
 		displayUst(allUst);
 
+		handlerUstTag();
+
 		const ustLis = document.querySelectorAll('.ust-li');
-
-		const tagsSelected = document.querySelectorAll('.tag-ust span');
-		const tagsToErase = [];
-
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				ustLis.forEach(li => {
-					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						li.style.display = 'none';
-					};
-				});
-			});
-		};
-
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createUstTags(li.innerHTML);
+				// createUstTags(li.innerHTML);
+				displayTags();
 				const tagUst = document.querySelector('.tag-ust');
 				tagUst.addEventListener('click', () => {
 					closeUstTag();

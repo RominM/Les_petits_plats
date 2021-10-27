@@ -4,7 +4,7 @@
 //OBJECTIFS SEMAINE\\
 
 - faire le DO IT FOR ALL (gestion des inputs) XXX
-- effacer les tags
+- effacer les tags X
 - gerer le css(responsive) XXX
 **VENDREDI**
 - Refactor/Rename
@@ -13,3 +13,5 @@
 
 
 //NOTES\\
+MAIS + SALADIER + CUILLERE EN BOIS = CRASH !!!
+Effacement des tags incohérent et ne mettent pas le DOM à jour.

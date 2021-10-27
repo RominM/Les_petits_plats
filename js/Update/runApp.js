@@ -1,9 +1,9 @@
 import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { closeAppTag, createAppTags } from '../view/displayTags.js';
+import { /*closeAppTag, createAppTags,*/ displayTags, handlerAppTag } from '../view/displayTags.js';
 
-// Open dropBox whene input is clicked
+// INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
@@ -18,27 +18,13 @@ export const runApp = (STATEDATA) => {
 		const allApp = getAllApp(STATEDATA);
 		displayApp(allApp);
 
+		handlerAppTag();
+
 		const appLis = document.querySelectorAll('.app-li');
-
-		const tagsSelected = document.querySelectorAll('.tag-app span');
-		const tagsToErase = [];
-
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				appLis.forEach(li => {
-					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						li.style.display = 'none';
-					};
-				});
-			});
-		};
-
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createAppTags(li.innerHTML);
+				// createAppTags(li.innerHTML);
+				displayTags();
 				const tagApp = document.querySelector('.tag-app');
 				tagApp.addEventListener('click', () => {
 					closeAppTag();
