@@ -1,22 +1,8 @@
-import {
-	displayIng,
-	getAllIng,
-	getFilterIng
-} from '../Ui/handlerIng.js';
-import {
-	openIngDropBox,
-	closeAppDropBox,
-	closeUstDropBox,
-	closeIngDropBox
-} from '../view/displayDropBox.js';
-import {
-	UpdateState
-} from './UpdateState.js';
-import {
-	createIngTags,
-	/*displayTags,*/
-	handlerIngTag
-} from '../view/displayTags.js';
+import { displayIng, getAllIng, getFilterIng } from '../Handler/handlerIng.js';
+import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
+import { UpdateState } from './UpdateState.js';
+import { createIngTags, /*displayTags,*/ handlerIngTag } from '../view/displayTags.js';
+import { afterDeletedTag } from '../afterDeleted.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
@@ -35,18 +21,18 @@ export const runIng = (STATEDATA) => {
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
 
-
 		handlerIngTag();
 
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createIngTags(li.innerHTML)
-
+				// deleted tag
 				const tagIng = document.querySelectorAll('.tag-ing');
 				tagIng.forEach(tag => {
 					tag.addEventListener('click', () => {
 						tag.style.display = 'none';
+						afterDeletedTag(tag);
 					})
 				})
 
@@ -64,7 +50,6 @@ export const runIng = (STATEDATA) => {
 
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
-				console.log(filtIng);
 
 				closeIngDropBox();
 			})

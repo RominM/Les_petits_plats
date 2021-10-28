@@ -1,7 +1,8 @@
-import { getAllApp, displayApp, getFilterApp } from '../Ui/handlerApp.js';
+import { getAllApp, displayApp, getFilterApp } from '../Handler/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { createAppTags, /*displayTags,*/ handlerAppTag } from '../view/displayTags.js';
+import { afterDeletedTag } from '../afterDeleted.js';
 
 // INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
@@ -29,6 +30,7 @@ export const runApp = (STATEDATA) => {
 				tagApp.forEach(tag => {
 					tag.addEventListener('click', () => {
 						tag.style.display = 'none';
+						afterDeletedTag(tag);
 					})
 				})
 

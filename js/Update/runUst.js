@@ -1,7 +1,8 @@
-import { getAllUst, displayUst, getFilterUst } from '../Ui/handlerUst.js';
+import { getAllUst, displayUst, getFilterUst } from '../Handler/handlerUst.js';
 import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { createUstTags, /*displayTags,*/handlerUstTag } from '../view/displayTags.js';
+import { afterDeletedTag } from '../afterDeleted.js';
 
 // Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
@@ -29,6 +30,7 @@ export const runUst = (STATEDATA) => {
 				tagUst.forEach(tag => {
 					tag.addEventListener('click', () => {
 						tag.style.display = 'none';
+						afterDeletedTag(tag);
 					})
 				})
 

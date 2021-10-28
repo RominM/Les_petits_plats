@@ -1,7 +1,4 @@
 import {
-   error
-} from "../error.js";
-import {
    displayRecipes
 } from "../view/displayRecipes.js";
 

@@ -7,6 +7,7 @@ import { runIng } from './js/Update/runIng.js';
 import {	runApp } from './js/Update/runApp.js';
 import {	runUst } from './js/Update/runUst.js';
 import { runGlobalResearch } from './js/Update/runGlobal.js';
+import { displayError } from './js/view/error.js';
 // Init data
 let STATEDATA = [...recipes];
 STATEDATA.forEach(recipe => {
@@ -31,4 +32,5 @@ runApp(STATEDATA);
 runUst(STATEDATA);
 // Algo Search Global
 runGlobalResearch(STATEDATA);
-
+// Error
+// displayError();

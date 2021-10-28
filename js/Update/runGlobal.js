@@ -16,24 +16,23 @@ export const runGlobalResearch = (STATEDATA) => {
 
          // RECETTE
          const description = recipe.description;
-         // console.log(description);
          // INGREDIENTS
          let ingA = [];
          const ingredients = recipe.ingredients;
          ingredients.forEach(ingredient => {
             ingA.push(ingredient.ingredient)
          })
-         // console.log(ingA);
          // APPAREILS
          const appliances = recipe.appliance;
-         // console.log(appliances);
-         // USTENSILS
+        // USTENSILS
          const ustensils = recipe.ustensils;
          let ustA = [];
          ustensils.forEach(ustensil => {
             ustA.push(ustensil)
          })
-         // console.log(ustA);
+         const fullRecipe = [description, ...ingA, appliances, ...ustA];
+         console.log(fullRecipe);
+         // console.table('DESCRIPTION: ' + description, 'INGREDIENTS: ' + [...ingA], 'APPAREIL: ' + appliances, 'USTENSILS: ' + [...ustA]);
 
          // SI LA VALUE INCLUE UN INGREDIENT => runIngredient
          if(value.includes(ingA)) {

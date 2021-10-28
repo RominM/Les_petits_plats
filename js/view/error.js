@@ -1,4 +1,4 @@
-export const error = () => {
+export const displayError = () => {
 	const main = document.querySelector('main');
    const registre = document.querySelector('.registre');
    registre.innerHTML = '';
