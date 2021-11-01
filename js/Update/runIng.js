@@ -3,6 +3,7 @@ import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } fro
 import { UpdateState } from './UpdateState.js';
 import { createIngTags, /*displayTags,*/ handlerIngTag } from '../view/displayTags.js';
 import { afterDeletedTag } from '../afterDeleted.js';
+import { recipes } from '../data.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
@@ -45,11 +46,20 @@ export const runIng = (STATEDATA) => {
 				const noDblIng = filtIng.filter(function (ele, pos) {
 					return filtIng.indexOf(ele) == pos;
 				});
-
+				
 				displayIng(noDblIng);
-
+				
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
+
+				// Combien de recette sont à display true et combien sont à false
+				recipes.forEach(recipe => {
+					let availableRecipe = recipe.display;
+					if (availableRecipe) {
+						console.log(recipe);
+					}
+				})
+
 
 				closeIngDropBox();
 			})

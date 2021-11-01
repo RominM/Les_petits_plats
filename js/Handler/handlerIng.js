@@ -35,6 +35,7 @@ export const displayIng = (arrayIng) => {
 
       allIng.append(ingLi);
    })
+
 };
 // Includes to lower case
 export const getFilterIng = (inpValue) => {

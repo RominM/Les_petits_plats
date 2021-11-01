@@ -1,4 +1,5 @@
 import { recipes } from "./data.js";
+import { displayError } from "./view/displayError.js";
 // import { displayRecipes } from "./view/displayRecipes.js";
 
 export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
@@ -6,6 +7,7 @@ export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
    let STATEDATA = [...recipes];// data
 
    for (let i = 0; i < containsTags.childNodes.length; i++) {// boucle sur les div(ing, app, ust) enfant de ".contains-tags"
+      
       if (containsTags.childNodes[i].style.display !== 'none') {// celles qui restent
          recipes.forEach(recipe => {
             // INGREDIENTS
@@ -14,7 +16,6 @@ export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
                const ingArray = ingredients.ingredient;
                ing = ingArray;
             });
-
             // APPAREIL
             let app;
             app = recipe.appliance;
@@ -28,15 +29,23 @@ export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
             // boucle sur les tags (dans les div (ing, app, ust))
             containsTags.childNodes[i].childNodes.forEach(span => {
                const spanTag = span.innerHTML;
+               // console.log(recipe.display);
                if(ing.toLowerCase() === spanTag.toLowerCase()) {// comparer ingredient et tag (string). Si identique...
-                  //update en fonction des spanTag restants
+                  // update en fonction des spanTag restants
+                  
+                     if (recipe.display == true) {
+                        console.log(recipe);
+                     }
                   console.log(ing);
                } else if (app.toLowerCase() === spanTag.toLowerCase()) {// comparer appareil et tag (string). Si identique...
-                  //update en fonction des spanTag restants
+                  // update en fonction des spanTag restants
                   console.log(app);
                } else if (ust.toLowerCase() === spanTag.toLowerCase()) {// comparer ustensil et tag (string). Si identique...
-                  //update en fonction des spanTag restants
+                  // update en fonction des spanTag restants
                   console.log(ust);
+               } else {
+                  // console.log('error');
+                  return displayError();
                }
             });
          });
