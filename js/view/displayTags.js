@@ -1,17 +1,26 @@
-// import { UpdateState } from "../Update/UpdateState.js";
-// import { recipes } from "../data.js";
+import { afterDeletedTag } from "../afterDeleted.js";
 
 // INGREDIENTS
 export const createIngTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
-   const tagIng = document.createElement('div');
-   tagIng.classList.add('tag-ing');
-   const tagSpan = document.createElement('span');
-   tagSpan.classList.add('tag');
-   tagSpan.innerHTML = alias;
 
-   tagIng.append(tagSpan);
-   containsTags.append(tagIng);
+   if (document.querySelector('.tag-ing')) {
+      const tagIng = document.querySelector('.tag-ing');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+
+      tagIng.append(tagSpan);
+   } else {
+      const tagIng = document.createElement('div');
+      tagIng.classList.add('tag-ing');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+
+      tagIng.append(tagSpan);
+      containsTags.append(tagIng);
+   }
 };
 
 // APPLIANCES
@@ -60,44 +69,53 @@ export const handlerIngTag = () => {
 }
 
 export const handlerAppTag = () => {
-		const appLis = document.querySelectorAll('.app-li');
-		const tagsSelected = document.querySelectorAll('.tag-app span');
-		const tagsToErase = [];
+   const appLis = document.querySelectorAll('.app-li');
+   const tagsSelected = document.querySelectorAll('.tag-app span');
+   const tagsToErase = [];
 
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				appLis.forEach(li => {
-					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						li.style.display = 'none';
-					};
-				});
-			});
-		};
+   if (tagsSelected.length > 0) {
+      tagsSelected.forEach(span => {
+         tagsToErase.push(span.innerHTML);
+      })
+      tagsToErase.forEach(tag => {
+         appLis.forEach(li => {
+            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+               li.style.display = 'none';
+            };
+         });
+      });
+   };
 }
 
 export const handlerUstTag = () => {
-   
-		const ustLis = document.querySelectorAll('.ust-li');
 
-		const tagsSelected = document.querySelectorAll('.tag-ust span');
-		const tagsToErase = [];
+   const ustLis = document.querySelectorAll('.ust-li');
 
-		if (tagsSelected.length > 0) {
-			tagsSelected.forEach(span => {
-				tagsToErase.push(span.innerHTML);
-			})
-			tagsToErase.forEach(tag => {
-				ustLis.forEach(li => {
-					if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-						li.style.display = 'none';
-					};
-				});
-			});
-		};
+   const tagsSelected = document.querySelectorAll('.tag-ust span');
+   const tagsToErase = [];
 
+   if (tagsSelected.length > 0) {
+      tagsSelected.forEach(span => {
+         tagsToErase.push(span.innerHTML);
+      })
+      tagsToErase.forEach(tag => {
+         ustLis.forEach(li => {
+            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+               li.style.display = 'none';
+            };
+         });
+      });
+   };
+}
+
+export const deletedTag = () => {
+   const tags = document.querySelectorAll('.tag');
+   tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+         tag.style.display = 'none';
+         afterDeletedTag();
+      })
+   })
 }
 
 

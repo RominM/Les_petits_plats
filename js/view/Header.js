@@ -10,7 +10,7 @@ export class HeaderDOM {
     linkHome.href = "./index.html";
     linkHome.classList.add("linkHome");
     const logo = document.createElement("img");
-    logo.src = "./images/lpp_logo.svg";
+    logo.src = "./Images/lpp_logo.svg";
     const h1 = document.createElement("h1");
     h1.innerHTML = "Les petits plats";
   

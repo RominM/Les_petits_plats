@@ -5,12 +5,19 @@ import {
 
 export const runGlobalResearch = (STATEDATA) => {
    const searchBy = document.querySelector('#searchBy');
-   // searchBy.addEventListener('click', () => {
-   // runIng();
-   // });
+   searchBy.addEventListener("keyup", (e) => {
+      if (e.keyCode === 13) {
+         searchAction();
+      }
+   });
 
    const searchBtn = document.querySelector('.searchBtn');
    searchBtn.addEventListener('click', () => {
+      searchAction();
+   })
+
+   const searchAction = () => {
+      
       const value = searchBy.value;
       recipes.forEach(recipe => {
 
@@ -42,5 +49,5 @@ export const runGlobalResearch = (STATEDATA) => {
             console.log('nope');
          }
       })
-   })
+   }
 }

@@ -1,8 +1,7 @@
 import { displayIng, getAllIng, getFilterIng } from '../Handler/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags, /*displayTags,*/ handlerIngTag } from '../view/displayTags.js';
-import { afterDeletedTag } from '../afterDeleted.js';
+import { createIngTags, deletedTag, /*displayTags,*/ handlerIngTag } from '../view/displayTags.js';
 import { recipes } from '../data.js';
 
 // Open dropBox whene input is clicked
@@ -29,13 +28,7 @@ export const runIng = (STATEDATA) => {
 			li.addEventListener('click', () => {
 				createIngTags(li.innerHTML)
 				// deleted tag
-				const tagIng = document.querySelectorAll('.tag-ing');
-				tagIng.forEach(tag => {
-					tag.addEventListener('click', () => {
-						tag.style.display = 'none';
-						afterDeletedTag(tag);
-					})
-				})
+				deletedTag();
 
 				let inpValue = li.innerHTML;
 				const allIng = document.querySelector('.all-ing');
@@ -56,10 +49,9 @@ export const runIng = (STATEDATA) => {
 				recipes.forEach(recipe => {
 					let availableRecipe = recipe.display;
 					if (availableRecipe) {
-						console.log(recipe);
+						// console.log(recipe);
 					}
 				})
-
 
 				closeIngDropBox();
 			})

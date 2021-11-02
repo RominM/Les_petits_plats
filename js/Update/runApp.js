@@ -1,8 +1,7 @@
 import { getAllApp, displayApp, getFilterApp } from '../Handler/handlerApp.js';
 import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags, /*displayTags,*/ handlerAppTag } from '../view/displayTags.js';
-import { afterDeletedTag } from '../afterDeleted.js';
+import { createAppTags, deletedTag, /*displayTags,*/ handlerAppTag } from '../view/displayTags.js';
 
 // INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
@@ -26,13 +25,7 @@ export const runApp = (STATEDATA) => {
 			li.addEventListener('click', () => {
 				createAppTags(li.innerHTML);
 				// displayTags();
-				const tagApp = document.querySelectorAll('.tag-app');
-				tagApp.forEach(tag => {
-					tag.addEventListener('click', () => {
-						tag.style.display = 'none';
-						afterDeletedTag(tag);
-					})
-				})
+				deletedTag();
 
 				let inpValue = li.innerHTML;
 				const allApp = document.querySelector('.all-app');

@@ -1,31 +1,46 @@
 .contains-tags {
    display: flex;
+
    .tag-ing {
-      position: relative;
-      max-width: 250px;
-      height: 30px;
-      background-color: $azur;
-      border-radius: 5px;
-      background-image: url(../../Images/cross-round.svg);
-      background-repeat: no-repeat;
-      background-size: 17px 17px;
-      background-position: 5%;
-      margin: 10px 10px 10px 0;
-      padding: 0 20px 0 35px;
-      color: #fff;
-      font-family: $LatoReg;
-      cursor: pointer;
-      span {
-         text-align: center;
-         padding-top: 5px;
+      display: flex;
+
+      .tag {
+         position: relative;
+         max-width: 250px;
+         height: 30px;
+         line-height: 25px;
+         background-color: $azur;
+         border-radius: 5px;
+         background-image: url(../../Images/cross-round.svg);
+         background-repeat: no-repeat;
+         background-size: 17px 17px;
+         background-position: 5%;
+         margin: 10px 10px 10px 0;
+         padding: 0 20px 0 35px;
+         color: #fff;
+         font-family: $LatoReg;
+         cursor: pointer;
+
+         span {
+            text-align: center;
+            padding-top: 5px;
+         }
       }
    }
+
    .tag-app {
       @extend .tag-ing;
-      background-color: $mint;
+      .tag {
+         @extend .tag-ing;
+         background-color: $mint;
+      }
    }
+
    .tag-ust {
       @extend .tag-ing;
-      background-color: $salmon;
+      .tag {
+         @extend .tag-ing;
+         background-color: $salmon;
+      }
    }
 }

@@ -1,8 +1,16 @@
-import { recipes } from "./data.js";
-import { displayError } from "./view/displayError.js";
+import {
+   recipes
+} from "./data.js";
+import {
+   getFilterIng
+} from "./Handler/handlerIng.js";
+import {
+   displayError
+} from "./view/displayError.js";
 // import { displayRecipes } from "./view/displayRecipes.js";
 
-export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
+export const afterDeletedTag = (tag) => { // (tag) = tag cliqué/supprimer
+   /*
    const containsTags = document.querySelector('.contains-tags');// div parents contenant les div(ing, app, ust)
    let STATEDATA = [...recipes];// data
 
@@ -51,6 +59,47 @@ export const afterDeletedTag = (tag) => {// (tag) = tag cliqué/supprimer
          });
       };
    };
+   */
+
+   const tags = document.querySelectorAll('.tag');
+
+   tags.forEach(tag => {
+      const tagInner = tag.innerHTML;
+      const tagDisplay = tag.style.display; // sauf CE tag !!!
+
+      recipes.forEach(recipe => {
+         // INGREDIENTS
+         let ing;
+         recipe.ingredients.forEach(ingredients => {
+            const ingArray = ingredients.ingredient;
+            ing = ingArray;
+         });
+         // APPAREIL
+         let app;
+         app = recipe.appliance;
+
+         // USTENSILS
+         let ust;
+         recipe.ustensils.forEach(ustensil => {
+            ust = ustensil;
+         })
+         
+         console.log('ing: ' + ing);
+         console.log('app: ' + app);
+         console.log('ust: ' + ust);
+         console.log('tagInner: ' + tagInner);
+         
+         if(tagInner == ing) {
+            console.log('is ing');
+         } else if (tagInner == app) {
+            console.log('is app');
+         } else if (tagInner == ust) {
+            console.log('is ust');
+         }
+
+      });
+   });
+
 };
 
 // je veux UNIQUEMENT les tags restant dans la <div.contains-tags> après la suppression d'un tag === CHECK ! >>> containsTags.childNodes[i]
