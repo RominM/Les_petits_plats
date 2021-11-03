@@ -3,11 +3,9 @@
 
 //OBJECTIFS SEMAINE\\
 
-- Changer le name de "UI"
+- Mettre à jour le DOM après la suppression d'un tags
+   (afterDeleted.js)
 
 
 //NOTES\\
-MAIS + SALADIER + CUILLERE EN BOIS = CRASH !!!
-Effacement des tags incohérent et ne mettent pas le DOM à jour.
 refactorisation a revoir
-beaucoup de commentaire pour des testes de refactor/reécriture/etc...

@@ -1,16 +1,11 @@
-import {
-   recipes
-} from "./data.js";
-import {
-   getFilterIng
-} from "./Handler/handlerIng.js";
-import {
-   displayError
-} from "./view/displayError.js";
-// import { displayRecipes } from "./view/displayRecipes.js";
+import { recipes } from "./data.js";
+import { displayError } from "./view/displayError.js";
 
 export const afterDeletedTag = (tag) => { // (tag) = tag cliqué/supprimer
+
    /*
+   // PREMIERE METHODE
+
    const containsTags = document.querySelector('.contains-tags');// div parents contenant les div(ing, app, ust)
    let STATEDATA = [...recipes];// data
 
@@ -61,6 +56,14 @@ export const afterDeletedTag = (tag) => { // (tag) = tag cliqué/supprimer
    };
    */
 
+
+
+
+
+
+
+
+   // SECONDE METHODE
    const tags = document.querySelectorAll('.tag');
 
    tags.forEach(tag => {
@@ -82,38 +85,41 @@ export const afterDeletedTag = (tag) => { // (tag) = tag cliqué/supprimer
          let ust;
          recipe.ustensils.forEach(ustensil => {
             ust = ustensil;
-         })
+         });
          
-         console.log('ing: ' + ing);
-         console.log('app: ' + app);
-         console.log('ust: ' + ust);
+         // console.log('ing: ' + ing);
+         // console.log('app: ' + app);
+         // console.log('ust: ' + ust);
+         
+      if (tagDisplay != 'none') {
          console.log('tagInner: ' + tagInner);
          
-         if(tagInner == ing) {
+         //CONDITION ERRONÉE
+         if(tagInner === ing) {
             console.log('is ing');
-         } else if (tagInner == app) {
+         } else if (tagInner === app) {
             console.log('is app');
-         } else if (tagInner == ust) {
+         } else if (tagInner === ust) {
             console.log('is ust');
+         } else {
+            displayError();
          }
+
+         // ??? CONDITON POSSIBLE ???
+         /*
+         if (tagInner === ing || tagInner === app || tagInner === ust) {
+            updateState(tagInner)
+         }
+         */
+      }
 
       });
    });
 
 };
 
-// je veux UNIQUEMENT les tags restant dans la <div.contains-tags> après la suppression d'un tag === CHECK ! >>> containsTags.childNodes[i]
-// Je veux boucler sur recipe.ingredient. Si containsTags.childNodes[i] == recipe.ingredient, tu affiches les recettes
 
 
+// je veux UNIQUEMENT les tags restant dans la <div.contains-tags> après la suppression d'un tag === CHECK ! >>> containsTags.childNodes[i] dans la premiere methode
+// Je veux boucler sur recipe.ingredient. Si containsTags.childNodes[i] == recipe.ingredient, tu affiches les recettes // PAS DE MAJ POUR LE MOMENT
 
-/*
-const const deletedFunction = (tag) => {
-   console.log(tag) >>> return the tag clicked
-
-   const allTags = document.querySelectorAll('.tag-ing', '.tag-app', '.tag-ust')
-   data.forEache(recipe => {
-      if(recipe.ingredient == contains)
-   })
-}
-*/
