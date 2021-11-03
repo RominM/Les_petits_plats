@@ -7,6 +7,7 @@ export const createIngTags = (alias) => {
    if (document.querySelector('.tag-ing')) {
       const tagIng = document.querySelector('.tag-ing');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -15,6 +16,7 @@ export const createIngTags = (alias) => {
       const tagIng = document.createElement('div');
       tagIng.classList.add('tag-ing');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -30,6 +32,7 @@ export const createAppTags = (alias) => {
    if (document.querySelector('.tag-app')) {
       const tagApp = document.querySelector('.tag-app');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -38,6 +41,7 @@ export const createAppTags = (alias) => {
       const tagApp = document.createElement('div');
       tagApp.classList.add('tag-app');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
    
@@ -53,6 +57,7 @@ export const createUstTags = (alias) => {
    if (document.querySelector('.tag-ust')) {
       const tagUst = document.querySelector('.tag-ust');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -61,6 +66,7 @@ export const createUstTags = (alias) => {
       const tagUst = document.createElement('div');
       tagUst.classList.add('tag-ust');
       const tagSpan = document.createElement('span');
+      tagSpan.setAttribute('data-element','ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
    
@@ -75,6 +81,7 @@ export const createUstTags = (alias) => {
 
 
 
+// RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
 export const handlerIngTag = () => {
    const ingLis = document.querySelectorAll('.ing-li');
    const tagsSelected = document.querySelectorAll('.tag-ing span');
@@ -138,11 +145,13 @@ export const deletedTag = () => {
    const tags = document.querySelectorAll('.tag');
    tags.forEach(tag => {
       tag.addEventListener('click', () => {
-         tag.style.display = 'none';
-         afterDeletedTag();
+         tag.remove();
+         afterDeletedTag(tag);
       })
    })
 }
+
+
 
 
 
@@ -188,6 +197,8 @@ export const deletedTag = () => {
 //    tag.append(tagSpan);
 //    containsTags.append(tag);
 // };
+
+
 
 // export const displayTags = () => {
 //    const liIng = document.querySelector('.ing-li');

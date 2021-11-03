@@ -5,7 +5,7 @@
 
 - Mettre à jour le DOM après la suppression d'un tags
    (afterDeleted.js)
-
+- Main sur la fleche/curseur 
 
 //NOTES\\
 refactorisation a revoir

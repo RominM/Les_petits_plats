@@ -3,9 +3,8 @@ import {
 } from "../view/displayRecipes.js";
 
 export class UpdateState {
-   constructor(STATEDATA, inpValue) {
+   constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
-      this.inpValue = inpValue;
    }
 
    stateData() {

@@ -1,125 +1,60 @@
-import { recipes } from "./data.js";
-import { displayError } from "./view/displayError.js";
+import {
+   recipes
+} from "./data.js";
+import {
+   UpdateState
+} from "./Update/UpdateState.js";
+import {
+   displayError
+} from "./view/displayError.js";
+import {
+   displayRecipes
+} from "./view/displayRecipes.js";
 
-export const afterDeletedTag = (tag) => { // (tag) = tag cliqué/supprimer
-
-   /*
-   // PREMIERE METHODE
-
-   const containsTags = document.querySelector('.contains-tags');// div parents contenant les div(ing, app, ust)
-   let STATEDATA = [...recipes];// data
-
-   for (let i = 0; i < containsTags.childNodes.length; i++) {// boucle sur les div(ing, app, ust) enfant de ".contains-tags"
-      
-      if (containsTags.childNodes[i].style.display !== 'none') {// celles qui restent
-         recipes.forEach(recipe => {
-            // INGREDIENTS
-            let ing;
-            recipe.ingredients.forEach(ingredients => {
-               const ingArray = ingredients.ingredient;
-               ing = ingArray;
-            });
-            // APPAREIL
-            let app;
-            app = recipe.appliance;
-
-            // USTENSILS
-            let ust;
-            recipe.ustensils.forEach(ustensil => {
-               ust = ustensil;
-            })
-
-            // boucle sur les tags (dans les div (ing, app, ust))
-            containsTags.childNodes[i].childNodes.forEach(span => {
-               const spanTag = span.innerHTML;
-               // console.log(recipe.display);
-               if(ing.toLowerCase() === spanTag.toLowerCase()) {// comparer ingredient et tag (string). Si identique...
-                  // update en fonction des spanTag restants
-                  
-                     if (recipe.display == true) {
-                        console.log(recipe);
-                     }
-                  console.log(ing);
-               } else if (app.toLowerCase() === spanTag.toLowerCase()) {// comparer appareil et tag (string). Si identique...
-                  // update en fonction des spanTag restants
-                  console.log(app);
-               } else if (ust.toLowerCase() === spanTag.toLowerCase()) {// comparer ustensil et tag (string). Si identique...
-                  // update en fonction des spanTag restants
-                  console.log(ust);
-               } else {
-                  // console.log('error');
-                  return displayError();
-               }
-            });
-         });
-      };
-   };
-   */
-
-
-
-
-
-
-
-
-   // SECONDE METHODE
+export const afterDeletedTag = (tag) => {
    const tags = document.querySelectorAll('.tag');
 
-   tags.forEach(tag => {
-      const tagInner = tag.innerHTML;
-      const tagDisplay = tag.style.display; // sauf CE tag !!!
+   const tagToDeleted = tag.innerHTML;
+   const dataElement = tag.getAttribute('data-element');
 
-      recipes.forEach(recipe => {
-         // INGREDIENTS
-         let ing;
-         recipe.ingredients.forEach(ingredients => {
-            const ingArray = ingredients.ingredient;
-            ing = ingArray;
-         });
-         // APPAREIL
-         let app;
-         app = recipe.appliance;
+   const tagList = {
+      ing: [],
+      app: [],
+      ust: []
+   };
 
-         // USTENSILS
-         let ust;
-         recipe.ustensils.forEach(ustensil => {
-            ust = ustensil;
-         });
-         
-         // console.log('ing: ' + ing);
-         // console.log('app: ' + app);
-         // console.log('ust: ' + ust);
-         
-      if (tagDisplay != 'none') {
-         console.log('tagInner: ' + tagInner);
-         
-         //CONDITION ERRONÉE
-         if(tagInner === ing) {
-            console.log('is ing');
-         } else if (tagInner === app) {
-            console.log('is app');
-         } else if (tagInner === ust) {
-            console.log('is ust');
-         } else {
-            displayError();
-         }
-
-         // ??? CONDITON POSSIBLE ???
-         /*
-         if (tagInner === ing || tagInner === app || tagInner === ust) {
-            updateState(tagInner)
-         }
-         */
-      }
-
-      });
+   recipes.forEach(recipe => {
+      recipe.display = false;
    });
 
-};
+   tags.forEach(tag => {
+      if (tag.innerHTML != tagToDeleted) {
+         tagList[tag.getAttribute('data-element')].push(tag.innerHTML)
+      }
+   });
 
+   const arrayIng = tagList.ing;
+   if (arrayIng.length > 0) {
+      for (let i = 0; i < arrayIng.length; i++) {
+         const ingToSearch = arrayIng[i].toLowerCase();
+         for (let j = 0; j < recipes.length; j++) {
+            const recipe = recipes[j];
+            for (let k = 0; k < recipe.ingredients.length; k++) {
+               const ingredient = recipe.ingredients[k];
+               // const ing = ingredient.ingredient;
+               const ingMemo = ingredient.ingredient.toLowerCase();
+               console.log(ingToSearch);
+               console.log(ingMemo);
+               if (ingToSearch.includes(ingMemo)) {
+                  recipe.display = true;
+                  break
+               } else {
+                  displayRecipes(recipes);
+               }
+            };
+         }
+      }
+   }
 
-
-// je veux UNIQUEMENT les tags restant dans la <div.contains-tags> après la suppression d'un tag === CHECK ! >>> containsTags.childNodes[i] dans la premiere methode
-// Je veux boucler sur recipe.ingredient. Si containsTags.childNodes[i] == recipe.ingredient, tu affiches les recettes // PAS DE MAJ POUR LE MOMENT
-
+   // displayRecipes(recipes);
+}

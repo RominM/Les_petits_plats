@@ -27,8 +27,6 @@ export const runIng = (STATEDATA) => {
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				createIngTags(li.innerHTML)
-				// deleted tag
-				deletedTag();
 
 				let inpValue = li.innerHTML;
 				const allIng = document.querySelector('.all-ing');
@@ -54,6 +52,8 @@ export const runIng = (STATEDATA) => {
 				})
 
 				closeIngDropBox();
+				// deleted tag
+				deletedTag();
 			})
 		});
 	});
@@ -110,7 +110,7 @@ export const runIng = (STATEDATA) => {
 
 				displayIng(noDblIng);
 
-				const updateState = new UpdateState(STATEDATA, inpValue);
+				const updateState = new UpdateState(STATEDATA);
 				updateState.updateIngData(filtIng);
 
 				closeIngDropBox()
