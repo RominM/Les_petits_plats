@@ -26,28 +26,54 @@ export const createIngTags = (alias) => {
 // APPLIANCES
 export const createAppTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
-   const tagApp = document.createElement('div');
-   tagApp.classList.add('tag-app');
-   const tagSpan = document.createElement('span');
-   tagSpan.classList.add('tag');
-   tagSpan.innerHTML = alias;
 
-   tagApp.append(tagSpan);
-   containsTags.append(tagApp);
+   if (document.querySelector('.tag-app')) {
+      const tagApp = document.querySelector('.tag-app');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+
+      tagApp.append(tagSpan);
+   } else {
+      const tagApp = document.createElement('div');
+      tagApp.classList.add('tag-app');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+   
+      tagApp.append(tagSpan);
+      containsTags.append(tagApp);
+   }
 };
 
 // USTENSILS
 export const createUstTags = (alias) => {
    const containsTags = document.querySelector('.contains-tags');
-   const tagUst = document.createElement('div');
-   tagUst.classList.add('tag-ust');
-   const tagSpan = document.createElement('span');
-   tagSpan.classList.add('tag');
-   tagSpan.innerHTML = alias;
 
-   tagUst.append(tagSpan);
-   containsTags.append(tagUst);
+   if (document.querySelector('.tag-ust')) {
+      const tagUst = document.querySelector('.tag-ust');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+
+      tagUst.append(tagSpan);
+   } else {
+      const tagUst = document.createElement('div');
+      tagUst.classList.add('tag-ust');
+      const tagSpan = document.createElement('span');
+      tagSpan.classList.add('tag');
+      tagSpan.innerHTML = alias;
+   
+      tagUst.append(tagSpan);
+      containsTags.append(tagUst);
+   }
 };
+
+
+
+
+
+
 
 export const handlerIngTag = () => {
    const ingLis = document.querySelectorAll('.ing-li');
