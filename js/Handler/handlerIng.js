@@ -19,10 +19,10 @@ export const getAllIng = (STATEDATA) => {
 export const displayIng = (arrayIng) => {
    const containerIng = document.querySelector('.inp-container-ing');
    let allIng = document.querySelector('.all-ing');
-   // If allIng existe get empty
+
    if (allIng) {
       allIng.innerHTML = '';
-   } else { // else it creted it
+   } else {
       allIng = document.createElement('ul');
       allIng.classList.add('all-ing');
       containerIng.append(allIng);
@@ -39,10 +39,10 @@ export const displayIng = (arrayIng) => {
 };
 // Includes to lower case
 export const getFilterIng = (inpValue) => {
-   const data = [...recipes];
    let filtIng = [];
    
-   data.forEach(recipe => {
+   let STATEDATA = [...recipes];
+   STATEDATA.forEach(recipe => {
       if (recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingMemo = ingredient.ingredient.toLowerCase();

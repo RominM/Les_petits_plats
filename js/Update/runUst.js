@@ -23,24 +23,21 @@ export const runUst = (STATEDATA) => {
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createUstTags(li.innerHTML);
-
-				deletedTag();
-
 				let inpValue = li.innerHTML;
+
 				const allUst = document.querySelector('.all-ust');
-
-				const filtUst = getFilterUst(inpValue);
 				allUst.innerHTML = '';
-
+				
+				const filtUst = getFilterUst(inpValue);
 				const noDblUst = filtUst.filter(function (ele, pos) {
 					return filtUst.indexOf(ele) == pos;
 				});
-				displayUst(noDblUst);
-				// update the recipes by ustensil
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateUstData(filtUst);
 
+				displayUst(noDblUst);
+				createUstTags(inpValue);
+				deletedTag();
 				closeUstDropBox();
 			})
 		})

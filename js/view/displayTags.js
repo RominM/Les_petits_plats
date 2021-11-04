@@ -7,7 +7,7 @@ export const createIngTags = (alias) => {
    if (document.querySelector('.tag-ing')) {
       const tagIng = document.querySelector('.tag-ing');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','ing');
+      tagSpan.setAttribute('data-attribute','ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -16,7 +16,7 @@ export const createIngTags = (alias) => {
       const tagIng = document.createElement('div');
       tagIng.classList.add('tag-ing');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','ing');
+      tagSpan.setAttribute('data-attribute','ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -32,7 +32,7 @@ export const createAppTags = (alias) => {
    if (document.querySelector('.tag-app')) {
       const tagApp = document.querySelector('.tag-app');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','app');
+      tagSpan.setAttribute('data-attribute','app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -41,7 +41,7 @@ export const createAppTags = (alias) => {
       const tagApp = document.createElement('div');
       tagApp.classList.add('tag-app');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','app');
+      tagSpan.setAttribute('data-attribute','app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
    
@@ -57,7 +57,7 @@ export const createUstTags = (alias) => {
    if (document.querySelector('.tag-ust')) {
       const tagUst = document.querySelector('.tag-ust');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','ust');
+      tagSpan.setAttribute('data-attribute','ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -66,7 +66,7 @@ export const createUstTags = (alias) => {
       const tagUst = document.createElement('div');
       tagUst.classList.add('tag-ust');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-element','ust');
+      tagSpan.setAttribute('data-attribute','ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
    

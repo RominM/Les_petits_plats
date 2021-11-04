@@ -1,7 +1,22 @@
-import { getAllApp, displayApp, getFilterApp } from '../Handler/handlerApp.js';
-import { openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
-import { UpdateState } from './UpdateState.js';
-import { createAppTags, deletedTag, /*displayTags,*/ handlerAppTag } from '../view/displayTags.js';
+import {
+	getAllApp,
+	displayApp,
+	getFilterApp
+} from '../Handler/handlerApp.js';
+import {
+	openAppDropBox,
+	closeIngDropBox,
+	closeUstDropBox,
+	closeAppDropBox
+} from '../view/displayDropBox.js';
+import {
+	UpdateState
+} from './UpdateState.js';
+import {
+	createAppTags,
+	deletedTag,
+	/*displayTags,*/ handlerAppTag
+} from '../view/displayTags.js';
 
 // INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
@@ -9,6 +24,7 @@ export const runApp = (STATEDATA) => {
 	const inpApp2 = document.querySelector('.inp-app');
 
 	inpApp1.addEventListener('click', () => {
+
 		closeIngDropBox();
 		closeUstDropBox();
 		openAppDropBox();
@@ -23,25 +39,22 @@ export const runApp = (STATEDATA) => {
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createAppTags(li.innerHTML);
-				// displayTags();
-				deletedTag();
-
 				let inpValue = li.innerHTML;
+
 				const allApp = document.querySelector('.all-app');
-
-				const filtApp = getFilterApp(inpValue);
 				allApp.innerHTML = '';
-
+				
+				const filtApp = getFilterApp(inpValue);
+				console.log(filtApp);
 				const noDblApp = filtApp.filter(function (ele, pos) {
 					return filtApp.indexOf(ele) == pos;
 				});
-				// Have to deleted the first displayIngredients() before cause it create another one
-				displayApp(noDblApp);
-				// update the recipes by appliance
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateAppData(filtApp);
 
+				createAppTags(inpValue);
+				deletedTag();
+				displayApp(noDblApp);
 				closeAppDropBox();
 			})
 		})
@@ -75,8 +88,7 @@ export const runApp = (STATEDATA) => {
 			};
 
 			displayApp(noDblApp);
-		} 
-		else if (inpValue.length == 0) {
+		} else if (inpValue.length == 0) {
 			const allApp = getAllApp(STATEDATA);
 			allApp.innerHTML = '';
 			displayApp(allApp);
@@ -85,6 +97,7 @@ export const runApp = (STATEDATA) => {
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
+
 				createAppTags(li.innerHTML);
 
 				let inpValue = li.innerHTML;

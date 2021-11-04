@@ -1,5 +1,4 @@
-export const displayRecipes = (data) => {
-
+export const displayRecipes = (STATEDATA) => {
    const main = document.querySelector('main');
    
    let registre = document.querySelector('.registre');
@@ -11,7 +10,7 @@ export const displayRecipes = (data) => {
       main.append(registre);
    }
 
-   data.forEach(recipe => {
+   STATEDATA.forEach(recipe => {
       if(recipe.display == true) {
          const card = document.createElement('div');
          card.classList.add('card');
@@ -61,6 +60,7 @@ export const displayRecipes = (data) => {
          card.append(image);
          card.append(descript);
          registre.append(card);
+         // console.log(registre.innerHTML);
       }
    })
 }

@@ -17,10 +17,10 @@ export const getAllApp = (STATEDATA) => {
 export const displayApp = (arrayApp) => {
    const containerApp = document.querySelector('.inp-container-app');
    let allApp = document.querySelector('.all-app');
-   // If allApp existe get empty
+
    if(allApp) {
       allApp.innerHTML = '';
-   } else { // else it creted it
+   } else {
       allApp = document.createElement('ul');
       allApp.classList.add('all-app');
       containerApp.append(allApp);

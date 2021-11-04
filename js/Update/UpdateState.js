@@ -1,6 +1,4 @@
-import {
-   displayRecipes
-} from "../view/displayRecipes.js";
+import { displayRecipes } from "../view/displayRecipes.js";
 
 export class UpdateState {
    constructor(STATEDATA) {
@@ -36,19 +34,15 @@ export class UpdateState {
    updateAppData(inpValue) {
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
-         for (let i = 0; i < recipe.length; i++) {
-         const recipe = recipe[i];
-
-            const appMemo = recipe.appliance.toLowerCase();
+            const appliance = recipe.appliance;
+            const appMemo = appliance.toLowerCase();
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
-               break
             } else {
                recipe.display = false;
             };
          };
-      };
-   })
+      })
       displayRecipes(this.STATEDATA);
    };
    // USTENSILS
@@ -58,6 +52,7 @@ export class UpdateState {
          if (recipe.display == true) {
             for (let i = 0; i < recipe.ustensils.length; i++) {
                const ustensil = recipe.ustensils[i];
+               console.log(ustensil);
                const ustMemo = ustensil.toLowerCase();
                if (inpValue.includes(ustMemo)) {
                   recipe.display = true;
@@ -68,7 +63,6 @@ export class UpdateState {
             };
          };
       })
-
       displayRecipes(this.STATEDATA);
    };
 };

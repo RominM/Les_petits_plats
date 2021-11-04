@@ -2,7 +2,7 @@ import { displayIng, getAllIng, getFilterIng } from '../Handler/handlerIng.js';
 import { openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { createIngTags, deletedTag, /*displayTags,*/ handlerIngTag } from '../view/displayTags.js';
-import { recipes } from '../data.js';
+// import { recipes } from '../data.js';
 
 // Open dropBox whene input is clicked
 export const runIng = (STATEDATA) => {
@@ -26,34 +26,22 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				createIngTags(li.innerHTML)
-
 				let inpValue = li.innerHTML;
-				const allIng = document.querySelector('.all-ing');
 
-				const filtIng = getFilterIng(inpValue);
+				const allIng = document.querySelector('.all-ing');
 				allIng.innerHTML = '';
 
+				const filtIng = getFilterIng(inpValue);
 				const noDblIng = filtIng.filter(function (ele, pos) {
 					return filtIng.indexOf(ele) == pos;
 				});
-				
-				displayIng(noDblIng);
-				
 				const updateState = new UpdateState(STATEDATA, inpValue);
 				updateState.updateIngData(filtIng);
 
-				// Combien de recette sont à display true et combien sont à false
-				recipes.forEach(recipe => {
-					let availableRecipe = recipe.display;
-					if (availableRecipe) {
-						// console.log(recipe);
-					}
-				})
-
-				closeIngDropBox();
-				// deleted tag
+				createIngTags(inpValue);
 				deletedTag();
+				displayIng(noDblIng);
+				closeIngDropBox();
 			})
 		});
 	});
