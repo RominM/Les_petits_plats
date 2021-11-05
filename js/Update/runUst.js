@@ -23,21 +23,7 @@ export const runUst = (STATEDATA) => {
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				const allUst = document.querySelector('.all-ust');
-				allUst.innerHTML = '';
-								
-				let inpValue = li.innerHTML;
-				const filtUst = getFilterUst(inpValue);
-				const noDblUst = filtUst.filter(function (ele, pos) {
-					return filtUst.indexOf(ele) == pos;
-				});
-				const updateState = new UpdateState(STATEDATA, inpValue);
-				updateState.updateUstData(filtUst);
-
-				displayUst(noDblUst);
-				createUstTags(inpValue);
-				deletedTag();
-				closeUstDropBox();
+				clickOnUstLi(li);
 			})
 		})
 	});
@@ -48,7 +34,6 @@ export const runUst = (STATEDATA) => {
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			allUst.innerHTML = '';
-
 			// deleted duplicate ustensils inside the dropBox
 			const noDblUst = filtUst.filter(function (ele, pos) {
 				return filtUst.indexOf(ele) == pos;
@@ -62,9 +47,9 @@ export const runUst = (STATEDATA) => {
 					tagsToErase.push(span.innerHTML);
 				})
 				tagsToErase.forEach(tag => {
-					ustLis.forEach(li => {
-						if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-							li.style.display = 'none';
+					noDblUst.forEach((ust, index) => {
+						if (ust.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+							noDblUst.splice(index, 1);
 						};
 					});
 				});
@@ -79,41 +64,27 @@ export const runUst = (STATEDATA) => {
 
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
-			li.addEventListener('click', () => {
-				createUstTags(li.innerHTML);
-
-				let inpValue = li.innerHTML;
-				const allUst = document.querySelector('.all-ust');
-
-				const filtUst = getFilterUst(inpValue);
-				allUst.innerHTML = '';
-
-				const noDblUst = filtUst.filter(function (ele, pos) {
-					return filtUst.indexOf(ele) == pos;
-				});
-
-				const tagsSelected = document.querySelectorAll('.tag-ust span');
-				const tagsToErase = [];
-
-				if (tagsSelected.length > 0) {
-					tagsSelected.forEach(span => {
-						tagsToErase.push(span.innerHTML);
-					})
-					tagsToErase.forEach(tag => {
-						noDblUst.forEach((ust, index) => {
-							if (ust.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-								noDblUst.splice(index, 1);
-							};
-						});
-					});
-				};
-				displayUst(noDblUst);
-				// update the recipes by ustensil
-				const updateState = new UpdateState(STATEDATA, inpValue);
-				updateState.updateUstData(filtUst);
-
-				closeUstDropBox();
-			})
+			clickOnUstLi(li);
 		})
 	});
-}
+
+	const clickOnUstLi = (li) => {
+		li.addEventListener('click', () => {
+			const allUst = document.querySelector('.all-ust');
+			allUst.innerHTML = '';
+							
+			let inpValue = li.innerHTML;
+			const filtUst = getFilterUst(inpValue);
+			const noDblUst = filtUst.filter(function (ele, pos) {
+				return filtUst.indexOf(ele) == pos;
+			});
+			const updateState = new UpdateState(STATEDATA, inpValue);
+			updateState.updateUstData(filtUst);
+
+			displayUst(noDblUst);
+			createUstTags(inpValue);
+			deletedTag();
+			closeUstDropBox();
+		});				
+	};
+};

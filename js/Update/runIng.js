@@ -13,7 +13,6 @@ export const runIng = (STATEDATA) => {
 		openIngDropBox();
 		closeAppDropBox();
 		closeUstDropBox();
-
 		inpIng2.focus();
 
 		const allIng = getAllIng(STATEDATA);
@@ -24,21 +23,7 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-				const allIng = document.querySelector('.all-ing');
-				allIng.innerHTML = '';
-								
-				let inpValue = li.innerHTML;
-				const filtIng = getFilterIng(inpValue);
-				const noDblIng = filtIng.filter(function (ele, pos) {
-					return filtIng.indexOf(ele) == pos;
-				});
-				const updateState = new UpdateState(STATEDATA, inpValue);
-				updateState.updateIngData(filtIng);
-
-				createIngTags(inpValue);
-				deletedTag();
-				displayIng(noDblIng);
-				closeIngDropBox();
+				clickOnIngLi(li);
 			})
 		});
 	});
@@ -80,26 +65,26 @@ export const runIng = (STATEDATA) => {
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
-
-				createIngTags(li.innerHTML)
-
-				let inpValue = li.innerHTML;
-				const allIng = document.querySelector('.all-ing');
-
-				const filtIng = getFilterIng(inpValue);
-				allIng.innerHTML = '';
-				// deleted duplicate ingredient inside the dropBox
-				const noDblIng = filtIng.filter(function (ele, pos) {
-					return filtIng.indexOf(ele) == pos;
-				});
-
-				displayIng(noDblIng);
-
-				const updateState = new UpdateState(STATEDATA);
-				updateState.updateIngData(filtIng);
-
-				closeIngDropBox()
+				clickOnIngLi(li);
 			})
 		});
 	});
+
+	const clickOnIngLi = (li) => {
+		const allIng = document.querySelector('.all-ing');
+		allIng.innerHTML = '';
+						
+		let inpValue = li.innerHTML;
+		const filtIng = getFilterIng(inpValue);
+		const noDblIng = filtIng.filter(function (ele, pos) {
+			return filtIng.indexOf(ele) == pos;
+		});
+		const updateState = new UpdateState(STATEDATA, inpValue);
+		updateState.updateIngData(filtIng);
+	
+		createIngTags(inpValue);
+		deletedTag();
+		displayIng(noDblIng);
+		closeIngDropBox();
+	}
 }
