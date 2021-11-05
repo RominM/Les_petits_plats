@@ -75,81 +75,26 @@ export const createUstTags = (alias) => {
    }
 };
 
-
-
-
-
-
-
-// RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
-export const handlerIngTag = () => {
-   const ingLis = document.querySelectorAll('.ing-li');
-   const tagsSelected = document.querySelectorAll('.tag-ing span');
-   const tagsToErase = [];
-
-   if (tagsSelected.length > 0) {
-      tagsSelected.forEach(span => {
-         tagsToErase.push(span.innerHTML);
-      })
-      tagsToErase.forEach(tag => {
-         ingLis.forEach(li => {
-            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-               li.style.display = 'none';
-            };
-         });
-      });
-   };
-}
-
-export const handlerAppTag = () => {
-   const appLis = document.querySelectorAll('.app-li');
-   const tagsSelected = document.querySelectorAll('.tag-app span');
-   const tagsToErase = [];
-
-   if (tagsSelected.length > 0) {
-      tagsSelected.forEach(span => {
-         tagsToErase.push(span.innerHTML);
-      })
-      tagsToErase.forEach(tag => {
-         appLis.forEach(li => {
-            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-               li.style.display = 'none';
-            };
-         });
-      });
-   };
-}
-
-export const handlerUstTag = () => {
-
-   const ustLis = document.querySelectorAll('.ust-li');
-
-   const tagsSelected = document.querySelectorAll('.tag-ust span');
-   const tagsToErase = [];
-
-   if (tagsSelected.length > 0) {
-      tagsSelected.forEach(span => {
-         tagsToErase.push(span.innerHTML);
-      })
-      tagsToErase.forEach(tag => {
-         ustLis.forEach(li => {
-            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
-               li.style.display = 'none';
-            };
-         });
-      });
-   };
-}
-
+// DELETED TAG
 export const deletedTag = () => {
    const tags = document.querySelectorAll('.tag');
    tags.forEach(tag => {
       tag.addEventListener('click', () => {
          tag.remove();
          afterDeletedTag(tag);
-      })
-   })
-}
+      });
+   });
+};
+
+
+
+
+
+
+
+
+
+
 
 
 

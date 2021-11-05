@@ -26,3 +26,23 @@ export const getFilterApp = (inpValue) => {
    })
    return filtApp
 };
+
+
+export const handlerAppLi = () => {
+   const appLis = document.querySelectorAll('.app-li');
+   const tagsSelected = document.querySelectorAll('.tag-app span');
+   const tagsToErase = [];
+
+   if (tagsSelected.length > 0) {
+      tagsSelected.forEach(span => {
+         tagsToErase.push(span.innerHTML);
+      })
+      tagsToErase.forEach(tag => {
+         appLis.forEach(li => {
+            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+               li.style.display = 'none';
+            };
+         });
+      });
+   };
+}

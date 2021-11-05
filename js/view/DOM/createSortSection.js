@@ -1,10 +1,4 @@
-import { closeIngDropBox, closeAppDropBox, closeUstDropBox } from "./displayDropBox.js";
-
-export class SearchSection {
-  constructor(data) {
-    this.data = data;
-  }
-  createSearchBar() {
+export const createSearchBar = () => {
     const body = document.body;
     const main = document.querySelector('main');
     const divSearch = document.querySelector('.divSearch');
@@ -29,7 +23,7 @@ export class SearchSection {
     main.append(divSearch);
     body.append(main)
   }
-  createSearchStamps() {
+export const createSearchStamps = () => {
     const main = document.querySelector('main');
     const section = document.querySelector('section');
 
@@ -63,4 +57,3 @@ export class SearchSection {
 
     main.append(section);
   }
-}

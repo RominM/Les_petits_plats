@@ -1,12 +1,12 @@
-import { getAllApp, getFilterApp } from '../Handler/handlerApp.js';
+import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
 import { displayApp, openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags, deletedTag, handlerAppTag } from '../view/displayTags.js';
+import { createAppTags, deletedTag } from '../view/displayTags.js';
 
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
-
+	// CLICK
 	inpApp1.addEventListener('click', () => {
 
 		closeIngDropBox();
@@ -18,7 +18,7 @@ export const runApp = (STATEDATA) => {
 		const allApp = getAllApp(STATEDATA);
 		displayApp(allApp);
 
-		handlerAppTag();
+		handlerAppLi();
 
 		// CLICK ON A TAG
 		const appLis = document.querySelectorAll('.app-li');
@@ -28,7 +28,7 @@ export const runApp = (STATEDATA) => {
 			})
 		})
 	});
-
+	// INPUT
 	inpApp2.addEventListener('input', () => {
 		let inpValue = inpApp2.value;
 		const allApp = document.querySelector('.all-app');

@@ -1,23 +1,21 @@
-import { getAllUst, getFilterUst } from '../Handler/handlerUst.js';
+import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
 import { displayUst, openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags, deletedTag, handlerUstTag } from '../view/displayTags.js';
+import { createUstTags, deletedTag } from '../view/displayTags.js';
 
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
 	const inpUst2 = document.querySelector('.inp-ust');
-
+	// CLICK
 	inpUst1.addEventListener('click', () => {
+		openUstDropBox();
 		closeIngDropBox();
 		closeAppDropBox();
-		openUstDropBox();
-
 		inpUst2.focus();
 
 		const allUst = getAllUst(STATEDATA);
 		displayUst(allUst);
-
-		handlerUstTag();
+		handlerUstLi();
 
 		// CLICK ON A TAG
 		const ustLis = document.querySelectorAll('.ust-li');
@@ -27,7 +25,7 @@ export const runUst = (STATEDATA) => {
 			})
 		})
 	});
-
+	// INPUT
 	inpUst2.addEventListener('input', () => {
 		let inpValue = inpUst2.value;
 		const allUst = document.querySelector('.all-ust');
@@ -64,12 +62,13 @@ export const runUst = (STATEDATA) => {
 
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
-			clickOnUstLi(li);
+			li.addEventListener('click', () => {
+				clickOnUstLi(li);
+			})
 		})
 	});
 
 	const clickOnUstLi = (li) => {
-		li.addEventListener('click', () => {
 			const allUst = document.querySelector('.all-ust');
 			allUst.innerHTML = '';
 							
@@ -85,6 +84,5 @@ export const runUst = (STATEDATA) => {
 			createUstTags(inpValue);
 			deletedTag();
 			closeUstDropBox();
-		});				
 	};
 };

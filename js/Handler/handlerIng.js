@@ -19,7 +19,7 @@ export const getAllIng = (STATEDATA) => {
 // Includes to lower case
 export const getFilterIng = (inpValue) => {
    let filtIng = [];
-   
+
    let STATEDATA = [...recipes];
    STATEDATA.forEach(recipe => {
       if (recipe.display) {
@@ -31,3 +31,23 @@ export const getFilterIng = (inpValue) => {
    })
    return filtIng
 };
+
+// RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
+export const handlerIngLi = () => {
+   const ingLis = document.querySelectorAll('.ing-li');
+   const tagsSelected = document.querySelectorAll('.tag-ing span');
+   const tagsToErase = [];
+
+   if (tagsSelected.length > 0) {
+      tagsSelected.forEach(span => {
+         tagsToErase.push(span.innerHTML);
+      })
+      tagsToErase.forEach(tag => {
+         ingLis.forEach(li => {
+            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+               li.style.display = 'none';
+            };
+         });
+      });
+   };
+}

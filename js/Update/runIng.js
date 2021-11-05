@@ -1,15 +1,13 @@
-import { getAllIng, getFilterIng } from '../Handler/handlerIng.js';
+import { getAllIng, getFilterIng, handlerIngLi } from '../Handler/handlerIng.js';
 import { displayIng, openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags, deletedTag, handlerIngTag } from '../view/displayTags.js';
+import { createIngTags, deletedTag } from '../view/displayTags.js';
 
 export const runIng = (STATEDATA) => {
-
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
-
+	// CLICK
 	inpIng1.addEventListener('click', () => {
-
 		openIngDropBox();
 		closeAppDropBox();
 		closeUstDropBox();
@@ -17,7 +15,7 @@ export const runIng = (STATEDATA) => {
 
 		const allIng = getAllIng(STATEDATA);
 		displayIng(allIng);
-		handlerIngTag();
+		handlerIngLi();
 
 		// CLICK ON A TAG
 		const ingLis = document.querySelectorAll('.ing-li');
@@ -27,7 +25,7 @@ export const runIng = (STATEDATA) => {
 			})
 		});
 	});
-
+	// INPUT
 	inpIng2.addEventListener('input', () => {
 		let inpValue = inpIng2.value;
 		const allIng = document.querySelector('.all-ing');
@@ -86,5 +84,5 @@ export const runIng = (STATEDATA) => {
 		deletedTag();
 		displayIng(noDblIng);
 		closeIngDropBox();
-	}
-}
+	};
+};

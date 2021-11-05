@@ -31,3 +31,24 @@ export const getFilterUst = (inpValue) => {
    })
    return filtUst
 };
+
+export const handlerUstLi = () => {
+
+   const ustLis = document.querySelectorAll('.ust-li');
+
+   const tagsSelected = document.querySelectorAll('.tag-ust span');
+   const tagsToErase = [];
+
+   if (tagsSelected.length > 0) {
+      tagsSelected.forEach(span => {
+         tagsToErase.push(span.innerHTML);
+      })
+      tagsToErase.forEach(tag => {
+         ustLis.forEach(li => {
+            if (li.innerHTML.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+               li.style.display = 'none';
+            };
+         });
+      });
+   };
+}

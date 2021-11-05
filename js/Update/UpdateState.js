@@ -36,6 +36,7 @@ export class UpdateState {
          if (recipe.display == true) {
             const appliance = recipe.appliance;
             const appMemo = appliance.toLowerCase();
+
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
             } else {
@@ -52,8 +53,8 @@ export class UpdateState {
          if (recipe.display == true) {
             for (let i = 0; i < recipe.ustensils.length; i++) {
                const ustensil = recipe.ustensils[i];
-               console.log(ustensil);
                const ustMemo = ustensil.toLowerCase();
+               
                if (inpValue.includes(ustMemo)) {
                   recipe.display = true;
                   break

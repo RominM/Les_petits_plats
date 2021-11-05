@@ -20,6 +20,11 @@
         color: #fff;
         cursor: text;
     }
+    .target-ing::after {
+        content: '';
+        display: block;
+        
+    }
     .target-ing::placeholder {
         color: #fff;
     }
@@ -41,10 +46,7 @@
     .target-ust {
         background-color: $salmon;
     }
-
 }
-
-
 
 @media (max-width: 605px) {
     .contains-inp {

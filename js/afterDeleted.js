@@ -1,11 +1,5 @@
-import {
-   recipes
-} from "./data.js";
-import {
-   displayRecipes
-} from "./view/displayRecipes.js";
-// import { UpdateState } from "./Update/UpdateState.js";
-// import { displayError } from "./view/displayError.js";
+import { recipes } from "./data.js";
+import { displayRecipes } from "./view/displayRecipes.js";
 
 export const afterDeletedTag = (tag) => {
    const tags = document.querySelectorAll('.tag'); // TOUS LES TAGS DU DOM
@@ -13,7 +7,7 @@ export const afterDeletedTag = (tag) => {
    const tagToDeleted = tag.innerHTML; // LE TAG SUPPRIMÉ
    const dataAttribute = tag.getAttribute('data-attribute'); // DATA-ATTRIBUTE DU TAG (ING, APP, UST)
 
-   const tagList = {
+   const tagList = { // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
       ing: [],
       app: [],
       ust: []
@@ -21,7 +15,6 @@ export const afterDeletedTag = (tag) => {
    tags.forEach(tag => {
       if (tag.innerHTML != tagToDeleted) {
          tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML); // ENCORE PAS CLAIR...
-         // console.log(tagList); // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
       }
    });
 
@@ -30,20 +23,16 @@ export const afterDeletedTag = (tag) => {
       recipe.display = false;
    });
 
-   const arrayTagIng = tagList.ing;
-   const arrayTagApp = tagList.app;
-   const arrayTagUst = tagList.app;
-   if (arrayTagIng.length > 0) {
-      console.log(arrayTagIng.length);
-      for (let i = 0; i < arrayTagIng.length; i++) {
-         const ingToSearch = arrayTagIng[i].toLowerCase();
+   if (tagList.ing.length > 0) {
+      for (let i = 0; i < tagList.ing.length; i++) {
+         const ingToSearch = tagList.ing[i].toLowerCase();
+
          for (let j = 0; j < recipes.length; j++) {
             const recipe = recipes[j];
             for (let k = 0; k < recipe.ingredients.length; k++) {
                const ingredient = recipe.ingredients[k];
                const ingMemo = ingredient.ingredient.toLowerCase();
                if (ingToSearch.includes(ingMemo)) {
-                  console.log(ingToSearch);
                   recipe.display = true;
                   displayRecipes(recipes);
                   break
@@ -51,7 +40,25 @@ export const afterDeletedTag = (tag) => {
             };
          }
       }
-   } else {
+   } 
+   else if (tagList.ust.length > 0) {
+      for (let i = 0; i < tagList.ust.length; i++) {
+         const ustToSearch = tagList.ust[i].toLowerCase();
+         
+         for (let j = 0; j < recipes.length; j++) {
+            const recipe = recipes[j];
+            for (let k = 0; k < recipe.ustensils.length; k++) {
+               const ustMemo = recipe.ustensils[k].toLowerCase();
+               if (ustToSearch.includes(ustMemo)) {
+                  recipe.display = true;
+                  displayRecipes(recipes);
+                  break
+               }
+            }
+         }
+      }
+   } 
+   else {
       let STATEDATA = [...recipes];
       STATEDATA.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
          recipe.display = true;
