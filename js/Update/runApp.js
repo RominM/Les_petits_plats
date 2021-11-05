@@ -1,24 +1,8 @@
-import {
-	getAllApp,
-	displayApp,
-	getFilterApp
-} from '../Handler/handlerApp.js';
-import {
-	openAppDropBox,
-	closeIngDropBox,
-	closeUstDropBox,
-	closeAppDropBox
-} from '../view/displayDropBox.js';
-import {
-	UpdateState
-} from './UpdateState.js';
-import {
-	createAppTags,
-	deletedTag,
-	/*displayTags,*/ handlerAppTag
-} from '../view/displayTags.js';
+import { getAllApp, getFilterApp } from '../Handler/handlerApp.js';
+import { displayApp, openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
+import { UpdateState } from './UpdateState.js';
+import { createAppTags, deletedTag, handlerAppTag } from '../view/displayTags.js';
 
-// INPUT WORKING APPLIANCE
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
@@ -36,14 +20,14 @@ export const runApp = (STATEDATA) => {
 
 		handlerAppTag();
 
+		// CLICK ON A TAG
 		const appLis = document.querySelectorAll('.app-li');
 		appLis.forEach(li => {
 			li.addEventListener('click', () => {
-				let inpValue = li.innerHTML;
-
 				const allApp = document.querySelector('.all-app');
 				allApp.innerHTML = '';
-				
+								
+				let inpValue = li.innerHTML;
 				const filtApp = getFilterApp(inpValue);
 				console.log(filtApp);
 				const noDblApp = filtApp.filter(function (ele, pos) {

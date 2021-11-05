@@ -1,9 +1,8 @@
-import { getAllUst, displayUst, getFilterUst } from '../Handler/handlerUst.js';
-import { openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
+import { getAllUst, getFilterUst } from '../Handler/handlerUst.js';
+import { displayUst, openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags, deletedTag, /*displayTags,*/handlerUstTag } from '../view/displayTags.js';
+import { createUstTags, deletedTag, handlerUstTag } from '../view/displayTags.js';
 
-// Open dropBox whene input is clicked
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
 	const inpUst2 = document.querySelector('.inp-ust');
@@ -20,14 +19,14 @@ export const runUst = (STATEDATA) => {
 
 		handlerUstTag();
 
+		// CLICK ON A TAG
 		const ustLis = document.querySelectorAll('.ust-li');
 		ustLis.forEach(li => {
 			li.addEventListener('click', () => {
-				let inpValue = li.innerHTML;
-
 				const allUst = document.querySelector('.all-ust');
 				allUst.innerHTML = '';
-				
+								
+				let inpValue = li.innerHTML;
 				const filtUst = getFilterUst(inpValue);
 				const noDblUst = filtUst.filter(function (ele, pos) {
 					return filtUst.indexOf(ele) == pos;
@@ -42,7 +41,7 @@ export const runUst = (STATEDATA) => {
 			})
 		})
 	});
-	// Display only the available ustensil
+
 	inpUst2.addEventListener('input', () => {
 		let inpValue = inpUst2.value;
 		const allUst = document.querySelector('.all-ust');
@@ -72,8 +71,7 @@ export const runUst = (STATEDATA) => {
 			};
 
 			displayUst(noDblUst);
-		} 
-		else if (inpValue.length == 0) {
+		} else if (inpValue.length == 0) {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			displayUst(allUst);

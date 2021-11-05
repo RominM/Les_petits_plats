@@ -15,27 +15,7 @@ export const getAllUst = (STATEDATA) => {
    })
    return filtUstArray
 };
-// Create DOM Elements
-export const displayUst = (arrayUst) => {
-   const containerApp = document.querySelector('.inp-container-ust');
-   let allUst = document.querySelector('.all-ust');
-   // If allUst existe get empty
-   if(allUst) {
-      allUst.innerHTML = '';
-   } else { // else it creted it
-      allUst = document.createElement('ul');
-      allUst.classList.add('all-ust');
-      containerApp.append(allUst);
-   }
-   
-   arrayUst.forEach(eachUst => {
-      const ustLi = document.createElement('li');
-      ustLi.classList.add('li','ust-li');
-      ustLi.innerHTML = eachUst;
-   
-      allUst.append(ustLi);
-   })
-};
+
 // Includes to lower case
 export const getFilterUst = (inpValue) => {
    const data =[...recipes];

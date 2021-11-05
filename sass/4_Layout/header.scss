@@ -1,19 +1,21 @@
 header {
     padding: 35px;
-   .linkHome {
-       display: flex;
-       justify-content: center;
-       flex-direction: column;
-       text-align: center;
-   }
-   img {
-       width: 50px;
-       margin: auto;
-   }
-   h1 {
-       font-family: $DMBold;
-       font-size: 36px;
-       color: $theme;
 
-   }
+    .linkHome {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img {
+        width: 50px;
+        margin: auto;
+    }
+
+    h1 {
+        font-family: $DMBold;
+        font-size: 36px;
+        color: $theme;
+    }
 }

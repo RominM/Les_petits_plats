@@ -13,27 +13,7 @@ export const getAllApp = (STATEDATA) => {
    })
    return filtAppArray
 };
-// Create DOM Elements
-export const displayApp = (arrayApp) => {
-   const containerApp = document.querySelector('.inp-container-app');
-   let allApp = document.querySelector('.all-app');
 
-   if(allApp) {
-      allApp.innerHTML = '';
-   } else {
-      allApp = document.createElement('ul');
-      allApp.classList.add('all-app');
-      containerApp.append(allApp);
-   }
-
-   arrayApp.forEach(eachApp => {
-      const appLi = document.createElement('li');
-      appLi.classList.add('li','app-li');
-      appLi.innerHTML = eachApp;
-
-      allApp.append(appLi);
-   })
-};
 // Includes to lower case
 export const getFilterApp = (inpValue) => {
    const data = [...recipes];
