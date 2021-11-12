@@ -12,19 +12,34 @@ export const displayIng = (arrayIng) => {
    } else {
       allIng = document.createElement('ul');
       allIng.classList.add('all-ing');
+
       containerIng.append(allIng);
    }
    
-   arrayIng.forEach(eachIng => {
-      const ingLi = document.createElement('li');
-      ingLi.classList.add('li','ing-li');
-      ingLi.innerHTML = eachIng;
+   if(arrayIng == 0) {
+      const spanIngError = document.querySelector('.spanIngError');
 
-      allIng.append(ingLi);
-   })
+      if(spanIngError) {
+      } else {
+         const spanIngError = document.createElement('span');
+         spanIngError.classList.add('spanIngError','spanError');
+         spanIngError.innerHTML = 'Nous n\'avons pas trouvé d\'ingredient...';
+   
+         containerIng.append(spanIngError);
+      }
+   } else {
+      arrayIng.forEach(eachIng => {
+         const ingLi = document.createElement('li');
+         ingLi.classList.add('li','ing-li');
+         ingLi.innerHTML = eachIng;
+         
+         allIng.append(ingLi);
+      })
+   }
 };
 // OPEN ING 
 export const openIngDropBox = () => {
+   removeSpanError();
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
 
@@ -64,16 +79,31 @@ export const displayApp = (arrayApp) => {
       containerApp.append(allApp);
    }
 
-   arrayApp.forEach(eachApp => {
-      const appLi = document.createElement('li');
-      appLi.classList.add('li','app-li');
-      appLi.innerHTML = eachApp;
+   if(arrayApp == 0) {
+      const spanAppError = document.querySelector('.spanAppError');
 
-      allApp.append(appLi);
-   })
+      if(spanAppError){
+      } else {
+         const spanAppError = document.createElement('span');
+         spanAppError.classList.add('spanAppError', 'spanError');
+         spanAppError.innerHTML = 'Nous n\'avons pas trouvé d\'appareil...';
+   
+         containerApp.append(spanAppError);
+      }
+   } else {
+      arrayApp.forEach(eachApp => {
+         const appLi = document.createElement('li');
+         appLi.classList.add('li','app-li');
+         appLi.innerHTML = eachApp;
+   
+         allApp.append(appLi);
+      })
+   }
 };
 // OPEN APP
 export const openAppDropBox = () => {
+   removeSpanError();
+
    const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
 
@@ -101,7 +131,7 @@ export const closeAppDropBox = () => {
 /********************/
 // CREATE UST DROPBOX
 export const displayUst = (arrayUst) => {
-   const containerApp = document.querySelector('.inp-container-ust');
+   const containerUst = document.querySelector('.inp-container-ust');
    let allUst = document.querySelector('.all-ust');
    // If allUst existe get empty
    if(allUst) {
@@ -109,18 +139,34 @@ export const displayUst = (arrayUst) => {
    } else { // else it creted it
       allUst = document.createElement('ul');
       allUst.classList.add('all-ust');
-      containerApp.append(allUst);
+      containerUst.append(allUst);
    }
-   arrayUst.forEach(eachUst => {
-      const ustLi = document.createElement('li');
-      ustLi.classList.add('li','ust-li');
-      ustLi.innerHTML = eachUst;
+
+   if(arrayUst == 0) {
+      const spanUstError = document.querySelector('.spanUstError');
+
+      if(spanUstError) {
+      } else {
+         const spanUstError = document.createElement('span');
+         spanUstError.classList.add('spanUstError', 'spanError');
+         spanUstError.innerHTML = 'Nous n\'avons pas trouvé d\'ustensils...';
    
-      allUst.append(ustLi);
-   })
+         containerUst.append(spanUstError);
+      }
+   } else {
+      arrayUst.forEach(eachUst => {
+         const ustLi = document.createElement('li');
+         ustLi.classList.add('li','ust-li');
+         ustLi.innerHTML = eachUst;
+      
+         allUst.append(ustLi);
+      })
+   }
 };
 // OPEN UST
 export const openUstDropBox = () => {
+   removeSpanError();
+
 	const inpUst1 = document.querySelector('.target-ust');
 	const inpUst2 = document.querySelector('.inp-ust');
 
@@ -143,7 +189,12 @@ export const closeUstDropBox = () => {
    }
 }
 
-
+export const removeSpanError = () => {
+   const spanError = document.querySelectorAll('.spanError');
+   spanError.forEach(span => {
+      span.remove();
+   })
+};
 
 
 

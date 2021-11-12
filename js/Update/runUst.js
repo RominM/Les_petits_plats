@@ -1,5 +1,5 @@
 import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
-import { displayUst, openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox } from '../view/displayDropBox.js';
+import { displayUst, openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox, removeSpanError } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { createUstTags, deletedTag } from '../view/displayTags.js';
 
@@ -24,6 +24,7 @@ export const runUst = (STATEDATA) => {
 				clickOnUstLi(li);
 			})
 		})
+		removeSpanError();
 	});
 	// INPUT
 	inpUst2.addEventListener('input', () => {
@@ -58,6 +59,8 @@ export const runUst = (STATEDATA) => {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			displayUst(allUst);
+
+			removeSpanError();
 		}
 
 		const ustLis = document.querySelectorAll('.ust-li');

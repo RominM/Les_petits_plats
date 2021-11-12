@@ -4,7 +4,8 @@
   "description": "Les Petits Plats - OC",
   "main": "app.js",
   "scripts": {
-    "sass": "sass --watch ./sass/master.scss:./css/style.css --style compressed"
+    "sass": "sass --watch ./sass/master.scss:./css/style.css --style compressed",
+    "prefix": "postcss ./css/style.css -u autoprefixer -o ./css/stylePrefix.css -w"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,14 @@
   },
   "homepage": "https://github.com/RominM/RominManogil_07_13092021#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.0",
     "sass": "^1.42.1"
-  }
+  },
+  "devDependencies": {
+    "postcss": "^8.3.11",
+    "postcss-cli": "^8.3.1"
+  },
+  "browserslist": [
+    "last 30 version"
+  ]
 }

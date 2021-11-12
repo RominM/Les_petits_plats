@@ -1,5 +1,5 @@
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
-import { displayApp, openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox } from '../view/displayDropBox.js';
+import { displayApp, openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox, removeSpanError } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
 import { createAppTags, deletedTag } from '../view/displayTags.js';
 
@@ -27,9 +27,11 @@ export const runApp = (STATEDATA) => {
 				clickOnAppLi(li);
 			})
 		})
+		removeSpanError();
 	});
 	// INPUT
 	inpApp2.addEventListener('input', () => {
+
 		let inpValue = inpApp2.value;
 		const allApp = document.querySelector('.all-app');
 		if (inpValue.length > 2) {
@@ -61,6 +63,8 @@ export const runApp = (STATEDATA) => {
 			const allApp = getAllApp(STATEDATA);
 			allApp.innerHTML = '';
 			displayApp(allApp);
+			
+			removeSpanError();
 		};
 
 		const appLis = document.querySelectorAll('.app-li');

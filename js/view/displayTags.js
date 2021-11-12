@@ -1,4 +1,5 @@
 import { afterDeletedTag } from "../afterDeleted.js";
+import { closeAppDropBox, closeIngDropBox, closeUstDropBox } from "./displayDropBox.js";
 
 // INGREDIENTS
 export const createIngTags = (alias) => {
@@ -82,6 +83,10 @@ export const deletedTag = () => {
       tag.addEventListener('click', () => {
          tag.remove();
          afterDeletedTag(tag);
+         
+         closeAppDropBox();
+         closeIngDropBox();
+         closeUstDropBox();
       });
    });
 };

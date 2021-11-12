@@ -5,7 +5,6 @@ export const afterDeletedTag = (tag) => {
    const tags = document.querySelectorAll('.tag'); // TOUS LES TAGS DU DOM
 
    const tagToDeleted = tag.innerHTML; // LE TAG SUPPRIMÉ
-   const dataAttribute = tag.getAttribute('data-attribute'); // DATA-ATTRIBUTE DU TAG (ING, APP, UST)
 
    const tagList = { // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
       ing: [],
@@ -14,7 +13,7 @@ export const afterDeletedTag = (tag) => {
    };
    tags.forEach(tag => {
       if (tag.innerHTML != tagToDeleted) {
-         tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML); // ENCORE PAS CLAIR...
+         tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML);
       }
    });
 

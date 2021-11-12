@@ -1,0 +1,18 @@
+.spanIngError, .spanAppError, .spanUstError {
+   font-style: italic;
+   font-family: $LatoReg;
+   padding: 0 10px 5px 10px;
+}
+
+
+.spanIngError {
+   background-color: $azur;
+}
+
+.spanAppError {
+   background-color: $mint;
+}
+
+.spanUstError {
+   background-color: $salmon;
+}
