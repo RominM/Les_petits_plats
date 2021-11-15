@@ -11,7 +11,7 @@ export const afterDeletedTag = (tag) => {
       app: [],
       ust: []
    };
-  
+   console.log("On a peut être réussi je re test");
 
    tags.forEach(tag => {
       if (tag.innerHTML != tagToDeleted) {
