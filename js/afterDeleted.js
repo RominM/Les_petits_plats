@@ -11,6 +11,8 @@ export const afterDeletedTag = (tag) => {
       app: [],
       ust: []
    };
+   console.log("Faut regenerer un token a chaque fois ? NON je peux faire une modif sur ton code ? c'est fait lol");
+
    tags.forEach(tag => {
       if (tag.innerHTML != tagToDeleted) {
          tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML);
