@@ -5,6 +5,15 @@ export class UpdateState {
       this.STATEDATA = STATEDATA;
    }
 
+   /* STATEDATA;
+    inpValue;
+
+   constructor(data , value) {
+      this.STATEDATA = data;
+      this.inpValue = value;
+   }
+*/
+
    stateData() {
       updateIngData();
       updateAppData();

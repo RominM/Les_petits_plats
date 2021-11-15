@@ -1,5 +1,12 @@
-import { afterDeletedTag } from "../afterDeleted.js";
-import { closeAppDropBox, closeIngDropBox, closeUstDropBox } from "./displayDropBox.js";
+import {
+   updateIngRecipe,
+   afterDeletedTag
+} from "../afterDeleted.js";
+import {
+   closeAppDropBox,
+   closeIngDropBox,
+   closeUstDropBox
+} from "./displayDropBox.js";
 
 // INGREDIENTS
 export const createIngTags = (alias) => {
@@ -8,7 +15,7 @@ export const createIngTags = (alias) => {
    if (document.querySelector('.tag-ing')) {
       const tagIng = document.querySelector('.tag-ing');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','ing');
+      tagSpan.setAttribute('data-attribute', 'ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -17,7 +24,7 @@ export const createIngTags = (alias) => {
       const tagIng = document.createElement('div');
       tagIng.classList.add('tag-ing');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','ing');
+      tagSpan.setAttribute('data-attribute', 'ing');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -33,7 +40,7 @@ export const createAppTags = (alias) => {
    if (document.querySelector('.tag-app')) {
       const tagApp = document.querySelector('.tag-app');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','app');
+      tagSpan.setAttribute('data-attribute', 'app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -42,10 +49,10 @@ export const createAppTags = (alias) => {
       const tagApp = document.createElement('div');
       tagApp.classList.add('tag-app');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','app');
+      tagSpan.setAttribute('data-attribute', 'app');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
-   
+
       tagApp.append(tagSpan);
       containsTags.append(tagApp);
    }
@@ -58,7 +65,7 @@ export const createUstTags = (alias) => {
    if (document.querySelector('.tag-ust')) {
       const tagUst = document.querySelector('.tag-ust');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','ust');
+      tagSpan.setAttribute('data-attribute', 'ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -67,28 +74,58 @@ export const createUstTags = (alias) => {
       const tagUst = document.createElement('div');
       tagUst.classList.add('tag-ust');
       const tagSpan = document.createElement('span');
-      tagSpan.setAttribute('data-attribute','ust');
+      tagSpan.setAttribute('data-attribute', 'ust');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
-   
+
       tagUst.append(tagSpan);
       containsTags.append(tagUst);
    }
 };
 
+const getTag = (tags) => {
+
+   let listTag = [];
+
+   tags.forEach(element => {
+      listTag.push(element.innerHTML);
+      console.log(listTag);
+      console.log(element);
+      console.log(tags);
+   });
+
+   console.log(listTag)
+   return listTag;
+
+}
+
 // DELETED TAG
 export const deletedTag = () => {
    const tags = document.querySelectorAll('.tag');
+   let nameTag = [];
+
    tags.forEach(tag => {
       tag.addEventListener('click', () => {
          tag.remove();
-         afterDeletedTag(tag);
-         
+         let temp = document.querySelectorAll('.tag');
+         nameTag = getTag(temp);
+         updateIngRecipe(nameTag, tag);
          closeAppDropBox();
          closeIngDropBox();
          closeUstDropBox();
       });
    });
+
+   /* tags.forEach(tag => {
+       tag.addEventListener('click', () => {
+          tag.remove();
+          afterDeletedTag(tag);
+          //updateIngRecipe();
+          closeAppDropBox();
+          closeIngDropBox();
+          closeUstDropBox();
+       });
+    });*/
 };
 
 

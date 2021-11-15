@@ -82,8 +82,8 @@ export const runIng = (STATEDATA) => {
 		const noDblIng = filtIng.filter(function (ele, pos) {
 			return filtIng.indexOf(ele) == pos;
 		});
-		const updateState = new UpdateState(STATEDATA, inpValue);
-		updateState.updateIngData(filtIng);
+		const updateState = new UpdateState(STATEDATA);
+		updateState.updateIngData(filtIng );
 	
 		createIngTags(inpValue);
 		deletedTag();
