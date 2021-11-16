@@ -1,7 +1,5 @@
 import {
-   updateIngRecipe,
-   afterDeletedTag
-} from "../afterDeleted.js";
+   updateIngRecipe } from "../../afterDeleted.js";
 import {
    closeAppDropBox,
    closeIngDropBox,

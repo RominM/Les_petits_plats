@@ -5,7 +5,7 @@ export const getAllIng = (STATEDATA) => {
    STATEDATA.forEach(recipe => {
       if (recipe.display) {
          recipe.ingredients.forEach(ingredient => {
-            const ingredientList = ingredient.ingredient
+            const ingredientList = ingredient.ingredient.toLowerCase();
             arrayIng.push(ingredientList)
          })
       }
@@ -13,7 +13,7 @@ export const getAllIng = (STATEDATA) => {
    const filtIngArray = arrayIng.filter(function (ele, pos) {
       return arrayIng.indexOf(ele) == pos;
    })
-   return filtIngArray
+   return filtIngArray.sort()
 };
 
 // Includes to lower case

@@ -1,7 +1,9 @@
 import { getAllIng, getFilterIng, handlerIngLi } from '../Handler/handlerIng.js';
-import { displayIng, openIngDropBox, closeAppDropBox, closeUstDropBox, closeIngDropBox, removeSpanError } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags, deletedTag } from '../view/displayTags.js';
+import { createIngTags, deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
+import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openIngDropBox } from '../view/Display/displayDropBox.js';
+import { createIngDropBox } from '../view/DOM/createIngDropBox.js';
 
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
@@ -16,7 +18,9 @@ export const runIng = (STATEDATA) => {
 		inpIng2.focus();
 
 		const allIng = getAllIng(STATEDATA);
-		displayIng(allIng);
+		allIng.sort();
+		// console.log(allIng);
+		createIngDropBox(allIng);
 		handlerIngLi();
 
 		// CLICK ON A TAG
@@ -55,16 +59,20 @@ export const runIng = (STATEDATA) => {
 					});
 				});
 			};
-			displayIng(noDblIng);
+			if (noDblIng == 0) {
+				getSpanErrorIng();
+			} else {
+				removeSpanError();
+				createIngDropBox(noDblIng);
+			}		
 		}
 		else if (inpValue.length == 0) {
 			const allIng = getAllIng(STATEDATA);
 			allIng.innerHTML = '';
-			displayIng(allIng);
+			createIngDropBox(allIng);
 
 			removeSpanError();
 		}
-
 		const ingLis = document.querySelectorAll('.ing-li');
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
@@ -87,7 +95,7 @@ export const runIng = (STATEDATA) => {
 	
 		createIngTags(inpValue);
 		deletedTag();
-		displayIng(noDblIng);
+		createIngDropBox(noDblIng);
 		closeIngDropBox();
 	};
 };

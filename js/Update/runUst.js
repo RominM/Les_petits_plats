@@ -1,7 +1,9 @@
 import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
-import { displayUst, openUstDropBox, closeIngDropBox, closeAppDropBox, closeUstDropBox, removeSpanError } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags, deletedTag } from '../view/displayTags.js';
+import { createUstTags, deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
+import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openUstDropBox } from '../view/Display/displayDropBox.js';
+import { createUstDropBox } from '../view/DOM/createUstDropBox.js';
 
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
@@ -14,7 +16,7 @@ export const runUst = (STATEDATA) => {
 		inpUst2.focus();
 
 		const allUst = getAllUst(STATEDATA);
-		displayUst(allUst);
+		createUstDropBox(allUst);
 		handlerUstLi();
 
 		// CLICK ON A TAG
@@ -53,13 +55,17 @@ export const runUst = (STATEDATA) => {
 					});
 				});
 			};
+			if (noDblUst == 0) {
+				getSpanErrorUst();
+			} else {
+				removeSpanError();
+				createUstDropBox(noDblUst);
+			}
 
-			displayUst(noDblUst);
 		} else if (inpValue.length == 0) {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
-			displayUst(allUst);
-
+			createUstDropBox(allUst);
 			removeSpanError();
 		}
 
@@ -83,7 +89,7 @@ export const runUst = (STATEDATA) => {
 			const updateState = new UpdateState(STATEDATA, inpValue);
 			updateState.updateUstData(filtUst);
 
-			displayUst(noDblUst);
+			createUstDropBox(noDblUst);
 			createUstTags(inpValue);
 			deletedTag();
 			closeUstDropBox();

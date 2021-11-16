@@ -1,7 +1,9 @@
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
-import { displayApp, openAppDropBox, closeIngDropBox, closeUstDropBox, closeAppDropBox, removeSpanError } from '../view/displayDropBox.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags, deletedTag } from '../view/displayTags.js';
+import { createAppTags, deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
+import { createAppDropBox } from '../view/DOM/createAppDropBox.js';
+import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openAppDropBox } from '../view/Display/displayDropBox.js';
 
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
@@ -16,7 +18,7 @@ export const runApp = (STATEDATA) => {
 		inpApp2.focus();
 
 		const allApp = getAllApp(STATEDATA);
-		displayApp(allApp);
+		createAppDropBox(allApp);
 
 		handlerAppLi();
 
@@ -57,12 +59,16 @@ export const runApp = (STATEDATA) => {
 					});
 				});
 			};
-
-			displayApp(noDblApp);
+			if (noDblApp == 0) {
+				getSpanErrorApp();
+			} else {
+				removeSpanError();
+				createAppDropBox(noDblApp);
+			}		
 		} else if (inpValue.length == 0) {
 			const allApp = getAllApp(STATEDATA);
 			allApp.innerHTML = '';
-			displayApp(allApp);
+			createAppDropBox(allApp);
 			
 			removeSpanError();
 		};
@@ -90,7 +96,7 @@ export const runApp = (STATEDATA) => {
 
 		createAppTags(inpValue);
 		deletedTag();
-		displayApp(noDblApp);
+		createAppDropBox(noDblApp);
 		closeAppDropBox();
 	};
 };

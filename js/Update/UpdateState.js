@@ -1,4 +1,4 @@
-import { displayRecipes } from "../view/displayRecipes.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export class UpdateState {
    constructor(STATEDATA) {
