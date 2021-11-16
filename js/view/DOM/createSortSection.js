@@ -31,9 +31,11 @@ export const createSearchStamps = () => {
     const inpIng1 = document.createElement('input');
     inpIng1.classList.add('target-ing');
     inpIng1.placeholder = 'Ingrédients';
+    // inpIng1.readOnly = true;
+
     const inpIng2 = document.createElement('input');
     inpIng2.classList.add('inp-ing');
-    inpIng2.placeholder = 'Rechercher un ingrédient'
+    inpIng2.placeholder = 'Rechercher un ingrédient';
 
     const containerApp = document.querySelector('.inp-container-app');
     const inpApp1 = document.createElement('input');

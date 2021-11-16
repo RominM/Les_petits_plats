@@ -9,29 +9,18 @@ import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.j
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
-
+	// TAB ON INPUT1
+	inpIng1.addEventListener("keyup", (e) => {
+		if (e.keyCode === 9) {
+			focusInpIng1();
+		}
+	});
 	// CLICK ON INPUT1
 	inpIng1.addEventListener('click', () => {
-		openIngDropBox();
-		closeAppDropBox();
-		closeUstDropBox();
-		inpIng2.focus();
-
-		const allIng = getAllIng(STATEDATA);
-		allIng.sort();
-		createIngDropBox(allIng);
-		handlerIngLi();
-
-		// CLICK ON A TAG
-		const ingLis = document.querySelectorAll('.ing-li');
-		ingLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnIngLi(li);
-			})
-		});
-		removeSpanError();
+		focusInpIng1();
 	});
-	// INPUT
+
+	// INPUT2
 	inpIng2.addEventListener('input', () => {
 		const allIng = document.querySelector('.all-ing');
 
@@ -64,9 +53,8 @@ export const runIng = (STATEDATA) => {
 			} else {
 				removeSpanError();
 				createIngDropBox(noDblIng);
-			}		
-		}
-		else if (inpValue.length == 0) {
+			}
+		} else if (inpValue.length == 0) {
 			const allIng = getAllIng(STATEDATA);
 			allIng.innerHTML = '';
 			createIngDropBox(allIng);
@@ -81,10 +69,31 @@ export const runIng = (STATEDATA) => {
 		});
 	});
 
+	const focusInpIng1 = () => {
+		openIngDropBox();
+		closeAppDropBox();
+		closeUstDropBox();
+		inpIng2.focus();
+
+		const allIng = getAllIng(STATEDATA);
+		allIng.sort();
+		createIngDropBox(allIng);
+		handlerIngLi();
+
+		// CLICK ON A TAG
+		const ingLis = document.querySelectorAll('.ing-li');
+		ingLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnIngLi(li);
+			})
+		});
+		removeSpanError();
+	}
+
 	const clickOnIngLi = (li) => {
 		// const allIng = document.querySelector('.all-ing');
 		// allIng.innerHTML = '';
-						
+
 		let inpValue = li.innerHTML;
 		const filtIng = getFilterIng(inpValue);
 		// console.log(filtIng);
@@ -92,10 +101,10 @@ export const runIng = (STATEDATA) => {
 		// const noDblIng = filtIng.filter(function (ele, pos) {
 		// 	return filtIng.indexOf(ele) == pos;
 		// });
-		
+
 		const updateState = new UpdateState(STATEDATA);
-		updateState.updateIngData(filtIng );
-	
+		updateState.updateIngData(filtIng);
+
 		createIngTags(inpValue);
 		deletedTag();
 		// createIngDropBox(noDblIng);

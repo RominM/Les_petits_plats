@@ -9,25 +9,15 @@ import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.j
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
 	const inpUst2 = document.querySelector('.inp-ust');
+	// TAB ON INPUT1
+	inpUst1.addEventListener("keyup", (e) => {
+		if (e.keyCode === 9) {
+			focusInpUst1();
+		}
+	});
 	// CLICK
 	inpUst1.addEventListener('click', () => {
-		openUstDropBox();
-		closeIngDropBox();
-		closeAppDropBox();
-		inpUst2.focus();
-
-		const allUst = getAllUst(STATEDATA);
-		createUstDropBox(allUst);
-		handlerUstLi();
-
-		// CLICK ON A TAG
-		const ustLis = document.querySelectorAll('.ust-li');
-		ustLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnUstLi(li);
-			})
-		})
-		removeSpanError();
+		focusInpUst1();
 	});
 	// INPUT
 	inpUst2.addEventListener('input', () => {
@@ -78,6 +68,26 @@ export const runUst = (STATEDATA) => {
 		})
 	});
 
+	const focusInpUst1 = () => {
+		openUstDropBox();
+		closeIngDropBox();
+		closeAppDropBox();
+		inpUst2.focus();
+	
+		const allUst = getAllUst(STATEDATA);
+		createUstDropBox(allUst);
+		handlerUstLi();
+	
+		// CLICK ON A TAG
+		const ustLis = document.querySelectorAll('.ust-li');
+		ustLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnUstLi(li);
+			})
+		})
+		removeSpanError();
+	}
+	
 	const clickOnUstLi = (li) => {
 			const allUst = document.querySelector('.all-ust');
 			allUst.innerHTML = '';

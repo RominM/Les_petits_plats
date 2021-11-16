@@ -3,6 +3,7 @@ import { recipes } from "../data.js";
 import { displayError } from "../view/Display/displayError.js"
 import { getFilterIng } from "../Handler/handlerIng.js";
 import { UpdateState } from "./UpdateState.js";
+import { openIngDropBox } from "../view/Display/displayDropBox.js";
 
 // PRESSE ENTER
 export const runGlobalResearch = (STATEDATA) => {
@@ -10,11 +11,13 @@ export const runGlobalResearch = (STATEDATA) => {
    searchBy.addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {
          searchAction();
+         console.log('hello');
       }
    });
 
 // CLICK ON SEARCH
    const searchBtn = document.querySelector('.searchBtn');
+
    searchBtn.addEventListener('click', () => {
       searchAction();
    });

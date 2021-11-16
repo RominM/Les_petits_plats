@@ -9,27 +9,16 @@ import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.j
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
+	// TAB ON INPUT1
+	inpApp1.addEventListener("keyup", (e) => {
+		if (e.keyCode === 9) {
+			focusInpApp1();
+		}
+	});
+	
 	// CLICK
 	inpApp1.addEventListener('click', () => {
-		closeIngDropBox();
-		closeUstDropBox();
-		openAppDropBox();
-
-		inpApp2.focus();
-
-		const allApp = getAllApp(STATEDATA);
-		createAppDropBox(allApp);
-
-		handlerAppLi();
-
-		// CLICK ON A TAG
-		const appLis = document.querySelectorAll('.app-li');
-		appLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnAppLi(li);
-			})
-		})
-		removeSpanError();
+		focusInpApp1();
 	});
 	// INPUT
 	inpApp2.addEventListener('input', () => {
@@ -80,6 +69,28 @@ export const runApp = (STATEDATA) => {
 			});
 		});
 	});
+
+	const focusInpApp1 = () => {
+		closeIngDropBox();
+		closeUstDropBox();
+		openAppDropBox();
+
+		inpApp2.focus();
+
+		const allApp = getAllApp(STATEDATA);
+		createAppDropBox(allApp);
+
+		handlerAppLi();
+
+		// CLICK ON A TAG
+		const appLis = document.querySelectorAll('.app-li');
+		appLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnAppLi(li);
+			})
+		})
+		removeSpanError();
+	}
 
 	const clickOnAppLi = (li) => {
 		const allApp = document.querySelector('.all-app');
