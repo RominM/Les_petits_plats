@@ -10,7 +10,7 @@
    box-sizing: border-box;
    max-height: 300px;
    padding-left: 5px;
-   font-family: Lato-Reg;
+   font-family: $LatoReg;
    line-height: 25px;
    overflow-y: auto;
    grid-template-columns: repeat(3, 1fr);
