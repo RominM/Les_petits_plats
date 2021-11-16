@@ -1,9 +1,10 @@
+import { createIngDropBox } from '../view/DOM/createIngDropBox.js';
+import { createIngTags } from '../view/DOM/createTags.js';
 import { getAllIng, getFilterIng, handlerIngLi } from '../Handler/handlerIng.js';
 import { UpdateState } from './UpdateState.js';
-import { createIngTags, deletedTag } from '../view/Display/displayTags.js';
-import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
 import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openIngDropBox } from '../view/Display/displayDropBox.js';
-import { createIngDropBox } from '../view/DOM/createIngDropBox.js';
+import { deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
 
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
@@ -11,7 +12,6 @@ export const runIng = (STATEDATA) => {
 
 	// CLICK ON INPUT1
 	inpIng1.addEventListener('click', () => {
-		
 		openIngDropBox();
 		closeAppDropBox();
 		closeUstDropBox();
@@ -19,7 +19,6 @@ export const runIng = (STATEDATA) => {
 
 		const allIng = getAllIng(STATEDATA);
 		allIng.sort();
-		// console.log(allIng);
 		createIngDropBox(allIng);
 		handlerIngLi();
 
@@ -34,8 +33,9 @@ export const runIng = (STATEDATA) => {
 	});
 	// INPUT
 	inpIng2.addEventListener('input', () => {
-		let inpValue = inpIng2.value;
 		const allIng = document.querySelector('.all-ing');
+
+		let inpValue = inpIng2.value;
 		if (inpValue.length > 2) {
 			const filtIng = getFilterIng(inpValue);
 			allIng.innerHTML = '';
@@ -82,20 +82,23 @@ export const runIng = (STATEDATA) => {
 	});
 
 	const clickOnIngLi = (li) => {
-		const allIng = document.querySelector('.all-ing');
-		allIng.innerHTML = '';
+		// const allIng = document.querySelector('.all-ing');
+		// allIng.innerHTML = '';
 						
 		let inpValue = li.innerHTML;
 		const filtIng = getFilterIng(inpValue);
-		const noDblIng = filtIng.filter(function (ele, pos) {
-			return filtIng.indexOf(ele) == pos;
-		});
+		// console.log(filtIng);
+
+		// const noDblIng = filtIng.filter(function (ele, pos) {
+		// 	return filtIng.indexOf(ele) == pos;
+		// });
+		
 		const updateState = new UpdateState(STATEDATA);
 		updateState.updateIngData(filtIng );
 	
 		createIngTags(inpValue);
 		deletedTag();
-		createIngDropBox(noDblIng);
+		// createIngDropBox(noDblIng);
 		closeIngDropBox();
 	};
 };

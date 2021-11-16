@@ -1,16 +1,16 @@
+import { createAppDropBox } from '../view/DOM/createAppDropBox.js';
+import { createAppTags } from '../view/DOM/createTags.js';
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
 import { UpdateState } from './UpdateState.js';
-import { createAppTags, deletedTag } from '../view/Display/displayTags.js';
-import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
-import { createAppDropBox } from '../view/DOM/createAppDropBox.js';
 import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openAppDropBox } from '../view/Display/displayDropBox.js';
+import { deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
 
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
 	const inpApp2 = document.querySelector('.inp-app');
 	// CLICK
 	inpApp1.addEventListener('click', () => {
-
 		closeIngDropBox();
 		closeUstDropBox();
 		openAppDropBox();

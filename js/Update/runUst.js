@@ -1,9 +1,10 @@
+import { createUstDropBox } from '../view/DOM/createUstDropBox.js';
+import { createUstTags } from '../view/DOM/createTags.js';
 import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
 import { UpdateState } from './UpdateState.js';
-import { createUstTags, deletedTag } from '../view/Display/displayTags.js';
-import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
 import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openUstDropBox } from '../view/Display/displayDropBox.js';
-import { createUstDropBox } from '../view/DOM/createUstDropBox.js';
+import { deletedTag } from '../view/Display/displayTags.js';
+import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
 
 export const runUst = (STATEDATA) => {
 	const inpUst1 = document.querySelector('.target-ust');
