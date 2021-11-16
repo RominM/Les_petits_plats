@@ -2,7 +2,9 @@ import { createAppDropBox } from '../view/DOM/createAppDropBox.js';
 import { createAppTags } from '../view/DOM/createTags.js';
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
 import { UpdateState } from './UpdateState.js';
-import { closeAppDropBox, closeIngDropBox, closeUstDropBox, openAppDropBox } from '../view/Display/displayDropBox.js';
+import { closeAppDropBox, openAppDropBox } from '../view/Display/displayAppDropBox.js';
+import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
+import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
 

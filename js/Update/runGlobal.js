@@ -1,9 +1,9 @@
 // import { runIng } from "./runIng.js";
 import { recipes } from "../data.js";
 import { displayError } from "../view/Display/displayError.js"
-import { getFilterIng } from "../Handler/handlerIng.js";
-import { UpdateState } from "./UpdateState.js";
-import { openIngDropBox } from "../view/Display/displayDropBox.js";
+// import { getFilterIng } from "../Handler/handlerIng.js";
+// import { UpdateState } from "./UpdateState.js";
+// import { openIngDropBox } from "../view/Display/displayDropBox.js";
 
 // PRESSE ENTER
 export const runGlobalResearch = (STATEDATA) => {

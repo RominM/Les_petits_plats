@@ -1,14 +1,9 @@
-import {
-   updateIngRecipe } from "../../afterDeleted.js";
-import {
-   closeAppDropBox,
-   closeIngDropBox,
-   closeUstDropBox
-} from "./displayDropBox.js";
-
+import { updateIngRecipe } from "../../afterDeleted.js";
+import { closeAppDropBox } from "./displayAppDropBox.js";
+import { closeIngDropBox } from "./displayIngDropBox.js";
+import { closeUstDropBox } from "./displayUstDropBox.js";
 
 const getTag = (tags) => {
-
    let listTag = [];
 
    tags.forEach(element => {
@@ -39,17 +34,6 @@ export const deletedTag = () => {
          closeUstDropBox();
       });
    });
-
-   /* tags.forEach(tag => {
-       tag.addEventListener('click', () => {
-          tag.remove();
-          afterDeletedTag(tag);
-          //updateIngRecipe();
-          closeAppDropBox();
-          closeIngDropBox();
-          closeUstDropBox();
-       });
-    });*/
 };
 
 
