@@ -3,6 +3,7 @@ import { removeSpanError } from "./displayError.js";
 // OPEN ING 
 export const openIngDropBox = () => {
    removeSpanError();
+   
    const inpIng1 = document.querySelector('.target-ing');
    const inpIng2 = document.querySelector('.inp-ing');
 

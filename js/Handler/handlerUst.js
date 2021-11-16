@@ -5,7 +5,7 @@ export const getAllUst = (STATEDATA) => {
    STATEDATA.forEach(recipe => {
       if(recipe.display) {
          recipe.ustensils.forEach(ustensil => {
-            const ustensilsList = ustensil;
+            const ustensilsList = ustensil.toLowerCase();
             arrayUst.push(ustensilsList);
          })
       }
@@ -18,10 +18,10 @@ export const getAllUst = (STATEDATA) => {
 
 // Includes to lower case
 export const getFilterUst = (inpValue) => {
-   const data =[...recipes];
+   let STATEDATA = [...recipes];
    let filtUst = [];
 
-   data.forEach(recipe => {
+   STATEDATA.forEach(recipe => {
       if(recipe.display) {
          recipe.ustensils.forEach(ustensil => {
             const ustMemo = ustensil.toLocaleLowerCase();

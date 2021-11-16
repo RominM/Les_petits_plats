@@ -2,6 +2,7 @@
 export const createUstDropBox = (arrayUst) => {
    const containerUst = document.querySelector('.inp-container-ust');
    let allUst = document.querySelector('.all-ust');
+   arrayUst.sort();
    // If allUst existe get empty
    if (allUst) {
       allUst.innerHTML = '';

@@ -81,7 +81,6 @@ export const runApp = (STATEDATA) => {
 
 		const allApp = getAllApp(STATEDATA);
 		createAppDropBox(allApp);
-
 		handlerAppLi();
 
 		// CLICK ON A TAG

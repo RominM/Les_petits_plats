@@ -4,7 +4,7 @@ export const getAllApp = (STATEDATA) => {
    let arrayApp = [];
    STATEDATA.forEach(recipe => {
       if(recipe.display) {
-         const applianceList = recipe.appliance;
+         const applianceList = recipe.appliance.toLowerCase();
          arrayApp.push(applianceList);
       }
    })

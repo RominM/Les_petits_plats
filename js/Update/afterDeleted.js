@@ -1,26 +1,13 @@
-import {
-   recipes
-} from "./data.js";
-import {
-   displayRecipes
-} from "./view/Display/displayRecipes.js";
-
-
-//Récupère les tags restant
-//Récupère la liste des recettes
-//Regarde chaque recette 
-//Dans chaque recette tu regarde chaque ingrédients s'il correspond aux tags restants
-//Dans chaque recette tu regarde chaque ustensils
-//Dans chaque recette tu regarde chaque appareils
-//Tu affiche ques les recettes qui correspondent
+import { recipes } from "../data.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export const updateIngRecipe = (listIng) => {
 
-   const ings = listIng; //List of ingredients
-   let listRecipe = [];
-   let STATEDATA = [...recipes];
+   const ings = listIng; //List of remaining ingredients
+   // let listRecipe = [];
    let count = 0;
-
+   
+   let STATEDATA = [...recipes];
    STATEDATA.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
       recipe.display = false;
    });
@@ -31,7 +18,7 @@ export const updateIngRecipe = (listIng) => {
          const ingredient = recipe.ingredients[i];
          const ingMemo = ingredient.ingredient.toLowerCase();
 
-         for (let ing of ings) { //Citron , Kiwi
+         for (let ing of ings) {
             if (ing.toLowerCase() === ingMemo) {
                count++;
             }
@@ -43,6 +30,66 @@ export const updateIngRecipe = (listIng) => {
    });
    displayRecipes(STATEDATA);
 }
+
+export const updateUstRecipe = (listUst) => {
+   const usts = listUst;
+
+   let count = 0;
+
+   let STATEDATA = [...recipes];
+   STATEDATA.forEach(recipe => {
+      for (let i = 0; i < recipe.ustensils.length; i++) {
+
+         const ustensils = recipe.ustensils[i];
+         const ustMemo = ustensils.toLowerCase();
+
+         for (let ust of usts) { //Citron , Kiwi
+            if (ust.toLowerCase() === ustMemo) {
+               count++;
+            }
+         }         
+      };
+      if (count === usts.length) recipe.display = true;
+         
+      count = 0;
+   });
+
+   displayRecipes(STATEDATA);
+} 
+
+export const updateAllRecipes = () => {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const afterDeletedTag = (tag) => {

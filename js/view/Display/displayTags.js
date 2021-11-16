@@ -1,4 +1,4 @@
-import { updateIngRecipe } from "../../afterDeleted.js";
+import { updateAllRecipes, updateIngRecipe, updateUstRecipe } from "../../Update/afterDeleted.js";
 import { closeAppDropBox } from "./displayAppDropBox.js";
 import { closeIngDropBox } from "./displayIngDropBox.js";
 import { closeUstDropBox } from "./displayUstDropBox.js";
@@ -15,7 +15,6 @@ const getTag = (tags) => {
 
    console.log(listTag)
    return listTag;
-
 }
 
 // DELETED TAG
@@ -28,7 +27,12 @@ export const deletedTag = () => {
          tag.remove();
          let temp = document.querySelectorAll('.tag');
          nameTag = getTag(temp);
+         
+         // updateAllRecipes();
+
          updateIngRecipe(nameTag, tag);
+         updateUstRecipe(nameTag, tag);
+
          closeAppDropBox();
          closeIngDropBox();
          closeUstDropBox();

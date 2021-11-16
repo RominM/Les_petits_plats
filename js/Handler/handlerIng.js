@@ -3,7 +3,7 @@ import { recipes } from "../data.js";
 export const getAllIng = (STATEDATA) => {
    let arrayIng = [];
    STATEDATA.forEach(recipe => {
-      if (recipe.display) {
+      if(recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingredientList = ingredient.ingredient.toLowerCase();
             arrayIng.push(ingredientList)
@@ -13,7 +13,7 @@ export const getAllIng = (STATEDATA) => {
    const filtIngArray = arrayIng.filter(function (ele, pos) {
       return arrayIng.indexOf(ele) == pos;
    })
-   return filtIngArray.sort()
+   return filtIngArray
 };
 
 // Includes to lower case

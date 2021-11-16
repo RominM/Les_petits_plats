@@ -55,11 +55,11 @@ export const runUst = (STATEDATA) => {
 				removeSpanError();
 				createUstDropBox(noDblUst);
 			}
-
 		} else if (inpValue.length == 0) {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			createUstDropBox(allUst);
+			
 			removeSpanError();
 		}
 

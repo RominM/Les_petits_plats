@@ -78,7 +78,6 @@ export const runIng = (STATEDATA) => {
 		inpIng2.focus();
 
 		const allIng = getAllIng(STATEDATA);
-		allIng.sort();
 		createIngDropBox(allIng);
 		handlerIngLi();
 
