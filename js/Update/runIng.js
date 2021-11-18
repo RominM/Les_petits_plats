@@ -17,6 +17,7 @@ export const runIng = (STATEDATA) => {
 			focusInpIng1();
 		}
 	});
+	
 	// CLICK ON INPUT1
 	inpIng1.addEventListener('click', () => {
 		focusInpIng1();
