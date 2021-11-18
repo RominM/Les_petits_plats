@@ -5,7 +5,7 @@ import {	displayRecipes } from './js/view/Display/displayRecipes.js';
 import { runIng } from './js/Update/runIng.js';
 import {	runApp } from './js/Update/runApp.js';
 import {	runUst } from './js/Update/runUst.js';
-import { runGlobalResearch } from './js/Update/runGlobal.js';
+import { searchRecipe } from './js/Update/runGlobal.js';
 /***********************************************************/
 
 // INIT DATA
@@ -28,4 +28,5 @@ runApp(STATEDATA);
 // Algo Search Ustensils
 runUst(STATEDATA);
 // Algo Search Global
-runGlobalResearch(STATEDATA);
+// runGlobalResearch(STATEDATA);
+searchRecipe(STATEDATA);

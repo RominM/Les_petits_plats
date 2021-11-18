@@ -99,7 +99,7 @@ export const runApp = (STATEDATA) => {
 						
 		let inpValue = li.innerHTML;
 		const filtApp = getFilterApp(inpValue);
-		console.log(filtApp);
+
 		const noDblApp = filtApp.filter(function (ele, pos) {
 			return filtApp.indexOf(ele) == pos;
 		});

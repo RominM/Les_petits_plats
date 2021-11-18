@@ -10,7 +10,27 @@ export const displayError = () => {
    logoError.src = '../Images/exclamation-circle-solid.svg';
 
    const spanError = document.createElement('span');
-   spanError.innerHTML = "Sorry, we didn't find recipe...";
+   spanError.innerHTML = " Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson »";
+
+	infoError.append(logoError);
+	infoError.append(spanError);
+
+	main.append(infoError);
+}
+
+export const displayErrorSearch = () => {
+	const main = document.querySelector('main');
+   const registre = document.querySelector('.registre');
+   registre.innerHTML = '';
+
+   const infoError = document.createElement('div');
+   infoError.classList.add('infoError');
+
+   const logoError = document.createElement('img');
+   logoError.src = '../Images/exclamation-circle-solid.svg';
+
+   const spanError = document.createElement('span');
+   spanError.innerHTML = " Veuillez saisir 3 caractères min ex : far";
 
 	infoError.append(logoError);
 	infoError.append(spanError);

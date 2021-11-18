@@ -1,11 +1,14 @@
-- Remplire la fiche d'investigation
+- Remplire fiche d'investigation
 
 
 //OBJECTIFS SEMAINE\\
 
-- Mettre à jour le DOM après la suppression d'un tags
-   (afterDeleted.js)
-- Main sur la fleche/curseur 
+   - Gestion du afterDeleted();
 
 //NOTES\\
-refactorisation a revoir
+
+   - maj du DOM après suppression d'ingredient ok (seulement avec des ingredients);
+   - maj du DOM après suppression d'appareils ok (seulement avec un appareil);
+   - maj du DOM après suppression d'ustensils ok (seulement avec des ustensils);
+
+   - tentative de maj après suppression d'ingredient (avec ingredients + appareil + ustensils) === CRASH;

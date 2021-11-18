@@ -1,18 +1,12 @@
-import { displayRecipes } from "../view/Display/displayRecipes.js";
+import { displayErrorSearch } from "../view/Display/displayError.js";
+import {
+   displayRecipes
+} from "../view/Display/displayRecipes.js";
 
 export class UpdateState {
    constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
    }
-
-   /* STATEDATA;
-    inpValue;
-
-   constructor(data , value) {
-      this.STATEDATA = data;
-      this.inpValue = value;
-   }
-*/
 
    stateData() {
       updateIngData();
@@ -27,7 +21,6 @@ export class UpdateState {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
                const ingMemo = ingredient.ingredient.toLowerCase();
-
                if (inpValue.includes(ingMemo)) {
                   recipe.display = true;
                   break
@@ -39,13 +32,13 @@ export class UpdateState {
       });
       displayRecipes(this.STATEDATA);
    };
+
    // APPLIANCES
    updateAppData(inpValue) {
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
             const appliance = recipe.appliance;
             const appMemo = appliance.toLowerCase();
-
             if (inpValue.includes(appMemo)) {
                recipe.display = true;
             } else {
@@ -63,7 +56,6 @@ export class UpdateState {
             for (let i = 0; i < recipe.ustensils.length; i++) {
                const ustensil = recipe.ustensils[i];
                const ustMemo = ustensil.toLowerCase();
-               
                if (inpValue.includes(ustMemo)) {
                   recipe.display = true;
                   break
@@ -75,4 +67,48 @@ export class UpdateState {
       })
       displayRecipes(this.STATEDATA);
    };
+
+
+   updateRecipe(inpValue) {
+      let listRecipe = [];
+
+      if (inpValue.length > 2) {
+
+         this.STATEDATA.forEach(recipe => {
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+               const ingredient = recipe.ingredients[i];
+               const ingMemo = ingredient.ingredient.toLowerCase();
+               console.log("Recette : " + recipe.name)
+               console.log("Ingrédient : " + ingMemo + " , Input : " + inpValue)
+               if (ingMemo.includes(inpValue)) {
+                  recipe.display = true;
+                  if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
+               }
+            };
+
+            const name = recipe.name;
+            const nameMemo = name.toLowerCase();
+            if (nameMemo.includes(inpValue)) {
+               recipe.display = true;
+               if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
+            }
+
+            const desc = recipe.description;
+            const descMemo = desc.toLowerCase();
+            if (descMemo.includes(inpValue)) {
+               recipe.display = true;
+               if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
+            }
+         });
+
+         displayRecipes(listRecipe);
+         return listRecipe;
+      }else{
+         displayErrorSearch();
+      }
+
+   };
+
+
+
 };

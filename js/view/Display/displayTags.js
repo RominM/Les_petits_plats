@@ -1,44 +1,58 @@
-import { updateAllRecipes, updateIngRecipe, updateUstRecipe } from "../../Update/afterDeleted.js";
+import { afterDeletedTag, updateAllRecipes, updateIngRecipe, updateUstRecipe } from "../../Update/afterDeleted.js";
 import { closeAppDropBox } from "./displayAppDropBox.js";
 import { closeIngDropBox } from "./displayIngDropBox.js";
 import { closeUstDropBox } from "./displayUstDropBox.js";
 
-const getTag = (tags) => {
-   let listTag = [];
-
-   tags.forEach(element => {
-      listTag.push(element.innerHTML);
-      console.log(listTag);
-      console.log(element);
-      console.log(tags);
-   });
-
-   console.log(listTag)
-   return listTag;
-}
-
 // DELETED TAG
 export const deletedTag = () => {
+
    const tags = document.querySelectorAll('.tag');
    let nameTag = [];
+
 
    tags.forEach(tag => {
       tag.addEventListener('click', () => {
          tag.remove();
+   
          let temp = document.querySelectorAll('.tag');
          nameTag = getTag(temp);
+
+         afterDeletedTag(tag)
          
          // updateAllRecipes();
-
-         updateIngRecipe(nameTag, tag);
-         updateUstRecipe(nameTag, tag);
+         // updateIngRecipe(nameTag, tag);
+         // updateUstRecipe(nameTag, tag);
 
          closeAppDropBox();
          closeIngDropBox();
          closeUstDropBox();
       });
+      // tag.addEventListener('click', datasetSelected);
    });
+
+   // function datasetSelected(){
+   //    this.dataset.selected = this.dataset.selected == 'false' ? 'true' : 'false';
+   //    console.log(this.dataset.selected);
+   // }
+   
+
 };
+
+const getTag = (tags) => {
+   let listTag = [];
+
+   tags.forEach(tag => {
+
+      listTag.push(tag.innerHTML);
+
+      // console.log(tag);
+      // console.log(listTag);
+      // console.log(tags);
+   });
+
+   // console.log(listTag)
+   return listTag;
+}
 
 
 
@@ -58,11 +72,11 @@ export const deletedTag = () => {
 //    const tagSpan = document.querySelectorAll('.tag');
 //    tagSpan.forEach(tag => {
 //       console.log(tag);
-//       if(tag.parentElement.classList.contains('tag-ing')) {
+//       if(tag.parenttag.classList.contains('tag-ing')) {
 //          console.log('get STATEDATA with tagIng');
-//       } else if (tag.parentElement.classList.contains('tag-app')) {
+//       } else if (tag.parenttag.classList.contains('tag-app')) {
 //          console.log('get STATEDATA with tagApp');
-//       } else if (tag.parentElement.classList.contains('tag-ust')) {
+//       } else if (tag.parenttag.classList.contains('tag-ust')) {
 //          console.log('get STATEDATA with tagUst');
 //       }
 //       return tagSpan
@@ -81,7 +95,7 @@ export const deletedTag = () => {
 
 // const createTags = (alias) => {
 //    const containsTags = document.querySelector('.contains-tags');
-//    const tag = document.createElement('div');
+//    const tag = document.createtag('div');
 //    console.log('hello');
 //    if (alias === 'ingredients') {
 //       tag.classList.add('tag-ing');
@@ -90,7 +104,7 @@ export const deletedTag = () => {
 //    } else if (alias === 'ustensils') {
 //       tag.classList.add('tag-ust');
 //    }
-//    const tagSpan = document.createElement('span');
+//    const tagSpan = document.createtag('span');
 //    tagSpan.innerHTML = alias;
 
 //    tag.append(tagSpan);

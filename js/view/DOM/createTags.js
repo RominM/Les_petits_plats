@@ -6,6 +6,7 @@ export const createIngTags = (alias) => {
       const tagIng = document.querySelector('.tag-ing');
       const tagSpan = document.createElement('span');
       tagSpan.setAttribute('data-attribute', 'ing');
+      // tagSpan.setAttribute('data-selected', 'true');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
@@ -15,6 +16,7 @@ export const createIngTags = (alias) => {
       tagIng.classList.add('tag-ing');
       const tagSpan = document.createElement('span');
       tagSpan.setAttribute('data-attribute', 'ing');
+      // tagSpan.setAttribute('data-selected', 'true');
       tagSpan.classList.add('tag');
       tagSpan.innerHTML = alias;
 
