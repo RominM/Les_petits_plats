@@ -2,7 +2,41 @@ import {
    displayRecipes
 } from "../view/Display/displayRecipes.js";
 
-export class UpdateState {
+export class UpdateData {
+
+   constructor(STATEDATA) {
+      this.STATEDATA = STATEDATA;
+   }
+
+   updateState = (inpValue) => {
+
+
+      console.log("Value : " + inpValue);
+
+      switch (inpValue) {
+         case "ing":
+
+
+            break;
+
+         case "app":
+
+            break;
+
+         case "ust":
+
+            break;
+
+         default:
+            break;
+      }
+   };
+
+
+}
+
+
+/*
    constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
    }
@@ -102,7 +136,4 @@ export class UpdateState {
       }
 
    };
-
-
-
-};
+*/

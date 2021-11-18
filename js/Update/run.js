@@ -11,6 +11,7 @@ import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.j
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
 	const inpIng2 = document.querySelector('.inp-ing');
+   
 	// TAB ON INPUT1
 	inpIng1.addEventListener("keyup", (e) => {
 		if (e.keyCode === 9) {
@@ -18,17 +19,19 @@ export const runIng = (STATEDATA) => {
 		}
 	});
 
-	// CLICK ON INPUT1
+	// (CLICK ON INPUT1
 	inpIng1.addEventListener('click', () => {
 		focusInpIng1();
 	});
 
 	// INPUT2
 	inpIng2.addEventListener('input', () => {
-		const allIng = document.querySelector('.all-ing');
 
+
+		const allIng = document.querySelector('.all-ing');
 		let inpValue = inpIng2.value;
 		if (inpValue.length > 2) {
+			console.log('hello');
 			const filtIng = getFilterIng(inpValue);
 			allIng.innerHTML = '';
 			// deleted duplicate ingredients inside the dropBox
@@ -95,7 +98,6 @@ export const runIng = (STATEDATA) => {
 	const clickOnIngLi = (li) => {
 		// const allIng = document.querySelector('.all-ing');
 		// allIng.innerHTML = '';
-
 		let inpValue = li.innerHTML;
 		console.log(li);
 		//const filtIng = getFilterIng(inpValue);

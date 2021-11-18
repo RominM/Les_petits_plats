@@ -1,7 +1,7 @@
 import { createUstDropBox } from '../view/DOM/createUstDropBox.js';
 import { createUstTags } from '../view/DOM/createTags.js';
 import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
-import { UpdateState } from './UpdateState.js';
+import { UpdateData } from './UpdateState.js';
 import { closeUstDropBox, openUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
 import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
@@ -100,8 +100,8 @@ export const runUst = (STATEDATA) => {
 			const noDblUst = filtUst.filter(function (ele, pos) {
 				return filtUst.indexOf(ele) == pos;
 			});
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateUstData(filtUst);
+			const updateState = new UpdateData(STATEDATA, inpValue);
+			updateState.updateState(filtUst);
 
 			createUstDropBox(noDblUst);
 			createUstTags(inpValue);

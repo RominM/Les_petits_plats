@@ -2,7 +2,7 @@ import {
    displayError
 } from "../view/Display/displayError.js"
 import {
-   UpdateState
+   UpdateData
 } from "./UpdateState.js";
 
 export const searchRecipe = (listRecipe) => {
@@ -19,11 +19,11 @@ export const searchRecipe = (listRecipe) => {
 const upRecipe = (listRecipe) => {
 
    toggleRecipes(listRecipe ,false);
-   const updateState = new UpdateState(listRecipe);
+   const updateState = new UpdateData(listRecipe);
 
    let valueInput = searchBy.value;
 
-   let recipes = updateState.updateRecipe(valueInput);
+   let recipes = updateState.updateState(valueInput);
 
    if (recipes.length == 0) {
       toggleRecipes(listRecipe ,true);

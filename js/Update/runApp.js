@@ -1,7 +1,7 @@
 import { createAppDropBox } from '../view/DOM/createAppDropBox.js';
 import { createAppTags } from '../view/DOM/createTags.js';
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
-import { UpdateState } from './UpdateState.js';
+import { UpdateData } from './UpdateState.js';
 import { closeAppDropBox, openAppDropBox } from '../view/Display/displayAppDropBox.js';
 import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
 import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
@@ -103,8 +103,8 @@ export const runApp = (STATEDATA) => {
 		const noDblApp = filtApp.filter(function (ele, pos) {
 			return filtApp.indexOf(ele) == pos;
 		});
-		const updateState = new UpdateState(STATEDATA, inpValue);
-		updateState.updateAppData(filtApp);
+		const updateState = new UpdateData(STATEDATA, inpValue);
+		updateState.updateState(filtApp);
 
 		createAppTags(inpValue);
 		deletedTag();

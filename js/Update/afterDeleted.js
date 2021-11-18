@@ -110,6 +110,8 @@ export const afterDeletedTag = (tag) => {
          tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML);
       }
    });
+
+ 
    const tagListIng = tagList.ing;
    const tagListApp = tagList.app;
    const tagListUst = tagList.ust;
