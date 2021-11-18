@@ -96,7 +96,7 @@ export const runIng = (STATEDATA) => {
 		// allIng.innerHTML = '';
 
 		let inpValue = li.innerHTML;
-		const filtIng = getFilterIng(inpValue);
+		//const filtIng = getFilterIng(inpValue);
 		// console.log(filtIng);
 
 		// const noDblIng = filtIng.filter(function (ele, pos) {
@@ -104,7 +104,7 @@ export const runIng = (STATEDATA) => {
 		// });
 
 		const updateState = new UpdateState(STATEDATA);
-		updateState.updateIngData(filtIng);
+		updateState.updateIngData(inpValue);
 
 		createIngTags(inpValue);
 		deletedTag();

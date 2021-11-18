@@ -1,4 +1,3 @@
-import { displayErrorSearch } from "../view/Display/displayError.js";
 import {
    displayRecipes
 } from "../view/Display/displayRecipes.js";
@@ -68,7 +67,6 @@ export class UpdateState {
       displayRecipes(this.STATEDATA);
    };
 
-
    updateRecipe(inpValue) {
       let listRecipe = [];
 
@@ -78,8 +76,6 @@ export class UpdateState {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
                const ingMemo = ingredient.ingredient.toLowerCase();
-               console.log("Recette : " + recipe.name)
-               console.log("Ingrédient : " + ingMemo + " , Input : " + inpValue)
                if (ingMemo.includes(inpValue)) {
                   recipe.display = true;
                   if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
@@ -103,8 +99,6 @@ export class UpdateState {
 
          displayRecipes(listRecipe);
          return listRecipe;
-      }else{
-         displayErrorSearch();
       }
 
    };
