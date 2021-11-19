@@ -27,7 +27,7 @@ export const displayRecipes = (STATEDATA) => {
          time.classList.add('time');
          const clock = document.createElement('img');
          clock.classList.add('clock-img');
-         clock.src = './Images/hour.svg';
+         clock.src = './../../../images/hour.svg';
          const minute = document.createElement('span');
          minute.innerHTML = `${recipe.time} min`;
       
