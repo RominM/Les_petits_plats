@@ -3,12 +3,11 @@
 
 //OBJECTIFS SEMAINE\\
 
-   - Gestion du afterDeleted();
+   - Gestion du afterDeleted(); ok
+   - Commencement du second algo
 
 //NOTES\\
 
-   - maj du DOM après suppression d'ingredient ok (seulement avec des ingredients);
-   - maj du DOM après suppression d'appareils ok (seulement avec un appareil);
-   - maj du DOM après suppression d'ustensils ok (seulement avec des ustensils);
-
-   - tentative de maj après suppression d'ingredient (avec ingredients + appareil + ustensils) === CRASH;
+   - Probleme CSS :
+      *text-overflow: ellipsis; does not work !
+      *path img incompréhensible

@@ -53,19 +53,19 @@
             font-family: $LatoReg;
             font-size: 12px;
             margin-left: 25px;
+   
          }
 
          p {
             @extend .ingredientsList;
-            position: relative;
             margin-right: 25px;
             height: 100px;
-            display: -webkit-box;
-               -webkit-line-clamp: 5;
-               -webkit-box-orient: vertical;
-            // white-space: nowrap;
+            max-height: 12px * 9;
             overflow: hidden;
-            text-overflow: ellipsis;  
+            text-overflow: ellipsis;
+            display: -webkit-box;
+               -webkit-line-clamp: 9;
+               -webkit-box-orient: vertical;
          }
       }
    }
