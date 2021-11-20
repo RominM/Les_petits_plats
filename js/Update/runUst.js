@@ -3,71 +3,29 @@ import { createUstTags } from '../view/DOM/createTags.js';
 import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
 import { UpdateState } from './UpdateState.js';
 import { closeUstDropBox, openUstDropBox } from '../view/Display/displayUstDropBox.js';
+import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
+import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
 
 
 export const runUst = (STATEDATA) => {
-	const targetUst = document.querySelector('.target-ust');
-	const inputUst = document.querySelector('.inp-ust');
-
-	// TAB ON TARGET
-	targetUst.addEventListener("keyup", (e) => {
+	const inpUst1 = document.querySelector('.target-ust');
+	const inpUst2 = document.querySelector('.inp-ust');
+	// TAB ON INPUT1
+	inpUst1.addEventListener("keyup", (e) => {
 		if (e.keyCode === 9) {
-			displayUst();
+			focusInpUst1();
 		}
 	});
-	// CLICK TARGET
-	targetUst.addEventListener('click', () => {
-		displayUst();
+	// CLICK
+	inpUst1.addEventListener('click', () => {
+		focusInpUst1();
 	});
-	// EVENT TARGET
-	const displayUst = () => {
-		openUstDropBox();
-		inputUst.focus();
-		console.log('coucou Ustensils');
-
-	
-		const allUst = getAllUst(STATEDATA);
-		createUstDropBox(allUst);
-		handlerUstLi();
-	
-		// CLICK ON A TAG
-		const ustLis = document.querySelectorAll('.ust-li');
-		ustLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnUstLi(li);
-			})
-		})
-		removeSpanError();
-	}
-
-
-
-	
-
-	// ['input','focus'].forEach(evt => {
-		inputUst.addEventListener("input", () => {
-			evtInputUst();
-		});
-	// })
-	// inputUst.addEventListener('blur', () => {
-	// 	closeUstDropBox();
-	// })
-
-	['input','focus'].forEach(evt => {
-		inputUst.addEventListener(evt, () => {
-			evtInputUst();
-		});
-	})
-	// inpUst2.addEventListener('blur', () => {
-	// 	closeUstDropBox();
-	// })
-
-	const evtInputUst = () => {
+	// INPUT
+	inpUst2.addEventListener('input', () => {
+		let inpValue = inpUst2.value;
 		const allUst = document.querySelector('.all-ust');
-
-		let inpValue = inputUst.value;
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			allUst.innerHTML = '';
@@ -101,7 +59,7 @@ export const runUst = (STATEDATA) => {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			createUstDropBox(allUst);
-
+			
 			removeSpanError();
 		}
 
@@ -111,10 +69,27 @@ export const runUst = (STATEDATA) => {
 				clickOnUstLi(li);
 			})
 		})
+	});
+
+	const focusInpUst1 = () => {
+		openUstDropBox();
+		closeIngDropBox();
+		closeAppDropBox();
+		inpUst2.focus();
+	
+		const allUst = getAllUst(STATEDATA);
+		createUstDropBox(allUst);
+		handlerUstLi();
+	
+		// CLICK ON A TAG
+		const ustLis = document.querySelectorAll('.ust-li');
+		ustLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnUstLi(li);
+			})
+		})
+		removeSpanError();
 	}
-
-
-
 	
 	const clickOnUstLi = (li) => {
 			const allUst = document.querySelector('.all-ust');
