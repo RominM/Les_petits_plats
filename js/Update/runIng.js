@@ -1,32 +1,19 @@
 import { createIngDropBox } from '../view/DOM/createIngDropBox.js';
-import { createIngTags } from '../view/DOM/createTags.js';
-import { getAllIng, getFilterIng, handlerIngLi } from '../Handler/handlerIng.js';
-import { UpdateState } from './UpdateState.js';
-import { closeIngDropBox, openIngDropBox } from '../view/Display/displayIngDropBox.js';
-import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
-import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
-import { deletedTag } from '../view/Display/displayTags.js';
+import { getAllIng, getFilterIng } from '../Handler/handlerIng.js';
 import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
+import { handlerTargetIng } from '../Handler/Targets/handlerIngTarget.js';
+import { eventToIngLi } from '../Handler/liEvent.js';
 
 export const runIng = (STATEDATA) => {
-	const inpIng1 = document.querySelector('.target-ing');
-	const inpIng2 = document.querySelector('.inp-ing');
-	// TAB ON INPUT1
-	inpIng1.addEventListener("keyup", (e) => {
-		if (e.keyCode === 9) {
-			focusInpIng1();
-		}
-	});
-	// CLICK ON INPUT1
-	inpIng1.addEventListener('click', () => {
-		focusInpIng1();
-	});
+	handlerTargetIng(STATEDATA);
 
-	// INPUT2
-	inpIng2.addEventListener('input', () => {
+	// INPUT
+   const inputIng = document.querySelector('.inp-ing');
+
+	inputIng.addEventListener('input', () => {
 		const allIng = document.querySelector('.all-ing');
 
-		let inpValue = inpIng2.value;
+		let inpValue = inputIng.value;
 		if (inpValue.length > 2) {
 			const filtIng = getFilterIng(inpValue);
 			allIng.innerHTML = '';
@@ -60,55 +47,8 @@ export const runIng = (STATEDATA) => {
 			const allIng = getAllIng(STATEDATA);
 			allIng.innerHTML = '';
 			createIngDropBox(allIng);
-
 			removeSpanError();
 		}
-		const ingLis = document.querySelectorAll('.ing-li');
-		ingLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnIngLi(li);
-			})
-		});
+		eventToIngLi(STATEDATA);
 	});
-
-	const focusInpIng1 = () => {
-		openIngDropBox();
-		closeAppDropBox();
-		closeUstDropBox();
-		inpIng2.focus();
-
-		const allIng = getAllIng(STATEDATA);
-		createIngDropBox(allIng);
-		handlerIngLi();
-
-		// CLICK ON A TAG
-		const ingLis = document.querySelectorAll('.ing-li');
-		ingLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnIngLi(li);
-			})
-		});
-		removeSpanError();
-	}
-
-	const clickOnIngLi = (li) => {
-		// const allIng = document.querySelector('.all-ing');
-		// allIng.innerHTML = '';
-
-		let inpValue = li.innerHTML;
-		//const filtIng = getFilterIng(inpValue);
-		// console.log(filtIng);
-
-		// const noDblIng = filtIng.filter(function (ele, pos) {
-		// 	return filtIng.indexOf(ele) == pos;
-		// });
-
-		const updateState = new UpdateState(STATEDATA);
-		updateState.updateIngData(inpValue);
-
-		createIngTags(inpValue);
-		deletedTag();
-		// createIngDropBox(noDblIng);
-		closeIngDropBox();
-	};
 };

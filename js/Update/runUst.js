@@ -1,30 +1,18 @@
 import { createUstDropBox } from '../view/DOM/createUstDropBox.js';
-import { createUstTags } from '../view/DOM/createTags.js';
-import { getAllUst, getFilterUst, handlerUstLi } from '../Handler/handlerUst.js';
-import { UpdateState } from './UpdateState.js';
-import { closeUstDropBox, openUstDropBox } from '../view/Display/displayUstDropBox.js';
-import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
-import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
-import { deletedTag } from '../view/Display/displayTags.js';
+import { getAllUst, getFilterUst } from '../Handler/handlerUst.js';
 import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
+import { eventToUstLi } from '../Handler/liEvent.js';
+import { handlerTargetUst } from '../Handler/Targets/handlerUstTarget.js';
 
 
 export const runUst = (STATEDATA) => {
-	const inpUst1 = document.querySelector('.target-ust');
-	const inpUst2 = document.querySelector('.inp-ust');
-	// TAB ON INPUT1
-	inpUst1.addEventListener("keyup", (e) => {
-		if (e.keyCode === 9) {
-			focusInpUst1();
-		}
-	});
-	// CLICK
-	inpUst1.addEventListener('click', () => {
-		focusInpUst1();
-	});
+	handlerTargetUst(STATEDATA);
+
 	// INPUT
-	inpUst2.addEventListener('input', () => {
-		let inpValue = inpUst2.value;
+	const inputUst = document.querySelector('.inp-ust');
+
+	inputUst.addEventListener('input', () => {
+		let inpValue = inputUst.value;
 		const allUst = document.querySelector('.all-ust');
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
@@ -59,53 +47,8 @@ export const runUst = (STATEDATA) => {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			createUstDropBox(allUst);
-			
 			removeSpanError();
 		}
-
-		const ustLis = document.querySelectorAll('.ust-li');
-		ustLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnUstLi(li);
-			})
-		})
+		eventToUstLi(STATEDATA);
 	});
-
-	const focusInpUst1 = () => {
-		openUstDropBox();
-		closeIngDropBox();
-		closeAppDropBox();
-		inpUst2.focus();
-	
-		const allUst = getAllUst(STATEDATA);
-		createUstDropBox(allUst);
-		handlerUstLi();
-	
-		// CLICK ON A TAG
-		const ustLis = document.querySelectorAll('.ust-li');
-		ustLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnUstLi(li);
-			})
-		})
-		removeSpanError();
-	}
-	
-	const clickOnUstLi = (li) => {
-			const allUst = document.querySelector('.all-ust');
-			allUst.innerHTML = '';
-							
-			let inpValue = li.innerHTML;
-			const filtUst = getFilterUst(inpValue);
-			const noDblUst = filtUst.filter(function (ele, pos) {
-				return filtUst.indexOf(ele) == pos;
-			});
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateUstData(filtUst);
-
-			createUstDropBox(noDblUst);
-			createUstTags(inpValue);
-			deletedTag();
-			closeUstDropBox();
-	};
 };
