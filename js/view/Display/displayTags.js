@@ -1,4 +1,4 @@
-import { afterDeletedTag, updateAllRecipes, updateIngRecipe, updateUstRecipe } from "../../Update/afterDeleted.js";
+import { afterDeletedTag  } from "../../Update/afterDeleted.js";
 import { closeAppDropBox } from "./displayAppDropBox.js";
 import { closeIngDropBox } from "./displayIngDropBox.js";
 import { closeUstDropBox } from "./displayUstDropBox.js";
