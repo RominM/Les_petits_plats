@@ -7,7 +7,7 @@ import { closeUstDropBox } from "./displayUstDropBox.js";
 export const deletedTag = () => {
 
    const tags = document.querySelectorAll('.tag');
-   // let nameTag = [];
+   let nameTag = [];
 
 
    tags.forEach(tag => {

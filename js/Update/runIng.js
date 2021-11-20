@@ -22,6 +22,7 @@ export const runIng = (STATEDATA) => {
 	});
 	// EVENT TARGET
 	const displayIng = () => {
+		console.log('here');
 		openIngDropBox();
 		inputIng.focus();
 
@@ -34,6 +35,7 @@ export const runIng = (STATEDATA) => {
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				clickOnIngLi(li);
+				console.log('hello');
 			})
 		});
 		removeSpanError();
@@ -45,14 +47,15 @@ export const runIng = (STATEDATA) => {
 
 
 	// INPUT2
-	['input','focus'].forEach(evt => {
-		inputIng.addEventListener(evt, () => {
+	// ['input','focus'].forEach(evt => {
+		inputIng.addEventListener('input', () => {
 			evtInputIng();
 		});
-	})
-	inputIng.addEventListener('blur', () => {
-		closeIngDropBox();
-	})
+	// });
+
+	// inputIng.addEventListener('blur', () => {
+	// 	closeIngDropBox();
+	// })
 
 	const evtInputIng = () => {
 		const allIng = document.querySelector('.all-ing');
@@ -98,6 +101,7 @@ export const runIng = (STATEDATA) => {
 		ingLis.forEach(li => {
 			li.addEventListener('click', () => {
 				clickOnIngLi(li);
+				console.log('world');
 			})
 		});
 	}

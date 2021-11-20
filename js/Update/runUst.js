@@ -46,14 +46,72 @@ export const runUst = (STATEDATA) => {
 
 	
 
+	// ['input','focus'].forEach(evt => {
+		inputUst.addEventListener("input", () => {
+			evtInputUst();
+		});
+	// })
+	// inputUst.addEventListener('blur', () => {
+	// 	closeUstDropBox();
+	// })
+
 	['input','focus'].forEach(evt => {
 		inputUst.addEventListener(evt, () => {
 			evtInputUst();
 		});
 	})
-	inputUst.addEventListener('blur', () => {
-		closeUstDropBox();
-	})
+	// inpUst2.addEventListener('blur', () => {
+	// 	closeUstDropBox();
+	// })
+
+	const evtInputUst = () => {
+		const allUst = document.querySelector('.all-ust');
+
+		let inpValue = inputUst.value;
+		if (inpValue.length > 2) {
+			const filtUst = getFilterUst(inpValue);
+			allUst.innerHTML = '';
+			// deleted duplicate ustensils inside the dropBox
+			const noDblUst = filtUst.filter(function (ele, pos) {
+				return filtUst.indexOf(ele) == pos;
+			});
+
+			const tagsSelected = document.querySelectorAll('.tag-ust span');
+			const tagsToErase = [];
+
+			if (tagsSelected.length > 0) {
+				tagsSelected.forEach(span => {
+					tagsToErase.push(span.innerHTML);
+				})
+				tagsToErase.forEach(tag => {
+					noDblUst.forEach((ust, index) => {
+						if (ust.toLocaleLowerCase() == tag.toLocaleLowerCase()) {
+							noDblUst.splice(index, 1);
+						};
+					});
+				});
+			};
+			if (noDblUst == 0) {
+				getSpanErrorUst();
+			} else {
+				removeSpanError();
+				createUstDropBox(noDblUst);
+			}
+		} else if (inpValue.length == 0) {
+			const allUst = getAllUst(STATEDATA);
+			allUst.innerHTML = '';
+			createUstDropBox(allUst);
+
+			removeSpanError();
+		}
+
+		const ustLis = document.querySelectorAll('.ust-li');
+		ustLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnUstLi(li);
+			})
+		})
+	}
 
 
 
