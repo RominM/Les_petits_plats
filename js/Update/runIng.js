@@ -45,7 +45,6 @@ export const runIng = (STATEDATA) => {
 
 
 
-
 	// INPUT2
 	// ['input','focus'].forEach(evt => {
 		inputIng.addEventListener('input', () => {
