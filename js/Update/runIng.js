@@ -3,38 +3,61 @@ import { createIngTags } from '../view/DOM/createTags.js';
 import { getAllIng, getFilterIng, handlerIngLi } from '../Handler/handlerIng.js';
 import { UpdateState } from './UpdateState.js';
 import { closeIngDropBox, openIngDropBox } from '../view/Display/displayIngDropBox.js';
-import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
-import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
 
 export const runIng = (STATEDATA) => {
-	const inpIng1 = document.querySelector('.target-ing');
-	const inpIng2 = document.querySelector('.inp-ing');
-	// TAB ON INPUT1
-	inpIng1.addEventListener("keyup", (e) => {
+	const targetIng = document.querySelector('.target-ing');
+	const inputIng = document.querySelector('.inp-ing');
+
+	// TAB ON TARGET
+	targetIng.addEventListener("keyup", (e) => {
 		if (e.keyCode === 9) {
-			focusInpIng1();
+			displayIng();
 		}
 	});
-	// CLICK ON INPUT1
-	inpIng1.addEventListener('click', () => {
-		focusInpIng1();
+	// CLICK ON TARGET
+	targetIng.addEventListener('click', () => {
+		displayIng();
 	});
+	// EVENT TARGET
+	const displayIng = () => {
+		openIngDropBox();
+		inputIng.focus();
+
+		const allIng = getAllIng(STATEDATA);
+		createIngDropBox(allIng);
+		handlerIngLi();
+
+		// CLICK ON A TAG
+		const ingLis = document.querySelectorAll('.ing-li');
+		ingLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnIngLi(li);
+			})
+		});
+		removeSpanError();
+	}
+
+
+
+
+
+
 	// INPUT2
 	['input','focus'].forEach(evt => {
-		inpIng2.addEventListener(evt, () => {
-			evtInpIng2();
+		inputIng.addEventListener(evt, () => {
+			evtInputIng();
 		});
 	})
-	inpIng2.addEventListener('blur', () => {
+	inputIng.addEventListener('blur', () => {
 		closeIngDropBox();
 	})
 
-	const evtInpIng2 = () => {
+	const evtInputIng = () => {
 		const allIng = document.querySelector('.all-ing');
 
-		let inpValue = inpIng2.value;
+		let inpValue = inputIng.value;
 		if (inpValue.length > 2) {
 			const filtIng = getFilterIng(inpValue);
 			allIng.innerHTML = '';
@@ -79,31 +102,11 @@ export const runIng = (STATEDATA) => {
 		});
 	}
 
-	// inpIng2.addEventListener('focus', (e) => {
+	// inputIng.addEventListener('focus', (e) => {
 	// 	console.log(e.target);
 	// });
-	// inpIng2.addEventListener('blur', (e) => {})();
+	// inputIng.addEventListener('blur', (e) => {})();
 
-	const focusInpIng1 = () => {
-		openIngDropBox();
-		// closeAppDropBox();
-		// closeUstDropBox();
-		inpIng2.focus();
-		console.log('coucou Ingredient');
-
-		const allIng = getAllIng(STATEDATA);
-		createIngDropBox(allIng);
-		handlerIngLi();
-
-		// CLICK ON A TAG
-		const ingLis = document.querySelectorAll('.ing-li');
-		ingLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnIngLi(li);
-			})
-		});
-		removeSpanError();
-	}
 
 	const clickOnIngLi = (li) => {
 		// const allIng = document.querySelector('.all-ing');

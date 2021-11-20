@@ -3,40 +3,63 @@ import { createAppTags } from '../view/DOM/createTags.js';
 import { getAllApp, getFilterApp, handlerAppLi } from '../Handler/handlerApp.js';
 import { UpdateState } from './UpdateState.js';
 import { closeAppDropBox, openAppDropBox } from '../view/Display/displayAppDropBox.js';
-import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
-import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
 
 export const runApp = (STATEDATA) => {
-	const inpApp1 = document.querySelector('.target-app');
-	const inpApp2 = document.querySelector('.inp-app');
-	// TAB ON INPUT1
-	inpApp1.addEventListener("keyup", (e) => {
+	const targetApp = document.querySelector('.target-app');
+	const inputApp = document.querySelector('.inp-app');
+
+	// TAB ON TARGET
+	targetApp.addEventListener('keyup', (e) => {
 		if (e.keyCode === 9) {
-			focusInpApp1();
+			displayApp();
 		}
 	});
-	
-	// CLICK
-	inpApp1.addEventListener('click', () => {
-		focusInpApp1();
-		console.log('tu dois être là');
+	// CLICK ON TARGET
+	targetApp.addEventListener('click', () => {
+		displayApp();
 	});
+	// EVENT TARGET
+	const displayApp = () => {
+		openAppDropBox();
+		inputApp.focus();
+
+		const allApp = getAllApp(STATEDATA);
+		createAppDropBox(allApp);
+		handlerAppLi();
+
+		// CLICK ON A TAG
+		const appLis = document.querySelectorAll('.app-li');
+		appLis.forEach(li => {
+			li.addEventListener('click', () => {
+				clickOnAppLi(li);
+			})
+		})
+		removeSpanError();
+	}
+
+
+
+
+
+
+
+
 	// INPUT2
 	['input','focus'].forEach(evt => {
-		inpApp2.addEventListener(evt, () => {
-			evtInpApp2();
+		inputApp.addEventListener(evt, () => {
+			evtInputApp();
 		});
 	})
-	inpApp2.addEventListener('blur', () => {
+	inputApp.addEventListener('blur', () => {
 		closeAppDropBox();
 	})
 
-	const evtInpApp2 = () => {
+	const evtInputApp = () => {
 		const allApp = document.querySelector('.all-app');
 		
-		let inpValue = inpApp2.value;
+		let inpValue = inputApp.value;
 		if (inpValue.length > 2) {
 			const filtApp = getFilterApp(inpValue);
 			allApp.innerHTML = '';
@@ -84,27 +107,7 @@ export const runApp = (STATEDATA) => {
 
 
 
-	const focusInpApp1 = () => {
-		openAppDropBox();
-		// closeIngDropBox();
-		// closeUstDropBox();
-		inpApp2.focus();
-		console.log('coucou Appareil');
 
-
-		const allApp = getAllApp(STATEDATA);
-		createAppDropBox(allApp);
-		handlerAppLi();
-
-		// CLICK ON A TAG
-		const appLis = document.querySelectorAll('.app-li');
-		appLis.forEach(li => {
-			li.addEventListener('click', () => {
-				clickOnAppLi(li);
-			})
-		})
-		removeSpanError();
-	}
 
 	const clickOnAppLi = (li) => {
 		const allApp = document.querySelector('.all-app');
