@@ -1,55 +1,56 @@
-import {
-   displayError
-} from "../view/Display/displayError.js"
+import { displayError, removeSpanError } from "../view/Display/displayError.js"
 import { closeIngDropBox } from "../view/Display/displayIngDropBox.js";
 import { closeAppDropBox } from "../view/Display/displayAppDropBox.js";
 import { closeUstDropBox } from "../view/Display/displayUstDropBox.js";
-import {
-   UpdateState
-} from "./UpdateState.js";
+import { UpdateState } from "./UpdateState.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
-export const searchRecipe = (listRecipe) => {
-
+export const runGlobal = (listRecipe) => {
    const searchBy = document.querySelector('#searchBy');
    const searchBtn = document.querySelector('.searchBtn');
 
    ['keyup','click'].forEach(evt => {
       searchBy.addEventListener(evt, (e) => {
          if (e.keyCode === 13) {
-            upRecipe(listRecipe);
+            updateGlobal(listRecipe);
          }
          if(evt == 'click') {
             closeIngDropBox();
             closeAppDropBox();
             closeUstDropBox();
+            removeSpanError();
          }
       });
    })
    searchBtn.addEventListener('click', () => {
-      upRecipe(listRecipe);
+      if(searchBy.value.length > 2) {
+
+         updateGlobal(listRecipe);
+      } else {
+         displayRecipes(STATEDATA);
+      }
    });
 }
 
-const upRecipe = (listRecipe) => {
-
+const updateGlobal = (listRecipe) => {
    toggleRecipes(listRecipe ,false);
    const updateState = new UpdateState(listRecipe);
 
    let valueInput = searchBy.value;
-
    let recipes = updateState.updateRecipe(valueInput);
 
-   if (recipes.length == 0) {
-      toggleRecipes(listRecipe ,true);
-      displayError();
-   }
+   if(recipes) {
+      if (recipes.length == 0) {
+         toggleRecipes(listRecipe ,true);
+         displayError();
+         return
+      }
 
+   }
 }
 
 const toggleRecipes = (list , bool) => {
-
    list.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
       recipe.display = bool;
    });
-
 }
