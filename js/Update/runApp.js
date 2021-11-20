@@ -21,12 +21,22 @@ export const runApp = (STATEDATA) => {
 	// CLICK
 	inpApp1.addEventListener('click', () => {
 		focusInpApp1();
+		console.log('tu dois être là');
 	});
-	// INPUT
-	inpApp2.addEventListener('input', () => {
+	// INPUT2
+	['input','focus'].forEach(evt => {
+		inpApp2.addEventListener(evt, () => {
+			evtInpApp2();
+		});
+	})
+	inpApp2.addEventListener('blur', () => {
+		closeAppDropBox();
+	})
 
-		let inpValue = inpApp2.value;
+	const evtInpApp2 = () => {
 		const allApp = document.querySelector('.all-app');
+		
+		let inpValue = inpApp2.value;
 		if (inpValue.length > 2) {
 			const filtApp = getFilterApp(inpValue);
 			allApp.innerHTML = '';
@@ -70,14 +80,17 @@ export const runApp = (STATEDATA) => {
 				clickOnAppLi(li);
 			});
 		});
-	});
+	}
+
+
 
 	const focusInpApp1 = () => {
-		closeIngDropBox();
-		closeUstDropBox();
 		openAppDropBox();
-
+		// closeIngDropBox();
+		// closeUstDropBox();
 		inpApp2.focus();
+		console.log('coucou Appareil');
+
 
 		const allApp = getAllApp(STATEDATA);
 		createAppDropBox(allApp);

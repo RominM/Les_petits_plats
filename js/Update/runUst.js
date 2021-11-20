@@ -22,10 +22,20 @@ export const runUst = (STATEDATA) => {
 	inpUst1.addEventListener('click', () => {
 		focusInpUst1();
 	});
-	// INPUT
-	inpUst2.addEventListener('input', () => {
-		let inpValue = inpUst2.value;
+	// INPUT2
+	['input','focus'].forEach(evt => {
+		inpUst2.addEventListener(evt, () => {
+			evtInpUst2();
+		});
+	})
+	inpUst2.addEventListener('blur', () => {
+		closeUstDropBox();
+	})
+
+	const evtInpUst2 = () => {
 		const allUst = document.querySelector('.all-ust');
+		
+		let inpValue = inpUst2.value;
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			allUst.innerHTML = '';
@@ -69,13 +79,16 @@ export const runUst = (STATEDATA) => {
 				clickOnUstLi(li);
 			})
 		})
-	});
+	}
+
 
 	const focusInpUst1 = () => {
 		openUstDropBox();
-		closeIngDropBox();
-		closeAppDropBox();
+		// closeIngDropBox();
+		// closeAppDropBox();
 		inpUst2.focus();
+		console.log('coucou Ustensils');
+
 	
 		const allUst = getAllUst(STATEDATA);
 		createUstDropBox(allUst);

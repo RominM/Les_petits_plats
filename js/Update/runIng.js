@@ -21,9 +21,17 @@ export const runIng = (STATEDATA) => {
 	inpIng1.addEventListener('click', () => {
 		focusInpIng1();
 	});
-
 	// INPUT2
-	inpIng2.addEventListener('input', () => {
+	['input','focus'].forEach(evt => {
+		inpIng2.addEventListener(evt, () => {
+			evtInpIng2();
+		});
+	})
+	inpIng2.addEventListener('blur', () => {
+		closeIngDropBox();
+	})
+
+	const evtInpIng2 = () => {
 		const allIng = document.querySelector('.all-ing');
 
 		let inpValue = inpIng2.value;
@@ -69,13 +77,19 @@ export const runIng = (STATEDATA) => {
 				clickOnIngLi(li);
 			})
 		});
-	});
+	}
+
+	// inpIng2.addEventListener('focus', (e) => {
+	// 	console.log(e.target);
+	// });
+	// inpIng2.addEventListener('blur', (e) => {})();
 
 	const focusInpIng1 = () => {
 		openIngDropBox();
-		closeAppDropBox();
-		closeUstDropBox();
+		// closeAppDropBox();
+		// closeUstDropBox();
 		inpIng2.focus();
+		console.log('coucou Ingredient');
 
 		const allIng = getAllIng(STATEDATA);
 		createIngDropBox(allIng);
