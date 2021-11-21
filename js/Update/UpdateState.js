@@ -66,7 +66,7 @@ export class UpdateState {
       })
       displayRecipes(this.STATEDATA);
    };
-
+   // GLOBAL
    updateRecipe(inpValue) {
       let listRecipe = [];
 
@@ -100,9 +100,5 @@ export class UpdateState {
          displayRecipes(listRecipe);
          return listRecipe;
       }
-
    };
-
-
-
 };

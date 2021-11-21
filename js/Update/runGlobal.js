@@ -45,7 +45,6 @@ const updateGlobal = (listRecipe) => {
          displayError();
          return
       }
-
    }
 }
 
