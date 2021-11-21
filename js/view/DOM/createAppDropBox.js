@@ -1,10 +1,6 @@
-import { openAppDropBox } from "../Display/displayAppDropBox.js";
-
 // CREATE APP DROPBOX
 export const createAppDropBox = (arrayApp) => {
    const containerApp = document.querySelector('.inp-container-app');
-   const inputApp = document.querySelector('.inp-app');
-   
    let allApp = document.querySelector('.all-app');
    arrayApp.sort();
 
@@ -23,6 +19,4 @@ export const createAppDropBox = (arrayApp) => {
 
       allApp.append(appLi);
    })
-   openAppDropBox();
-   inputApp.focus();
 };

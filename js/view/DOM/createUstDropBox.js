@@ -1,10 +1,6 @@
-import { openUstDropBox } from "../Display/displayUstDropBox.js";
-
 // CREATE UST DROPBOX
 export const createUstDropBox = (arrayUst) => {
    const containerUst = document.querySelector('.inp-container-ust');
-   const inputUst = document.querySelector('.inp-ust');
-   
    let allUst = document.querySelector('.all-ust');
    arrayUst.sort();
    // If allUst existe get empty
@@ -23,6 +19,4 @@ export const createUstDropBox = (arrayUst) => {
 
       allUst.append(ustLi);
    })
-   openUstDropBox();
-   inputUst.focus();
 };
