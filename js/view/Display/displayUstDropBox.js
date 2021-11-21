@@ -1,8 +1,9 @@
+import { closeAppDropBox } from "./displayAppDropBox.js";
 import { removeSpanError } from "./displayError.js";
+import { closeIngDropBox } from "./displayIngDropBox.js";
 
 // OPEN UST
 export const openUstDropBox = () => {
-   removeSpanError();
 
    const inpUst1 = document.querySelector('.target-ust');
    const inpUst2 = document.querySelector('.inp-ust');
@@ -12,6 +13,9 @@ export const openUstDropBox = () => {
       inpUst1.style.display = 'none';
       inpUst2.style.display = 'block';
    }
+   closeIngDropBox();
+   closeAppDropBox();
+   removeSpanError();
 }
 // CLOSE UST
 export const closeUstDropBox = () => {

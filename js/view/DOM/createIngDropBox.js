@@ -1,6 +1,10 @@
+import { openIngDropBox } from "../Display/displayIngDropBox.js";
+
 // CREATE ING DROPBOX
 export const createIngDropBox = (arrayIng) => {
    const containerIng = document.querySelector('.inp-container-ing');
+   const inputIng = document.querySelector('.inp-ing');
+   
    let allIng = document.querySelector('.all-ing');
    arrayIng.sort();
 
@@ -19,4 +23,6 @@ export const createIngDropBox = (arrayIng) => {
 
       allIng.append(ingLi);
    })
+   openIngDropBox();
+   inputIng.focus();
 };

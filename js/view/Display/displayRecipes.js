@@ -4,7 +4,7 @@ export const displayRecipes = (STATEDATA) => {
    let registre = document.querySelector('.registre');
    if(registre) {
       registre.innerHTML = '';
-   } else { // heven it creted it
+   } else {
       registre = document.createElement('div');
       registre.classList.add('registre');
       main.append(registre);
@@ -60,7 +60,6 @@ export const displayRecipes = (STATEDATA) => {
          card.append(image);
          card.append(descript);
          registre.append(card);
-         // console.log(registre.innerHTML);
       }
    })
 }

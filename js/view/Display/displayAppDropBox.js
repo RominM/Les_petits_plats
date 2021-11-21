@@ -1,8 +1,9 @@
 import { removeSpanError } from "./displayError.js";
+import { closeIngDropBox } from "./displayIngDropBox.js";
+import { closeUstDropBox } from "./displayUstDropBox.js";
 
 // OPEN APP
 export const openAppDropBox = () => {
-   removeSpanError();
 
    const inpApp1 = document.querySelector('.target-app');
    const inpApp2 = document.querySelector('.inp-app');
@@ -12,7 +13,10 @@ export const openAppDropBox = () => {
       inpApp1.style.display = 'none';
       inpApp2.style.display = 'block';
    }
-}
+   closeIngDropBox();
+   closeUstDropBox();
+   removeSpanError();
+};
 // CLOSE APP
 export const closeAppDropBox = () => {
    const inpApp1 = document.querySelector('.target-app');

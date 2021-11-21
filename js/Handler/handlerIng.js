@@ -3,6 +3,7 @@ import { recipes } from "../data.js";
 export const getAllIng = (STATEDATA) => {
    let arrayIng = [];
    STATEDATA.forEach(recipe => {
+      // for each recipes in display=true;
       if(recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingredientList = ingredient.ingredient.toLowerCase();
