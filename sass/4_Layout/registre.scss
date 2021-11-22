@@ -25,12 +25,12 @@
          height: 50%;
          border-radius: 0 0 5px 5px;
          background-color: $BgDecript;
+         overflow: hidden;
 
          .title {
             margin: 25px;
             font-family: $LatoReg;
             font-size: 18px;
-            white-space: nowrap;
          }
 
          .time {
@@ -53,19 +53,19 @@
             font-family: $LatoReg;
             font-size: 12px;
             margin-left: 25px;
-   
          }
 
-         p {
+         .para {
             @extend .ingredientsList;
             margin-right: 25px;
-            height: 100px;
-            max-height: 12px * 9;
+            max-height: 16ch;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
             overflow: hidden;
-            text-overflow: ellipsis;
             display: -webkit-box;
-               -webkit-line-clamp: 9;
-               -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 9;
+            -webkit-box-orient: vertical;
          }
       }
    }

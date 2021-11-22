@@ -47,6 +47,7 @@ export const displayRecipes = (STATEDATA) => {
          })
       
          const para = document.createElement('p');
+         para.classList.add('para');
          para.innerHTML = recipe.description;
       
          time.append(clock);

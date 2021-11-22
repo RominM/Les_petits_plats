@@ -39,13 +39,13 @@ const updateGlobal = (listRecipe) => {
    let valueInput = searchBy.value.toLowerCase();
    let recipes = updateState.updateRecipe(valueInput);
 
-   if(recipes) {
-      if (recipes.length == 0) {
-         toggleRecipes(listRecipe ,true);
+   console.log("Recipes lentgh : " + recipes.length)
+
+      if (recipes.length === 0) {
+         toggleRecipes(listRecipe ,false);
          displayError();
-         return
       }
-   }
+
 }
 
 const toggleRecipes = (list , bool) => {

@@ -14,7 +14,6 @@
 //NOTES\\
 
    - Probleme CSS :
-      *text-overflow: ellipsis; does not work !
       *path img incompréhensible
       *attribuer les "arrowDown" et "arrowUp" à des pseudo elements et gérer le curseur (pointer sur img et text sur input)
       *"Galette Bretonne" ellipsis
@@ -25,4 +24,3 @@
       *Regler le remove de l'erreur dans le main.
       *Lors du clic sur certains ingredient, inclues d'autres ingredients (ex: tapez: citron puis cliquez. Le DOM affiche egalement 
       les recettes avec citron vert et jus de citron).
-      *Gérer le toLowerCase() dans la recherche principal.
