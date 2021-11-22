@@ -1,0 +1,125 @@
+const eventToIngLi = (STATEDATA) => {
+	const ingLis = document.querySelectorAll('.ing-li');
+	ingLis.forEach(li => {
+		li.addEventListener('click', () => {
+			const updateState = new UpdateState(STATEDATA);
+
+			let inpValue = li.innerHTML;
+			updateState.updateIngData(inpValue);
+		
+			createIngTags(inpValue);
+			deletedTag();
+			closeIngDropBox();
+		});
+	});
+};
+
+const eventToAppLi = (STATEDATA) => {
+	const appLis = document.querySelectorAll('.app-li');
+	appLis.forEach(li => {
+		li.addEventListener('click', () => {							
+			const updateState = new UpdateState(STATEDATA);
+			
+			let inpValue = li.innerHTML;
+			updateState.updateAppData(inpValue);
+	
+			createAppTags(inpValue);
+			deletedTag();
+			closeAppDropBox();		
+      });
+	});
+};
+const eventToUstLi = (STATEDATA) => {
+   const ustLis = document.querySelectorAll('.ust-li');
+   ustLis.forEach(li => {
+      li.addEventListener('click', () => {							
+			const updateState = new UpdateState(STATEDATA);
+			
+			let inpValue = li.innerHTML;
+			updateState.updateUstData(inpValue);
+
+			createUstTags(inpValue);
+			deletedTag();
+			closeUstDropBox();      
+      });
+   });
+};
+
+class UpdateData {
+   constructor(STATEDATA) {
+      this.STATEDATA = STATEDATA;
+   }
+
+   //Update General
+   updateAllData(nameIng, type) {
+
+      switch (type) {
+         case "ing":
+            this.updateIngData(nameIng);
+            break;
+         case "app":
+            this.updateAppData(nameIng);
+            break;
+         case "ust":
+            this.updateUstData(nameIng);
+            break;
+         default:
+            break;
+      }
+   }
+
+   // INGREDIENTS
+   updateIngData(inpValue) {
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+               const ingredient = recipe.ingredients[i];
+               const ingMemo = ingredient.ingredient.toLowerCase();
+               if (inpValue.includes(ingMemo)) {
+                  recipe.display = true;
+                  break;
+               } else {
+                  recipe.display = false;
+               }
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   }
+
+   // APPLIANCES
+   updateAppData(inpValue) {
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            const appliance = recipe.appliance;
+            const appMemo = appliance.toLowerCase();
+            if (inpValue.includes(appMemo)) {
+               recipe.display = true;
+            } else {
+               recipe.display = false;
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   }
+   // USTENSILS
+   updateUstData(inpValue) {
+
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            for (let i = 0; i < recipe.ustensils.length; i++) {
+               const ustensil = recipe.ustensils[i];
+               const ustMemo = ustensil.toLowerCase();
+               if (inpValue.includes(ustMemo)) {
+                  recipe.display = true;
+                  break;
+               } else {
+                  recipe.display = false;
+               }
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   }
+}
+

@@ -1,0 +1,93 @@
+const runTest = (classInput , name) => {
+
+	let state = [...recipes];
+
+	const updateState = new UpdateData(state);
+
+	let type = "";
+
+	switch (classInput) {
+		case "li ing-li":
+			type = classInput.substring(3,6);
+			updateState.updateAllData(name,type);
+			break;
+
+		case "li app-li":
+			type = classInput.substring(3,6);
+					updateState.updateAllData(name,type);
+			break;
+
+		case "li ust-li":
+			type = classInput.substring(3,6);
+			updateState.updateAllData(name,type);
+			break;
+
+		default:
+			break;
+	}
+};
+
+class UpdateState {
+   constructor(STATEDATA) {
+      this.STATEDATA = STATEDATA;
+   }
+
+   stateData() {
+      updateIngData();
+      updateAppData();
+      updateUstData();
+      return stateData;
+   }
+   updateIngData(inpValue) {
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+               const ingredient = recipe.ingredients[i];
+               const ingMemo = ingredient.ingredient.toLowerCase();
+               if (inpValue.includes(ingMemo)) {
+                  recipe.display = true;
+                  break;
+               } else {
+                  recipe.display = false;
+               }
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   };
+
+   // APPLIANCES
+   updateAppData(inpValue) {
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            const appliance = recipe.appliance;
+            const appMemo = appliance.toLowerCase();
+            if (inpValue.includes(appMemo)) {
+               recipe.display = true;
+            } else {
+               recipe.display = false;
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   }
+   // USTENSILS
+   updateUstData(inpValue) {
+
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            for (let i = 0; i < recipe.ustensils.length; i++) {
+               const ustensil = recipe.ustensils[i];
+               const ustMemo = ustensil.toLowerCase();
+               if (inpValue.includes(ustMemo)) {
+                  recipe.display = true;
+                  break;
+               } else {
+                  recipe.display = false;
+               }
+            }
+         }
+      });
+      displayRecipes(this.STATEDATA);
+   }
+}
