@@ -3,65 +3,9 @@ import {
 } from "../view/Display/displayRecipes.js";
 
 export class UpdateData {
-
    constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
    }
-   // stateData() {
-   //    updateState();
-   //    return stateData
-   // }
-
-   // updateState = (inpValue) => {
-   //    this.STATEDATA.forEach(recipe => {
-   //       if (recipe.display == true) {
-   //          // INGREDIENT
-   //          let ingMemo;
-   //          for (let i = 0; i < recipe.ingredients.length; i++) {
-   //             const ingredient = recipe.ingredients[i];
-   //             ingMemo = ingredient.ingredient.toLowerCase();
-   //          }
-   //          // APPLIANCES
-   //          const appliance = recipe.appliance;
-   //          const appMemo = appliance.toLowerCase();
-   //          // USTENSILS
-   //          let ustMemo;
-   //          for (let i = 0; i < recipe.ustensils.length; i++) {
-   //             const ustensil = recipe.ustensils[i];
-   //             ustMemo = ustensil.toLowerCase();
-   //          }
-   //          switch (inpValue) {
-   //             case inpValue.includes(ingMemo):
-   //                console.log('Ingredients');
-   //                recipe.display = true;
-   //                break;
-
-   //             case inpValue.includes(appMemo):
-   //                console.log('Appliances');
-   //                recipe.display = true;
-   //                break;
-
-   //             case inpValue.includes(ustMemo):
-   //                recipe.display = true;
-   //                console.log('Ustensils');
-   //                break;
-
-   //             default:
-   //                recipe.display = false;
-   //                break;
-   //          }
-   //       }
-   //    });
-   //    displayRecipes(this.STATEDATA);
-   // };
-
-   stateData() {
-      updateIngData();
-      updateAppData();
-      updateUstData();
-      return stateData
-   }
-
 
    //Update General
    updateAllData(nameIng, type) {
@@ -79,7 +23,6 @@ export class UpdateData {
          default:
             break;
       }
-
    };
 
    // INGREDIENTS
