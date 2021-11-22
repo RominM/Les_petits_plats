@@ -126,19 +126,8 @@ export const runIng = (STATEDATA) => {
 	}
 
 	const clickOnIngLi = (li) => {
-		// const allIng = document.querySelector('.all-ing');
-		// allIng.innerHTML = '';
-
 		let inpValue = li.innerHTML;
 		let className = li.className;
-		//const filtIng = getFilterIng(inpValue);
-		// console.log(filtIng);
-
-		// const noDblIng = filtIng.filter(function (ele, pos) {
-		// 	return filtIng.indexOf(ele) == pos;
-		// });
-		// const updateState = new UpdateData(STATEDATA);
-		// updateState.updateState(inpValue);
 		runTest(className,inpValue)
 
 		createIngTags(inpValue);
