@@ -1,4 +1,6 @@
-import { displayRecipes } from "../view/Display/displayRecipes.js";
+import {
+   displayRecipes
+} from "../view/Display/displayRecipes.js";
 
 export class UpdateData {
 
@@ -33,17 +35,17 @@ export class UpdateData {
    //                console.log('Ingredients');
    //                recipe.display = true;
    //                break;
-      
+
    //             case inpValue.includes(appMemo):
    //                console.log('Appliances');
    //                recipe.display = true;
    //                break;
-      
+
    //             case inpValue.includes(ustMemo):
    //                recipe.display = true;
    //                console.log('Ustensils');
    //                break;
-      
+
    //             default:
    //                recipe.display = false;
    //                break;
@@ -59,6 +61,27 @@ export class UpdateData {
       updateUstData();
       return stateData
    }
+
+
+   //Update General
+   updateAllData(nameIng, type) {
+
+      switch (type) {
+         case "ing":
+            this.updateIngData(nameIng);
+            break;
+         case "app":
+            this.updateAppData(nameIng);
+            break;
+         case "ust":
+            this.updateUstData(nameIng);
+            break;
+         default:
+            break;
+      }
+
+   };
+
    // INGREDIENTS
    updateIngData(inpValue) {
       this.STATEDATA.forEach(recipe => {
@@ -77,7 +100,7 @@ export class UpdateData {
       });
       displayRecipes(this.STATEDATA);
    };
-   
+
    // APPLIANCES
    updateAppData(inpValue) {
       this.STATEDATA.forEach(recipe => {
@@ -95,7 +118,7 @@ export class UpdateData {
    };
    // USTENSILS
    updateUstData(inpValue) {
-   
+
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
             for (let i = 0; i < recipe.ustensils.length; i++) {
@@ -112,12 +135,12 @@ export class UpdateData {
       })
       displayRecipes(this.STATEDATA);
    };
-   
+
    updateRecipe(inpValue) {
       let listRecipe = [];
-   
+
       if (inpValue.length > 2) {
-   
+
          this.STATEDATA.forEach(recipe => {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
@@ -127,14 +150,14 @@ export class UpdateData {
                   if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
                }
             };
-   
+
             const name = recipe.name;
             const nameMemo = name.toLowerCase();
             if (nameMemo.includes(inpValue)) {
                recipe.display = true;
                if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
             }
-   
+
             const desc = recipe.description;
             const descMemo = desc.toLowerCase();
             if (descMemo.includes(inpValue)) {
@@ -142,10 +165,10 @@ export class UpdateData {
                if (!listRecipe.includes(recipe)) listRecipe.push(recipe);
             }
          });
-   
+
          displayRecipes(listRecipe);
          return listRecipe;
       }
-   
+
    };
 }

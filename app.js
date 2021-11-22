@@ -3,7 +3,7 @@ import { createHead } from './js/view/DOM/createHeader.js';
 import { createSearchBar, createSearchStamps } from './js/view/DOM/createSortSection.js';
 import {	displayRecipes } from './js/view/Display/displayRecipes.js';
 import { runIng } from './js/Update/runIng.js';
-import { runTest } from './js/Update/run.js';
+// import { runAll } from './js/Update/run.js';
 import {	runApp } from './js/Update/runApp.js';
 import {	runUst } from './js/Update/runUst.js';
 import { searchRecipe } from './js/Update/runGlobal.js';
@@ -29,5 +29,6 @@ runApp(STATEDATA);
 // Algo Search Ustensils
 runUst(STATEDATA);
 // Algo Search Global
+// runAll(STATEDATA);
 // runGlobalResearch(STATEDATA);
 searchRecipe(STATEDATA);
