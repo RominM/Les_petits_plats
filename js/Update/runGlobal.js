@@ -9,12 +9,12 @@ export const runGlobal = (listRecipe) => {
    const searchBy = document.querySelector('#searchBy');
    const searchBtn = document.querySelector('.searchBtn');
 
-   ['keyup','click'].forEach(evt => {
+   ['keyup', 'click'].forEach(evt => {
       searchBy.addEventListener(evt, (e) => {
          if (e.keyCode === 13) {
             updateGlobal(listRecipe);
          }
-         if(evt == 'click') {
+         if (evt == 'click') {
             closeIngDropBox();
             closeAppDropBox();
             closeUstDropBox();
@@ -23,17 +23,17 @@ export const runGlobal = (listRecipe) => {
       });
    })
    searchBtn.addEventListener('click', () => {
-      if(searchBy.value.length > 2) {
+      if (searchBy.value.length > 2) {
 
          updateGlobal(listRecipe);
       } else {
          displayRecipes(STATEDATA);
       }
    });
-}
+};
 
 const updateGlobal = (listRecipe) => {
-   toggleRecipes(listRecipe ,false);
+   toggleRecipes(listRecipe, false);
    const updateState = new UpdateState(listRecipe);
 
    let valueInput = searchBy.value.toLowerCase();
@@ -41,17 +41,18 @@ const updateGlobal = (listRecipe) => {
 
    console.log("Recipes lentgh : " + recipes.length)
 
-      if (recipes.length === 0) {
-         toggleRecipes(listRecipe ,false);
-         displayError();
-      } else {
-         removeMainError();
-      }
+   if (recipes.length == 0) {
+      // toggleRecipes(listRecipe ,false);
+      console.log('display');
+      displayError();
+   } else {
+      console.log('remove');
+      removeMainError();
+   }
+};
 
-}
-
-const toggleRecipes = (list , bool) => {
+const toggleRecipes = (list, bool) => {
    list.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
       recipe.display = bool;
    });
-}
+};

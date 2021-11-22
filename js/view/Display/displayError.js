@@ -17,12 +17,14 @@ export const displayError = () => {
 	infoError.append(spanError);
 
 	main.append(infoError);
-}
+};
 
 export const removeMainError = () => {
    const infoError = document.querySelector('.infoError');
-   infoError.remove();
-}
+   if(infoError) {
+      infoError.remove();
+   }
+};
 
 // SPAN ERROR
 export const getSpanErrorIng = () => {
@@ -38,7 +40,7 @@ export const getSpanErrorIng = () => {
 
       containerIng.append(spanIngError);
    }
-}
+};
 
 export const getSpanErrorApp = () => {
    const containerApp = document.querySelector('.inp-container-app');
@@ -68,7 +70,7 @@ export const getSpanErrorUst = () => {
 
       containerUst.append(spanUstError);
    }
-}
+};
 
 export const removeSpanError = () => {
    const spanError = document.querySelectorAll('.spanError');

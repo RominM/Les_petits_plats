@@ -20,7 +20,8 @@ export const getAllIng = (STATEDATA) => {
 // Includes to lower case
 export const getFilterIng = (inpValue) => {
    let filtIng = [];
-
+   
+   console.log(inpValue);
    let STATEDATA = [...recipes];
    STATEDATA.forEach(recipe => {
       if (recipe.display) {

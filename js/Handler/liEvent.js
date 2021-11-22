@@ -4,19 +4,16 @@ import { closeIngDropBox } from "../view/Display/displayIngDropBox.js";
 import { deletedTag } from "../view/Display/displayTags.js";
 import { closeUstDropBox } from "../view/Display/displayUstDropBox.js";
 import { createAppTags, createIngTags, createUstTags } from "../view/DOM/createTags.js";
-import { getFilterApp } from "./handlerApp.js";
-import { getFilterIng } from "./handlerIng.js";
-import { getFilterUst } from "./handlerUst.js";
 
 // INGREDIENTS
 export const eventToIngLi = (STATEDATA) => {
 	const ingLis = document.querySelectorAll('.ing-li');
 	ingLis.forEach(li => {
 		li.addEventListener('click', () => {
-			let inpValue = li.innerHTML;
-         const filtIng = getFilterIng(inpValue);
 			const updateState = new UpdateState(STATEDATA);
-			updateState.updateIngData(filtIng);
+
+			let inpValue = li.innerHTML;
+			updateState.updateIngData(inpValue);
 		
 			createIngTags(inpValue);
 			deletedTag();
@@ -30,10 +27,10 @@ export const eventToAppLi = (STATEDATA) => {
 	const appLis = document.querySelectorAll('.app-li');
 	appLis.forEach(li => {
 		li.addEventListener('click', () => {							
+			const updateState = new UpdateState(STATEDATA);
+			
 			let inpValue = li.innerHTML;
-			const filtApp = getFilterApp(inpValue);
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateAppData(filtApp);
+			updateState.updateAppData(inpValue);
 	
 			createAppTags(inpValue);
 			deletedTag();
@@ -47,10 +44,10 @@ export const eventToUstLi = (STATEDATA) => {
    const ustLis = document.querySelectorAll('.ust-li');
    ustLis.forEach(li => {
       li.addEventListener('click', () => {							
+			const updateState = new UpdateState(STATEDATA);
+			
 			let inpValue = li.innerHTML;
-			const filtUst = getFilterUst(inpValue);
-			const updateState = new UpdateState(STATEDATA, inpValue);
-			updateState.updateUstData(filtUst);
+			updateState.updateUstData(inpValue);
 
 			createUstTags(inpValue);
 			deletedTag();
