@@ -1,38 +1,56 @@
-import {
-   displayRecipes
-} from "../view/Display/displayRecipes.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export class UpdateData {
 
    constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
    }
+   stateData() {
+      updateState();
+   }
 
    updateState = (inpValue) => {
-
-
-      console.log("Value : " + inpValue);
-
-      switch (inpValue) {
-         case "ing":
-
-
-            break;
-
-         case "app":
-
-            break;
-
-         case "ust":
-
-            break;
-
-         default:
-            break;
-      }
+      console.log(inpValue);
+      this.STATEDATA.forEach(recipe => {
+         if (recipe.display == true) {
+            // INGREDIENT
+            let ingMemo = [];
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+               const ingredient = recipe.ingredients[i];
+               ingMemo.push(ingredient.ingredient.toLowerCase());
+            }
+            // APPLIANCES
+            const appliance = recipe.appliance;
+            const appMemo = appliance.toLowerCase();
+            // USTENSILS
+            let ustMemo = [];
+            for (let i = 0; i < recipe.ustensils.length; i++) {
+               const ustensil = recipe.ustensils[i];
+               ustMemo.push(ustensil.toLowerCase());
+            }
+            switch (inpValue.includes()) {
+               case ingMemo:
+                  console.log('Ingredients');
+                  recipe.display = true;
+                  break;
+      
+               case appMemo:
+                  console.log('Appliances');
+                  recipe.display = true;
+                  break;
+      
+               case ustMemo:
+                  recipe.display = true;
+                  console.log('Ustensils');
+                  break;
+      
+               default:
+                  recipe.display = false;
+                  break;
+            }
+         }
+      });
    };
-
-
 }
 
 

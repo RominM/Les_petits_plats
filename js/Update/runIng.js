@@ -97,14 +97,12 @@ export const runIng = (STATEDATA) => {
 		// allIng.innerHTML = '';
 
 		let inpValue = li.innerHTML;
-		console.log(li);
 		//const filtIng = getFilterIng(inpValue);
 		// console.log(filtIng);
 
 		// const noDblIng = filtIng.filter(function (ele, pos) {
 		// 	return filtIng.indexOf(ele) == pos;
 		// });
-
 		const updateState = new UpdateData(STATEDATA);
 		updateState.updateState(inpValue);
 
