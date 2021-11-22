@@ -18,7 +18,7 @@ export const eventToIngLi = (STATEDATA) => {
 			createIngTags(inpValue);
 			deletedTag();
 			closeIngDropBox();
-		})
+		});
 	});
 };
 
