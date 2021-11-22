@@ -7,39 +7,39 @@ export class UpdateData {
    }
    stateData() {
       updateState();
+      return stateData
    }
 
    updateState = (inpValue) => {
-      console.log(inpValue);
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
             // INGREDIENT
-            let ingMemo = [];
+            let ingMemo;
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
-               ingMemo.push(ingredient.ingredient.toLowerCase());
+               ingMemo = ingredient.ingredient.toLowerCase();
             }
             // APPLIANCES
             const appliance = recipe.appliance;
             const appMemo = appliance.toLowerCase();
             // USTENSILS
-            let ustMemo = [];
+            let ustMemo;
             for (let i = 0; i < recipe.ustensils.length; i++) {
                const ustensil = recipe.ustensils[i];
-               ustMemo.push(ustensil.toLowerCase());
+               ustMemo = ustensil.toLowerCase();
             }
-            switch (inpValue.includes()) {
-               case ingMemo:
+            switch (true) {
+               case inpValue.includes(ingMemo):
                   console.log('Ingredients');
                   recipe.display = true;
                   break;
       
-               case appMemo:
+               case inpValue.includes(appMemo):
                   console.log('Appliances');
                   recipe.display = true;
                   break;
       
-               case ustMemo:
+               case inpValue.includes(ustMemo):
                   recipe.display = true;
                   console.log('Ustensils');
                   break;
