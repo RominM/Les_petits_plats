@@ -36,7 +36,7 @@ const updateGlobal = (listRecipe) => {
    toggleRecipes(listRecipe ,false);
    const updateState = new UpdateState(listRecipe);
 
-   let valueInput = searchBy.value;
+   let valueInput = searchBy.value.toLowerCase();
    let recipes = updateState.updateRecipe(valueInput);
 
    if(recipes) {

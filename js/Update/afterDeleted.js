@@ -27,8 +27,8 @@ export const afterDeletedTag = (tag) => {
    let count = 0;
 
    let STATEDATA = [...recipes];
-   STATEDATA.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
-      recipe.display = false;
+   STATEDATA.forEach(recipe => { 
+      recipe.display = false; // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
 
       // INGREDIENTS
       for (let ingredient of recipe.ingredients) {

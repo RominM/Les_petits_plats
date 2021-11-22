@@ -4,6 +4,9 @@
 //OBJECTIFS SEMAINE\\
 
    - Gestion du afterDeleted(); ok
+
+//OBJECTIFS PROJETS\\
+
    - Commencement du second algo:
       creation de la seconde branch
       ajout de l'ajout puis début d'ecriture du switch/case
@@ -21,4 +24,5 @@
       *Regler l'event "focus" et "blur".
       *Regler le remove de l'erreur dans le main.
       *Lors du clic sur certains ingredient, inclues d'autres ingredients (ex: tapez: citron puis cliquez. Le DOM affiche egalement 
-      les recettes avec citron vert et jus de citron)
+      les recettes avec citron vert et jus de citron).
+      *Gérer le toLowerCase() dans la recherche principal.
