@@ -18,5 +18,3 @@
       *attribuer les "arrowDown" et "arrowUp" à des pseudo elements et gérer le curseur (pointer sur img et text sur input)
       *"Galette Bretonne" ellipsis
 
-   - Bugs JS à fixer :
-      *Regler l'event "focus" et "blur".
