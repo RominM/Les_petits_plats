@@ -50,6 +50,7 @@ export class UpdateData {
             }
          }
       });
+      displayRecipes(this.STATEDATA);
    };
 }
 
