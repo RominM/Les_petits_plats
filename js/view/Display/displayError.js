@@ -1,3 +1,4 @@
+// MAIN ERROR
 export const displayError = () => {
 	const main = document.querySelector('main');
    const registre = document.querySelector('.registre');
@@ -12,12 +13,15 @@ export const displayError = () => {
    const spanError = document.createElement('span');
    spanError.innerHTML = " Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson » etc...";
 
-   const isVisible = document.createElement();
-
 	infoError.append(logoError);
 	infoError.append(spanError);
 
 	main.append(infoError);
+}
+
+export const removeMainError = () => {
+   const infoError = document.querySelector('.infoError');
+   infoError.remove();
 }
 
 // SPAN ERROR

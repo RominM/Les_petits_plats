@@ -1,4 +1,4 @@
-import { displayError, removeSpanError } from "../view/Display/displayError.js"
+import { displayError, removeMainError, removeSpanError } from "../view/Display/displayError.js"
 import { closeIngDropBox } from "../view/Display/displayIngDropBox.js";
 import { closeAppDropBox } from "../view/Display/displayAppDropBox.js";
 import { closeUstDropBox } from "../view/Display/displayUstDropBox.js";
@@ -44,6 +44,8 @@ const updateGlobal = (listRecipe) => {
       if (recipes.length === 0) {
          toggleRecipes(listRecipe ,false);
          displayError();
+      } else {
+         removeMainError();
       }
 
 }
