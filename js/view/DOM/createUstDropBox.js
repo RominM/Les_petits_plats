@@ -1,3 +1,5 @@
+import { runTest } from "../../Update/run.js";
+
 // CREATE UST DROPBOX
 export const createUstDropBox = (arrayUst) => {
    const containerUst = document.querySelector('.inp-container-ust');
@@ -16,6 +18,7 @@ export const createUstDropBox = (arrayUst) => {
       const ustLi = document.createElement('li');
       ustLi.classList.add('li', 'ust-li');
       ustLi.innerHTML = eachUst;
+      ustLi.onclick = function(){runTest(ustLi.className)};
 
       allUst.append(ustLi);
    })

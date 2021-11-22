@@ -7,6 +7,7 @@ import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
 import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
+import { runTest } from './run.js';
 
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
@@ -97,14 +98,16 @@ export const runIng = (STATEDATA) => {
 		// allIng.innerHTML = '';
 
 		let inpValue = li.innerHTML;
+		let className = li.className;
 		//const filtIng = getFilterIng(inpValue);
 		// console.log(filtIng);
 
 		// const noDblIng = filtIng.filter(function (ele, pos) {
 		// 	return filtIng.indexOf(ele) == pos;
 		// });
-		const updateState = new UpdateData(STATEDATA);
-		updateState.updateState(inpValue);
+		// const updateState = new UpdateData(STATEDATA);
+		// updateState.updateState(inpValue);
+		runTest(className,inpValue)
 
 		createIngTags(inpValue);
 		deletedTag();

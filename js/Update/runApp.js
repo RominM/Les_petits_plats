@@ -7,6 +7,7 @@ import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
 import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorApp } from '../view/Display/displayError.js';
+import { runTest } from './run.js';
 
 export const runApp = (STATEDATA) => {
 	const inpApp1 = document.querySelector('.target-app');
@@ -98,13 +99,15 @@ export const runApp = (STATEDATA) => {
 		allApp.innerHTML = '';
 						
 		let inpValue = li.innerHTML;
+		let className = li.className;
 		const filtApp = getFilterApp(inpValue);
 
 		const noDblApp = filtApp.filter(function (ele, pos) {
 			return filtApp.indexOf(ele) == pos;
 		});
-		const updateState = new UpdateData(STATEDATA, inpValue);
-		updateState.updateState(filtApp);
+		//const updateState = new UpdateData(STATEDATA, inpValue);
+		//updateState.updateState(filtApp);
+		runTest(className,inpValue);
 
 		createAppTags(inpValue);
 		deletedTag();

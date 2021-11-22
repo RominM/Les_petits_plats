@@ -7,6 +7,7 @@ import { closeIngDropBox } from '../view/Display/displayIngDropBox.js';
 import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.js';
+import { runTest } from './run.js';
 
 
 export const runUst = (STATEDATA) => {
@@ -96,12 +97,14 @@ export const runUst = (STATEDATA) => {
 			allUst.innerHTML = '';
 							
 			let inpValue = li.innerHTML;
+			let className = li.className;
 			const filtUst = getFilterUst(inpValue);
 			const noDblUst = filtUst.filter(function (ele, pos) {
 				return filtUst.indexOf(ele) == pos;
 			});
-			const updateState = new UpdateData(STATEDATA, inpValue);
-			updateState.updateState(filtUst);
+			//const updateState = new UpdateData(STATEDATA, inpValue);
+			//updateState.updateState(filtUst);
+			runTest(className,inpValue);
 
 			createUstDropBox(noDblUst);
 			createUstTags(inpValue);

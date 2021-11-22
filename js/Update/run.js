@@ -7,6 +7,38 @@ import { closeAppDropBox } from '../view/Display/displayAppDropBox.js';
 import { closeUstDropBox } from '../view/Display/displayUstDropBox.js';
 import { deletedTag } from '../view/Display/displayTags.js';
 import { removeSpanError, getSpanErrorIng } from '../view/Display/displayError.js';
+import { updateIngRecipe } from './afterDeleted.js';
+import { recipes } from '../data.js';
+
+
+export const runTest = (classIng , name) => {
+
+	let state = [...recipes];
+
+	const updateState = new UpdateData(state);
+	console.log("runTest name : " + name)
+
+	switch (classIng) {
+		case "li ing-li":
+					updateState.updateIngData(name)
+			break;
+
+		case "li app-li":
+					updateState.updateAppData(name)
+			break;
+
+		case "li ust-li":
+					updateState.updateUstData(name)
+			break;
+
+		default:
+			break;
+	}
+
+
+
+}
+
 
 export const runIng = (STATEDATA) => {
 	const inpIng1 = document.querySelector('.target-ing');
