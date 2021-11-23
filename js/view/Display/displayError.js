@@ -18,6 +18,13 @@ export const displayError = () => {
 	main.append(infoError);
 }
 
+export const removeMainError = () => {
+   const infoError = document.querySelector('.infoError');
+   if(infoError) {
+      infoError.remove();
+   }
+};
+
 // SPAN ERROR
 export const getSpanErrorIng = () => {
    const containerIng = document.querySelector('.inp-container-ing');
