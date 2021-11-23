@@ -13,7 +13,7 @@ export const createSearchBar = () => {
     const searchBtn = document.createElement('button');
     searchBtn.classList.add('searchBtn');
     const searchImg = document.createElement('img');
-    searchImg.src = './../../../images/loupe.svg';
+    searchImg.src = './images/loupe.svg';
 
     searchBtn.append(searchImg);
     divSearch.append(searchBtn);

@@ -2,22 +2,22 @@
 //TYPO___________
 @font-face {
     font-family: DMSans-Bold;
-    src: url(../../font/DMSans/DMSans-Bold.ttf) format('truetype');
+    src: url(./../font/DMSans/DMSans-Bold.ttf) format('truetype');
 }
 
 @font-face {
     font-family: DMSans-Medium;
-    src: url(../../font/DMSans/DMSans-Medium.ttf) format('truetype');
+    src: url(./../font/DMSans/DMSans-Medium.ttf) format('truetype');
 }
 
 @font-face {
     font-family: Lato-Bold;
-    src: url(../../font/Lato/Lato-Bold.ttf) format('truetype');
+    src: url(./../font/Lato/Lato-Bold.ttf) format('truetype');
 }
 
 @font-face {
     font-family: Lato-Reg;
-    src: url(../../font/Lato/Lato-Regular.ttf) format('truetype');
+    src: url(./../font/Lato/Lato-Regular.ttf) format('truetype');
 }
 
 $DMBold: DMSans-Bold, "sans-serif";
