@@ -1,6 +1,4 @@
-import {
-   displayRecipes
-} from "../view/Display/displayRecipes.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export class UpdateData {
    constructor(STATEDATA) {
