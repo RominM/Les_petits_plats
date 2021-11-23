@@ -1,4 +1,4 @@
-import { runTest } from "../../Update/run.js";
+import { runSwitch } from "../../Update/run.js";
 
 // CREATE ING DROPBOX
 export const createIngDropBox = (arrayIng) => {
@@ -20,6 +20,5 @@ export const createIngDropBox = (arrayIng) => {
       ingLi.innerHTML = eachIng;
 
       allIng.append(ingLi);
-    
    })
 };

@@ -1,13 +1,10 @@
 // import { UpdateState } from "../Update/UpdateState.js";
-import { runTest } from "../Update/run.js";
+import { runSwitch } from "../Update/run.js";
 import { closeAppDropBox } from "../view/Display/displayAppDropBox.js";
 import { closeIngDropBox } from "../view/Display/displayIngDropBox.js";
 import { deletedTag } from "../view/Display/displayTags.js";
 import { closeUstDropBox } from "../view/Display/displayUstDropBox.js";
 import { createAppTags, createIngTags, createUstTags } from "../view/DOM/createTags.js";
-import { getFilterApp } from "./handlerApp.js";
-import { getFilterIng } from "./handlerIng.js";
-import { getFilterUst } from "./handlerUst.js";
 
 // INGREDIENTS
 export const eventToIngLi = (STATEDATA) => {
@@ -16,11 +13,8 @@ export const eventToIngLi = (STATEDATA) => {
 		li.addEventListener('click', () => {
 			let inpValue = li.innerHTML;
          let className = li.className;
-         // const filtIng = getFilterIng(inpValue);
-			// const updateState = new UpdateState(STATEDATA);
-			// updateState.updateIngData(filtIng);
 		
-         runTest(className,inpValue)
+         runSwitch(className,inpValue)
 
 			createIngTags(inpValue);
 			deletedTag();
@@ -35,11 +29,8 @@ export const eventToAppLi = (STATEDATA) => {
 	appLis.forEach(li => {
 		li.addEventListener('click', () => {							
 			let inpValue = li.innerHTML;
-			// const filtApp = getFilterApp(inpValue);
-			// const updateState = new UpdateState(STATEDATA, inpValue);
-			// updateState.updateAppData(filtApp);
 	
-         runTest(className,inpValue)
+         runSwitch(className,inpValue)
 
 			createAppTags(inpValue);
 			deletedTag();
@@ -54,11 +45,8 @@ export const eventToUstLi = (STATEDATA) => {
    ustLis.forEach(li => {
       li.addEventListener('click', () => {							
 			let inpValue = li.innerHTML;
-			// const filtUst = getFilterUst(inpValue);
-			// const updateState = new UpdateState(STATEDATA, inpValue);
-			// updateState.updateUstData(filtUst);
 
-         runTest(className,inpValue)
+         runSwitch(className,inpValue)
 
 			createUstTags(inpValue);
 			deletedTag();

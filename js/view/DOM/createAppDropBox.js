@@ -1,4 +1,3 @@
-import { runTest } from "../../Update/run.js";
 
 // CREATE APP DROPBOX
 export const createAppDropBox = (arrayApp) => {
@@ -18,7 +17,6 @@ export const createAppDropBox = (arrayApp) => {
       const appLi = document.createElement('li');
       appLi.classList.add('li', 'app-li');
       appLi.innerHTML = eachApp;
-      appLi.onclick = function(){runTest(appLi.className)};
 
       allApp.append(appLi);
    })

@@ -10,7 +10,7 @@ import { UpdateData } from './UpdateState.js';
 // import { updateIngRecipe } from './afterDeleted.js';
 import { recipes } from '../data.js';
 
-export const runTest = (classInput , name) => {
+export const runSwitch = (classInput , name) => {
 
 	let state = [...recipes];
 
