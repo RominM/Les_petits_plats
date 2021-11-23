@@ -42,11 +42,8 @@ const updateGlobal = (listRecipe) => {
    console.log("Recipes lentgh : " + recipes.length)
 
    if (recipes.length == 0) {
-      // toggleRecipes(listRecipe ,false);
-      console.log('display');
       displayError();
    } else {
-      console.log('remove');
       removeMainError();
    }
 };
