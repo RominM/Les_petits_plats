@@ -65,7 +65,8 @@
                -webkit-box-orient: vertical;
             // white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;  
+            text-overflow: ellipsis;
+            z-index: 1;
          }
       }
    }
