@@ -9,7 +9,6 @@ export class UpdateData {
 
    //Update General
    updateAllData(nameIng, type) {
-
       switch (type) {
          case "ing":
             this.updateIngData(nameIng);

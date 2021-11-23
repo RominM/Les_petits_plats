@@ -11,9 +11,11 @@ export const searchRecipe = (listRecipe) => {
    searchBy.addEventListener("keyup", (e) => {
       if (e.keyCode === 13) {
          upRecipe(listRecipe);
-
       }
    });
+   searchBy.addEventListener('click', () => {
+      upRecipe(listRecipe);
+   })
 }
 
 const upRecipe = (listRecipe) => {
@@ -23,12 +25,11 @@ const upRecipe = (listRecipe) => {
 
    let valueInput = searchBy.value;
 
-   let recipes = updateState.updateState(valueInput);
+   let recipes = updateState.updateAllData(valueInput);
 
    if (recipes.length == 0) {
       toggleRecipes(listRecipe ,true);
    }
-
 }
 
 const toggleRecipes = (list , bool) => {
