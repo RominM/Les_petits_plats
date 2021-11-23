@@ -2,8 +2,9 @@ import { recipes } from "../data.js";
 
 export const getAllIng = (STATEDATA) => {
    let arrayIng = [];
+   
+   // for each recipes in display=true;
    STATEDATA.forEach(recipe => {
-      // for each recipes in display=true;
       if(recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingredientList = ingredient.ingredient.toLowerCase();
@@ -20,7 +21,6 @@ export const getAllIng = (STATEDATA) => {
 // Includes to lower case
 export const getFilterIng = (inpValue) => {
    let filtIng = [];
-   let ingValue;
    
    let STATEDATA = [...recipes];
    STATEDATA.forEach(recipe => {
@@ -28,17 +28,16 @@ export const getFilterIng = (inpValue) => {
          recipe.ingredients.forEach(ingredient => {
             const ingMemo = ingredient.ingredient.toLowerCase();
             ingMemo.includes(inpValue.toLowerCase()) && filtIng.push(ingMemo);
-            console.log(ingMemo);
          })
       }
    })
-   console.log(filtIng);
    return filtIng
 };
 
 // RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
 export const handlerIngLi = () => {
    const ingLis = document.querySelectorAll('.ing-li');
+
    const tagsSelected = document.querySelectorAll('.tag-ing span');
    const tagsToErase = [];
 
@@ -53,5 +52,5 @@ export const handlerIngLi = () => {
             };
          });
       });
-   }
-}
+   };
+};

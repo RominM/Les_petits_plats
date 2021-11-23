@@ -3,19 +3,18 @@ import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export const afterDeletedTag = (tag) => {
    
-   const tags = document.querySelectorAll('.tag'); // TOUS LES TAGS DU DOM
+   const tags = document.querySelectorAll('.tag');
    const tagToDeleted = tag.innerHTML; // LE TAG SUPPRIMÉ
 
-   const tagList = { // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
+   // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
+   const tagList = { 
       ing: [],
       app: [],
       ust: []
    };
-   const arrayAllTags = [];
 
    tags.forEach(tag => {
       if (tag.innerHTML != tagToDeleted) {
-         arrayAllTags.push(tag.innerHTML);
          tagList[tag.getAttribute('data-attribute')].push(tag.innerHTML);
       }
    });
@@ -33,29 +32,17 @@ export const afterDeletedTag = (tag) => {
       // INGREDIENTS
       for (let ingredient of recipe.ingredients) {
          const ingMemo = ingredient.ingredient.toLowerCase();
-         tagListIng.forEach(tagIng => {
-            if (tagIng.toLowerCase() === ingMemo) {
-               count++;
-            };
-         });
+         tagListIng.forEach(tagIng => (tagIng.toLowerCase() === ingMemo) && count++);
       };
 
       // APPLIANCES
       const appMemo = recipe.appliance.toLowerCase();
-      tagListApp.forEach(tagApp => {
-         if (tagApp.toLowerCase() === appMemo) {
-            count++;
-         };
-      });
+      tagListApp.forEach(tagApp => (tagApp.toLowerCase() === appMemo) && count++);
 
       // USTENSILS
       for (const ustensil of recipe.ustensils) {
          const ustMemo = ustensil.toLowerCase();
-         tagListUst.forEach(tagUst => {
-            if (tagUst.toLowerCase() === ustMemo) {
-               count++;
-            };
-         });
+         tagListUst.forEach(tagUst => (tagUst.toLowerCase() === ustMemo) && count++);
       };
 
       if (count === tagsLength) recipe.display = true;

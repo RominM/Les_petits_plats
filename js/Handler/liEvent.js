@@ -8,6 +8,7 @@ import { createAppTags, createIngTags, createUstTags } from "../view/DOM/createT
 // INGREDIENTS
 export const eventToIngLi = (STATEDATA) => {
 	const ingLis = document.querySelectorAll('.ing-li');
+
 	ingLis.forEach(li => {
 		li.addEventListener('click', () => {
 			const updateState = new UpdateState(STATEDATA);
@@ -25,6 +26,7 @@ export const eventToIngLi = (STATEDATA) => {
 // APPLIANCES
 export const eventToAppLi = (STATEDATA) => {
 	const appLis = document.querySelectorAll('.app-li');
+
 	appLis.forEach(li => {
 		li.addEventListener('click', () => {							
 			const updateState = new UpdateState(STATEDATA);
@@ -35,13 +37,14 @@ export const eventToAppLi = (STATEDATA) => {
 			createAppTags(inpValue);
 			deletedTag();
 			closeAppDropBox();		
-      })
-	})
+      });
+	});
 };
 
 // USTENSILS
 export const eventToUstLi = (STATEDATA) => {
    const ustLis = document.querySelectorAll('.ust-li');
+
    ustLis.forEach(li => {
       li.addEventListener('click', () => {							
 			const updateState = new UpdateState(STATEDATA);
@@ -52,7 +55,7 @@ export const eventToUstLi = (STATEDATA) => {
 			createUstTags(inpValue);
 			deletedTag();
 			closeUstDropBox();      
-      })
-   })
+      });
+   });
 };
 

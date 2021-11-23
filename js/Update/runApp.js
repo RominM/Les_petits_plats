@@ -7,13 +7,13 @@ import { eventToAppLi } from '../Handler/liEvent.js';
 export const runApp = (STATEDATA) => {
 	handlerTargetApp(STATEDATA);
 
-	// INPUT
 	const inputApp = document.querySelector('.inp-app');
-
 	inputApp.addEventListener('input', () => {
-
 		let inpValue = inputApp.value;
 		const allApp = document.querySelector('.all-app');
+		const tagsSelected = document.querySelectorAll('.tag-app span');
+		const tagsToErase = [];
+
 		if (inpValue.length > 2) {
 			const filtApp = getFilterApp(inpValue);
 			allApp.innerHTML = '';
@@ -21,9 +21,6 @@ export const runApp = (STATEDATA) => {
 			const noDblApp = filtApp.filter(function (ele, pos) {
 				return filtApp.indexOf(ele) == pos;
 			});
-
-			const tagsSelected = document.querySelectorAll('.tag-app span');
-			const tagsToErase = [];
 
 			if (tagsSelected.length > 0) {
 				tagsSelected.forEach(span => {
@@ -37,13 +34,16 @@ export const runApp = (STATEDATA) => {
 					});
 				});
 			};
+			
 			if (noDblApp == 0) {
 				getSpanErrorApp();
-			} else {
+			} 
+			else {
 				removeSpanError();
 				createAppDropBox(noDblApp);
 			}		
-		} else if (inpValue.length == 0) {
+		} 
+		else if (inpValue.length == 0) {
 			const allApp = getAllApp(STATEDATA);
 			allApp.innerHTML = '';
 			createAppDropBox(allApp);

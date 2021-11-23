@@ -2,6 +2,8 @@ import { recipes } from '../data.js';
 
 export const getAllApp = (STATEDATA) => {
    let arrayApp = [];
+
+   // for each recipes in display=true;
    STATEDATA.forEach(recipe => {
       if(recipe.display) {
          const applianceList = recipe.appliance.toLowerCase();
@@ -27,9 +29,10 @@ export const getFilterApp = (inpValue) => {
    return filtApp
 };
 
-
+// RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
 export const handlerAppLi = () => {
    const appLis = document.querySelectorAll('.app-li');
+
    const tagsSelected = document.querySelectorAll('.tag-app span');
    const tagsToErase = [];
 
@@ -45,4 +48,4 @@ export const handlerAppLi = () => {
          });
       });
    };
-}
+};

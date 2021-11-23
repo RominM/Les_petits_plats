@@ -2,6 +2,8 @@ import { recipes } from "../data.js";
 
 export const getAllUst = (STATEDATA) => {
    let arrayUst = [];
+   
+   // for each recipes in display=true;
    STATEDATA.forEach(recipe => {
       if(recipe.display) {
          recipe.ustensils.forEach(ustensil => {
@@ -32,8 +34,8 @@ export const getFilterUst = (inpValue) => {
    return filtUst
 };
 
+// RETIRE DE LA LISTE LES INGREDIENTS DEJA CLICKÉ
 export const handlerUstLi = () => {
-
    const ustLis = document.querySelectorAll('.ust-li');
 
    const tagsSelected = document.querySelectorAll('.tag-ust span');
@@ -51,4 +53,4 @@ export const handlerUstLi = () => {
          });
       });
    };
-}
+};

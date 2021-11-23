@@ -1,6 +1,4 @@
-import {
-   displayRecipes
-} from "../view/Display/displayRecipes.js";
+import { displayRecipes } from "../view/Display/displayRecipes.js";
 
 export class UpdateState {
    constructor(STATEDATA) {
@@ -15,7 +13,6 @@ export class UpdateState {
    }
    // INGREDIENTS
    updateIngData(inpValue) {
-      console.log(inpValue);
 
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
@@ -51,7 +48,6 @@ export class UpdateState {
    };
    // USTENSILS
    updateUstData(inpValue) {
-
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
             for (let i = 0; i < recipe.ustensils.length; i++) {
@@ -73,7 +69,6 @@ export class UpdateState {
       let listRecipe = [];
 
       if (inpValue.length > 2) {
-
          this.STATEDATA.forEach(recipe => {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
