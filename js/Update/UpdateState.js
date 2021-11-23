@@ -22,7 +22,7 @@ export class UpdateState {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
                const ingMemo = ingredient.ingredient.toLowerCase();
-               if (inpValue.includes(ingMemo)) {
+               if (inpValue === ingMemo) {
                   recipe.display = true;
                   break
                } else {
@@ -40,7 +40,7 @@ export class UpdateState {
          if (recipe.display == true) {
             const appliance = recipe.appliance;
             const appMemo = appliance.toLowerCase();
-            if (inpValue.includes(appMemo)) {
+            if (inpValue === appMemo) {
                recipe.display = true;
             } else {
                recipe.display = false;
@@ -57,7 +57,7 @@ export class UpdateState {
             for (let i = 0; i < recipe.ustensils.length; i++) {
                const ustensil = recipe.ustensils[i];
                const ustMemo = ustensil.toLowerCase();
-               if (inpValue.includes(ustMemo)) {
+               if (inpValue === ustMemo) {
                   recipe.display = true;
                   break
                } else {
