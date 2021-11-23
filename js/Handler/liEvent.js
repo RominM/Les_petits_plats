@@ -29,7 +29,8 @@ export const eventToAppLi = (STATEDATA) => {
 	appLis.forEach(li => {
 		li.addEventListener('click', () => {							
 			let inpValue = li.innerHTML;
-	
+			let className = li.className;
+
          runSwitch(className,inpValue)
 
 			createAppTags(inpValue);
@@ -45,6 +46,7 @@ export const eventToUstLi = (STATEDATA) => {
    ustLis.forEach(li => {
       li.addEventListener('click', () => {							
 			let inpValue = li.innerHTML;
+         let className = li.className;
 
          runSwitch(className,inpValue)
 

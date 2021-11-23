@@ -4,16 +4,16 @@ import { removeSpanError, getSpanErrorUst } from '../view/Display/displayError.j
 import { eventToUstLi } from '../Handler/liEvent.js';
 import { handlerTargetUst } from '../Handler/Targets/handlerUstTarget.js';
 
-
 export const runUst = (STATEDATA) => {
 	handlerTargetUst(STATEDATA);
 
-	// INPUT
 	const inputUst = document.querySelector('.inp-ust');
-
 	inputUst.addEventListener('input', () => {
 		let inpValue = inputUst.value;
 		const allUst = document.querySelector('.all-ust');
+		const tagsSelected = document.querySelectorAll('.tag-ust span');
+		const tagsToErase = [];
+
 		if (inpValue.length > 2) {
 			const filtUst = getFilterUst(inpValue);
 			allUst.innerHTML = '';
@@ -21,9 +21,6 @@ export const runUst = (STATEDATA) => {
 			const noDblUst = filtUst.filter(function (ele, pos) {
 				return filtUst.indexOf(ele) == pos;
 			});
-
-			const tagsSelected = document.querySelectorAll('.tag-ust span');
-			const tagsToErase = [];
 
 			if (tagsSelected.length > 0) {
 				tagsSelected.forEach(span => {
@@ -37,13 +34,16 @@ export const runUst = (STATEDATA) => {
 					});
 				});
 			};
+
 			if (noDblUst == 0) {
 				getSpanErrorUst();
-			} else {
+			}
+			else {
 				removeSpanError();
 				createUstDropBox(noDblUst);
 			}
-		} else if (inpValue.length == 0) {
+		}
+		else if (inpValue.length == 0) {
 			const allUst = getAllUst(STATEDATA);
 			allUst.innerHTML = '';
 			createUstDropBox(allUst);

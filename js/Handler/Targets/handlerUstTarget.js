@@ -7,16 +7,11 @@ import { removeSpanError } from "../../view/Display/displayError.js";
 export const handlerTargetUst = (STATEDATA) => {
    const targetUst = document.querySelector('.target-ust');
    const inputUst = document.querySelector('.inp-ust');
+   
    // TAB ON TARGET
-   targetUst.addEventListener("keyup", (e) => {
-      if (e.keyCode === 9) {
-         navFromTargetUst();
-      }
-   });
+   targetUst.addEventListener('keyup', (e) => (e.keyCode === 9) && navFromTargetUst());
    // CLICK ON TARGET
-   targetUst.addEventListener('click', () => {
-      navFromTargetUst();
-   });
+   targetUst.addEventListener('click', () => navFromTargetUst());
 
    const navFromTargetUst = () => {
       
@@ -28,5 +23,5 @@ export const handlerTargetUst = (STATEDATA) => {
       handlerUstLi();
       eventToUstLi(STATEDATA)
       removeSpanError();
-   }
+   };
 };

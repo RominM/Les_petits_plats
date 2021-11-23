@@ -1,55 +1,10 @@
-/*import {
-   displayError
-} from "../view/Display/displayError.js"
-import {
-   UpdateData
-} from "./UpdateState.js";
-
-export const searchRecipe = (listRecipe) => {
-
-   const searchBy = document.querySelector('#searchBy');
-   searchBy.addEventListener("keyup", (e) => {
-      if (e.keyCode === 13) {
-         upRecipe(listRecipe);
-      }
-   });
-   searchBy.addEventListener('click', () => {
-      upRecipe(listRecipe);
-   })
-}
-
-const upRecipe = (listRecipe) => {
-
-   toggleRecipes(listRecipe ,false);
-   const updateState = new UpdateData(listRecipe);
-
-   let valueInput = searchBy.value;
-
-   let recipes = updateState.updateAllData(valueInput);
-
-   if (recipes.length == 0) {
-      toggleRecipes(listRecipe ,true);
-   }
-}
-
-const toggleRecipes = (list , bool) => {
-
-   list.forEach(recipe => { // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
-      recipe.display = bool;
-   });
-
-}*/
-
-
-
-
-
 import { displayError, removeMainError, removeSpanError } from "../view/Display/displayError.js"
 import { closeIngDropBox } from "../view/Display/displayIngDropBox.js";
 import { closeAppDropBox } from "../view/Display/displayAppDropBox.js";
 import { closeUstDropBox } from "../view/Display/displayUstDropBox.js";
 import { UpdateData } from "./UpdateState.js";
 import { displayRecipes } from "../view/Display/displayRecipes.js";
+import { deletedTagGlobal } from "../view/Display/displayTags.js";
 
 export const runGlobal = (listRecipe) => {
    const searchBy = document.querySelector('#searchBy');
@@ -58,6 +13,7 @@ export const runGlobal = (listRecipe) => {
    ['keyup', 'click'].forEach(evt => {
       searchBy.addEventListener(evt, (e) => {
          if (e.keyCode === 13) {
+            deletedTagGlobal();
             updateGlobal(listRecipe);
          }
          if (evt == 'click') {
@@ -68,9 +24,10 @@ export const runGlobal = (listRecipe) => {
          }
       });
    })
+   
    searchBtn.addEventListener('click', () => {
       if (searchBy.value.length > 2) {
-
+         deletedTagGlobal();
          updateGlobal(listRecipe);
       } else {
          displayRecipes(STATEDATA);
