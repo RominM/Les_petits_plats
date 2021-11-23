@@ -20,17 +20,19 @@ export const getAllIng = (STATEDATA) => {
 // Includes to lower case
 export const getFilterIng = (inpValue) => {
    let filtIng = [];
+   let ingValue;
    
-   console.log(inpValue);
    let STATEDATA = [...recipes];
    STATEDATA.forEach(recipe => {
       if (recipe.display) {
          recipe.ingredients.forEach(ingredient => {
             const ingMemo = ingredient.ingredient.toLowerCase();
             ingMemo.includes(inpValue.toLowerCase()) && filtIng.push(ingMemo);
+            console.log(ingMemo);
          })
       }
    })
+   console.log(filtIng);
    return filtIng
 };
 

@@ -14,7 +14,7 @@ export const eventToIngLi = (STATEDATA) => {
 
 			let inpValue = li.innerHTML;
 			updateState.updateIngData(inpValue);
-		
+
 			createIngTags(inpValue);
 			deletedTag();
 			closeIngDropBox();

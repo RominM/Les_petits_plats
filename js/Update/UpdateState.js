@@ -15,6 +15,8 @@ export class UpdateState {
    }
    // INGREDIENTS
    updateIngData(inpValue) {
+      console.log(inpValue);
+
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
             for (let i = 0; i < recipe.ingredients.length; i++) {
