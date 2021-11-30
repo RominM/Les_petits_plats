@@ -36,6 +36,7 @@ export const afterDeletedTag = (tag) => {
       };
 
       // APPLIANCES
+      console.log("test recipe : " + recipe.appliance);
       const appMemo = recipe.appliance.toLowerCase();
       tagListApp.forEach(tagApp => (tagApp.toLowerCase() === appMemo) && count++);
 

@@ -1,4 +1,6 @@
-import { displayRecipes } from "../view/Display/displayRecipes.js";
+import {
+   displayRecipes
+} from "../view/Display/displayRecipes.js";
 
 export class UpdateData {
    constructor(STATEDATA) {
@@ -9,7 +11,7 @@ export class UpdateData {
    updateAllData(nameIng, type) {
       switch (type) {
          case "ing":
-            this.updateIngData(nameIng);
+            this.updateIngData(nameIng, type);
             break;
          case "app":
             this.updateAppData(nameIng);
@@ -22,31 +24,71 @@ export class UpdateData {
       }
    };
 
+   initTabsIng(recipe) {
+
+      let ingMemo = [];
+
+      recipe.ingredients.forEach(ings => {
+         ingMemo.push(ings.ingredient.toLowerCase());
+      });
+
+      return ingMemo;
+   }
+
+   initApp(recipe) {
+
+      return recipe.appliance.toLowerCase();
+   }
+
+   initTabsUst(recipe) {
+
+      let ustMemo = [];
+
+      recipe.ustensils.forEach(usts => {
+         console.log();
+         ustMemo.push(usts.toLowerCase());
+      });
+
+      return ustMemo;
+   }
+
    // INGREDIENTS
-   updateIngData(inpValue) {
-      this.STATEDATA.forEach(recipe => {
-         if (recipe.display == true) {
-            for (let i = 0; i < recipe.ingredients.length; i++) {
-               const ingredient = recipe.ingredients[i];
-               const ingMemo = ingredient.ingredient.toLowerCase();
-               if (inpValue === ingMemo) {
-                  recipe.display = true;
-                  break
-               } else {
-                  recipe.display = false;
-               };
-            };
+   updateIngData(inpValue, type) {
+
+      this.STATEDATA.map(recipe => { //recipe true
+         if (recipe.display === true) {
+            let ingMemo = this.initTabsIng(recipe);
+            console.log(inpValue);
+            console.log(ingMemo);
+            if (ingMemo.includes(inpValue)) {
+               console.log('is true');
+               recipe.display = true;
+            } else {
+               console.log('is false');
+               recipe.display = false;
+            }
          }
       });
+
       displayRecipes(this.STATEDATA);
    };
+
+
+
+
+
+
+
+
+
+
 
    // APPLIANCES
    updateAppData(inpValue) {
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
-            const appliance = recipe.appliance;
-            const appMemo = appliance.toLowerCase();
+            const appMemo = this.initApp(recipe);
+            console.log(appMemo);
             if (inpValue === appMemo) {
                recipe.display = true;
             } else {
@@ -59,17 +101,14 @@ export class UpdateData {
    // USTENSILS
    updateUstData(inpValue) {
 
-      this.STATEDATA.forEach(recipe => {
+      this.STATEDATA.map(recipe => {
          if (recipe.display == true) {
-            for (let i = 0; i < recipe.ustensils.length; i++) {
-               const ustensil = recipe.ustensils[i];
-               const ustMemo = ustensil.toLowerCase();
-               if (inpValue === ustMemo) {
-                  recipe.display = true;
-                  break
-               } else {
-                  recipe.display = false;
-               };
+            const ustMemo = this.initTabsUst(recipe);
+            console.log(ustMemo)
+            if (ustMemo.includes(inpValue)) {
+               recipe.display = true;
+            } else {
+               recipe.display = false;
             };
          };
       })

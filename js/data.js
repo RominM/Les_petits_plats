@@ -1538,7 +1538,7 @@ export const recipes = [
         ],
         "time": 60,
         "description": "Mélanger la farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes",
-        "appliance": "Four",
+        
         "ustensils": ["fouet", "moule", "verres"]
     },
     {
