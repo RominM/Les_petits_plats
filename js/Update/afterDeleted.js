@@ -7,7 +7,7 @@ export const afterDeletedTag = (tag) => {
    const tagToDeleted = tag.innerHTML; // LE TAG SUPPRIMÉ
 
    // LISTE PERMETANT DE RANGER LES TAGS RESTANT DANS LEURS ATTRIBUTS
-   const tagList = { 
+   const tagList = {
       ing: [],
       app: [],
       ust: []
@@ -26,37 +26,32 @@ export const afterDeletedTag = (tag) => {
    let count = 0;
 
    let STATEDATA = [...recipes];
-   STATEDATA.forEach(recipe => { 
+   STATEDATA.forEach(recipe => {
       recipe.display = false; // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
 
-      if(tagListIng.length !== 0){
-         // INGREDIENTS
-      for (let ingredient of recipe.ingredients) {
-         const ingMemo = ingredient.ingredient.toLowerCase();
-         tagListIng.forEach(tagIng => (tagIng.toLowerCase() === ingMemo) && count++);
-      };
+      // INGREDIENTS
+      if (tagListIng.length !== 0) {
+         for (let ingredient of recipe.ingredients) {
+            const ingMemo = ingredient.ingredient.toLowerCase();
+            tagListIng.forEach(tagIng => (tagIng.toLowerCase() === ingMemo) && count++);
+         };
       }
-
-      if(tagListApp.length !== 0 ){
 
       // APPLIANCES
-      const appMemo = recipe.appliance.toLowerCase();
-      console.log( tagListApp)
-      tagListApp.forEach(tagApp =>  (tagApp.toLowerCase() === appMemo) && count++);
-
-      }
-      
-      if(tagListUst.length !== 0 ){
-            // USTENSILS
-      for (const ustensil of recipe.ustensils) {
-         const ustMemo = ustensil.toLowerCase();
-         tagListUst.forEach(tagUst => (tagUst.toLowerCase() === ustMemo) && count++);
-      };
-
+      if (tagListApp.length !== 0) {
+         const appMemo = recipe.appliance.toLowerCase();
+         console.log(tagListApp)
+         tagListApp.forEach(tagApp => (tagApp.toLowerCase() === appMemo) && count++);
       }
 
+      // USTENSILS
+      if (tagListUst.length !== 0) {
+         for (const ustensil of recipe.ustensils) {
+            const ustMemo = ustensil.toLowerCase();
+            tagListUst.forEach(tagUst => (tagUst.toLowerCase() === ustMemo) && count++);
+         };
+      }
 
-   
       if (count === tagsLength) recipe.display = true;
       count = 0;
    });

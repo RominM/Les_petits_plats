@@ -25,9 +25,7 @@ export class UpdateData {
    };
 
    initTabsIng(recipe) {
-
       let ingMemo = [];
-
       recipe.ingredients.forEach(ings => {
          ingMemo.push(ings.ingredient.toLowerCase());
       });
@@ -36,14 +34,11 @@ export class UpdateData {
    }
 
    initApp(recipe) {
-
        return recipe.appliance.toLowerCase();
-    }
+   }
 
    initTabsUst(recipe) {
-
       let ustMemo = [];
-
       recipe.ustensils.forEach(usts => {
          console.log();
          ustMemo.push(usts.toLowerCase());
@@ -68,19 +63,8 @@ export class UpdateData {
             }
          }
       });
-
       displayRecipes(this.STATEDATA);
    };
-
-
-
-
-
-
-
-
-
-
 
    // APPLIANCES
    updateAppData(inpValue) {
@@ -118,7 +102,6 @@ export class UpdateData {
       let listRecipe = [];
 
       if (inpValue.length > 2) {
-
          this.STATEDATA.forEach(recipe => {
             for (let i = 0; i < recipe.ingredients.length; i++) {
                const ingredient = recipe.ingredients[i];
