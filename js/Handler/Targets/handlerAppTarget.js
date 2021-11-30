@@ -3,6 +3,8 @@ import { eventToAppLi } from "../liEvent.js";
 import { createAppDropBox } from "../../view/DOM/createAppDropBox.js";
 import { openAppDropBox } from "../../view/Display/displayAppDropBox.js";
 import { removeSpanError } from "../../view/Display/displayError.js";
+import { closeIngDropBox } from "../../view/Display/displayIngDropBox.js";
+import { closeUstDropBox } from "../../view/Display/displayUstDropBox.js";
 
 export const handlerTargetApp = (STATEDATA) => {
    const targetApp = document.querySelector('.target-app');
@@ -22,6 +24,8 @@ export const handlerTargetApp = (STATEDATA) => {
 
       handlerAppLi();
       eventToAppLi(STATEDATA);
+      closeIngDropBox();
+      closeUstDropBox();
       removeSpanError();
    };
 };

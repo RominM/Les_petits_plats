@@ -6,7 +6,7 @@ export class UpdateData {
    constructor(STATEDATA) {
       this.STATEDATA = STATEDATA;
    }
-
+ 
    //Update General
    updateAllData(nameIng, type) {
       switch (type) {
@@ -35,10 +35,10 @@ export class UpdateData {
       return ingMemo;
    }
 
-   // initApp(recipe) {
+   initApp(recipe) {
 
-   //    return recipe.appliance.toLowerCase();
-   // }
+       return recipe.appliance.toLowerCase();
+    }
 
    initTabsUst(recipe) {
 
@@ -58,8 +58,7 @@ export class UpdateData {
       this.STATEDATA.map(recipe => { //recipe true
          if (recipe.display === true) {
             let ingMemo = this.initTabsIng(recipe);
-            console.log(inpValue);
-            console.log(ingMemo);
+
             if (ingMemo.includes(inpValue)) {
                console.log('is true');
                recipe.display = true;
@@ -85,10 +84,10 @@ export class UpdateData {
 
    // APPLIANCES
    updateAppData(inpValue) {
-      this.STATEDATA.forEach(recipe => {
+      this.STATEDATA.map(recipe => {
          if (recipe.display == true) {
-            const appliance = recipe.appliance;
-            const appMemo = appliance.toLowerCase();            console.log(appMemo);
+            const appMemo = this.initApp(recipe);
+
             if (inpValue === appMemo) {
                recipe.display = true;
             } else {
@@ -104,7 +103,7 @@ export class UpdateData {
       this.STATEDATA.map(recipe => {
          if (recipe.display == true) {
             const ustMemo = this.initTabsUst(recipe);
-            console.log(ustMemo)
+
             if (ustMemo.includes(inpValue)) {
                recipe.display = true;
             } else {

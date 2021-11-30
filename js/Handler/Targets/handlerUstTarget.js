@@ -3,6 +3,8 @@ import { eventToUstLi } from "../liEvent.js";
 import { openUstDropBox } from "../../view/Display/displayUstDropBox.js";
 import { createUstDropBox } from "../../view/DOM/createUstDropBox.js";
 import { removeSpanError } from "../../view/Display/displayError.js";
+import { closeIngDropBox } from "../../view/Display/displayIngDropBox.js";
+import { closeAppDropBox } from "../../view/Display/displayAppDropBox.js";
 
 export const handlerTargetUst = (STATEDATA) => {
    const targetUst = document.querySelector('.target-ust');
@@ -21,6 +23,8 @@ export const handlerTargetUst = (STATEDATA) => {
       inputUst.focus();
 
       handlerUstLi();
+      closeIngDropBox();
+      closeAppDropBox();
       eventToUstLi(STATEDATA)
       removeSpanError();
    };

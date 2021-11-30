@@ -3,6 +3,8 @@ import { eventToIngLi } from "../liEvent.js";
 import { createIngDropBox } from "../../view/DOM/createIngDropBox.js";
 import { openIngDropBox } from "../../view/Display/displayIngDropBox.js";
 import { removeSpanError } from "../../view/Display/displayError.js";
+import { closeAppDropBox } from "../../view/Display/displayAppDropBox.js";
+import { closeUstDropBox } from "../../view/Display/displayUstDropBox.js";
 
 export const handlerTargetIng = (STATEDATA) => {
    const targetIng = document.querySelector('.target-ing');
@@ -22,6 +24,8 @@ export const handlerTargetIng = (STATEDATA) => {
    
       handlerIngLi();
       eventToIngLi(STATEDATA);
+      closeAppDropBox();
+      closeUstDropBox();
       removeSpanError();
    };
 };
