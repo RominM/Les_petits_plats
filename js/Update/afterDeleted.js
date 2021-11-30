@@ -29,23 +29,34 @@ export const afterDeletedTag = (tag) => {
    STATEDATA.forEach(recipe => { 
       recipe.display = false; // ON REINITIALISE LES RECETTES EN LES PASSANT TOUTES À: FALSE
 
-      // INGREDIENTS
+      if(tagListIng.length !== 0){
+         // INGREDIENTS
       for (let ingredient of recipe.ingredients) {
          const ingMemo = ingredient.ingredient.toLowerCase();
          tagListIng.forEach(tagIng => (tagIng.toLowerCase() === ingMemo) && count++);
       };
+      }
+
+      if(tagListApp.length !== 0 ){
 
       // APPLIANCES
-      console.log("test recipe : " + recipe.appliance);
       const appMemo = recipe.appliance.toLowerCase();
-      tagListApp.forEach(tagApp => (tagApp.toLowerCase() === appMemo) && count++);
+      console.log( tagListApp)
+      tagListApp.forEach(tagApp =>  (tagApp.toLowerCase() === appMemo) && count++);
 
-      // USTENSILS
+      }
+      
+      if(tagListUst.length !== 0 ){
+            // USTENSILS
       for (const ustensil of recipe.ustensils) {
          const ustMemo = ustensil.toLowerCase();
          tagListUst.forEach(tagUst => (tagUst.toLowerCase() === ustMemo) && count++);
       };
 
+      }
+
+
+   
       if (count === tagsLength) recipe.display = true;
       count = 0;
    });

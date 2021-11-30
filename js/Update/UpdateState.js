@@ -11,7 +11,7 @@ export class UpdateData {
    updateAllData(nameIng, type) {
       switch (type) {
          case "ing":
-            this.updateIngData(nameIng, type);
+            this.updateIngData(nameIng);
             break;
          case "app":
             this.updateAppData(nameIng);
