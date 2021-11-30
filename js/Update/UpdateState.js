@@ -35,10 +35,10 @@ export class UpdateData {
       return ingMemo;
    }
 
-   initApp(recipe) {
+   // initApp(recipe) {
 
-      return recipe.appliance.toLowerCase();
-   }
+   //    return recipe.appliance.toLowerCase();
+   // }
 
    initTabsUst(recipe) {
 
@@ -87,8 +87,8 @@ export class UpdateData {
    updateAppData(inpValue) {
       this.STATEDATA.forEach(recipe => {
          if (recipe.display == true) {
-            const appMemo = this.initApp(recipe);
-            console.log(appMemo);
+            const appliance = recipe.appliance;
+            const appMemo = appliance.toLowerCase();            console.log(appMemo);
             if (inpValue === appMemo) {
                recipe.display = true;
             } else {
