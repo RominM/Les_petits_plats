@@ -1,5 +1,7 @@
 **Projet N°7 sur parcours Front-End - Les Petits Plats**
 
+=> [Visiting the website](https://rominm.github.io/RominManogil_07_13092021/)
+
 Développez un algorithme de recherche en JavaScript
 ==
 
